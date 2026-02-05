@@ -50,7 +50,7 @@ const SalaryCalculator = () => {
   };
 
   const isBasqueTerritory = flowPath === 'bizkaiaTerritory' || flowPath === 'gipuzkoaTerritory' || flowPath === 'alavaTerritory';
-  const isValid = netMonthly && retentionPercent && parseFloat(netMonthly) > 0 && parseFloat(retentionPercent) >= 0 && parseFloat(retentionPercent) < 100;
+  const isValid = netMonthly && retentionPercent && annualPayments && parseFloat(netMonthly) > 0 && parseFloat(retentionPercent) >= 0 && parseFloat(retentionPercent) < 100 && parseFloat(annualPayments) > 0;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center p-4">
