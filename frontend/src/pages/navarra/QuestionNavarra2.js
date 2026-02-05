@@ -66,7 +66,7 @@ const QuestionNavarra2 = () => {
             {/* Popup RCM */}
             {showRCMHelp && (
               <div className="mb-4 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
-                <p className="text-sm text-gray-700">
+                <p className="text-base text-gray-700">
                   Los RCM son rendimientos obtenidos del propio dinero, como por ejemplo intereses de cuentas corrientes, dividendos, rendimientos de bonos, etc.
                 </p>
               </div>
@@ -75,7 +75,7 @@ const QuestionNavarra2 = () => {
             {/* Popup Incrementos de patrimonio */}
             {showIPHelp && (
               <div className="mb-4 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
-                <p className="text-sm text-gray-700">
+                <p className="text-base text-gray-700">
                   Los incrementos de patrimonio son el aumento de valor del patrimonio por un cambio en su composición. Normalmente, se deben a la venta de un bien. Por ejemplo, si compré un garaje por 20.000 y lo vendo por 30.000, tengo un incremento de patrimonio de 10.000.
                 </p>
               </div>
