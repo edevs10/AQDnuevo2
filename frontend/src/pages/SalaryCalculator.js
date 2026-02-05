@@ -7,6 +7,7 @@ const SalaryCalculator = () => {
   const { flowPath, setAnswer } = useFlow();
   const [netMonthly, setNetMonthly] = useState('');
   const [retentionPercent, setRetentionPercent] = useState('');
+  const [annualPayments, setAnnualPayments] = useState('12');
 
   const getTerritoryName = () => {
     switch (flowPath) {
@@ -26,13 +27,14 @@ const SalaryCalculator = () => {
   const calculateGrossAnnual = () => {
     const net = parseFloat(netMonthly) || 0;
     const retention = parseFloat(retentionPercent) || 0;
+    const payments = parseFloat(annualPayments) || 12;
     
     // Fórmula: Bruto mensual = Neto mensual / (1 - retención/100)
-    // Bruto anual = Bruto mensual * 12
+    // Bruto anual = Bruto mensual * número de pagas
     if (retention >= 100) return 0;
     
     const grossMonthly = net / (1 - retention / 100);
-    const grossAnnual = grossMonthly * 12;
+    const grossAnnual = grossMonthly * payments;
     
     return Math.round(grossAnnual * 100) / 100;
   };
