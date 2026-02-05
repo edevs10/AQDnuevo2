@@ -99,7 +99,7 @@ const QuestionNavarra2 = () => {
                     En el caso de los RCM, lo normal es que lleven retención. Se puede decir que todos llevan retención, menos los derivados de las Letras del Tesoro. Así, si has obtenido un interés por una Letra del Tesoro, no lleva retención, por lo que si obtuvieras eso junto con otros rendimientos tendrías que marcar no.
                   </p>
                   <p className="text-sm text-gray-700">
-                    En el caso de los incrementos patrimoniales, lo normal es que NO LLEVEN. Por eso, si por ejemplo has vendido un garaje y has ganado dinero porque lo vendes 10.000 euros más caro, por ejemplo, ese incremento de patrimonio no lleva retención. Por lo tanto, si tuvieras alguno de esos, tendrías que marcar no.
+                    En el caso de los incrementos de patrimonio, lo normal es que NO LLEVEN. Por eso, si por ejemplo has vendido un garaje y has ganado dinero porque lo vendes 10.000 euros más caro, por ejemplo, ese incremento de patrimonio no lleva retención. Por lo tanto, si tuvieras alguno de esos, tendrías que marcar no.
                   </p>
                 </div>
               )}
