@@ -31,7 +31,7 @@ const QuestionNavarra2 = () => {
           <div className="mb-8">
             {/* Indicador de territorio */}
             <div className="mb-4 p-3 bg-green-50 rounded-lg border-l-4 border-green-400">
-              <p className="text-sm text-gray-700">
+              <p className="text-base text-gray-700">
                 <strong>Normativa aplicable:</strong> Régimen foral de Navarra
               </p>
             </div>
