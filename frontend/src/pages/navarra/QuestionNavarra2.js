@@ -41,8 +41,8 @@ const QuestionNavarra2 = () => {
             </h1>
             
             <div className="mb-6 p-4 bg-blue-50 rounded-lg">
-              <p className="text-gray-700 font-medium mb-2">Categorías permitidas:</p>
-              <ul className="list-disc list-inside text-gray-700 space-y-1">
+              <p className="text-base text-gray-700 font-medium mb-2">Categorías permitidas:</p>
+              <ul className="list-disc list-inside text-base text-gray-700 space-y-1">
                 <li>Trabajo (se incluyen pensiones)</li>
                 <li>
                   <span 
