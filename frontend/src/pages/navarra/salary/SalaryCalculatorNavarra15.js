@@ -52,7 +52,7 @@ const SalaryCalculator = () => {
     setRetentionSame(value);
     if (value === 'no') {
       // Redirigir a la página de retención variable
-      navigate('/salary/retention-variable');
+      navigate('/salary/navarra/retention-variable');
     }
   };
 
@@ -65,7 +65,7 @@ const SalaryCalculator = () => {
   const handlePrevious = () => {
     // Si viene de la página de retención variable, volver ahí
     if (answers?.retention_variable) {
-      navigate('/salary/retention-variable');
+      navigate('/salary/navarra/retention-variable');
     } else if (answers?.annual_payments) {
       navigate('/salary/payments-question');
     } else {

@@ -61,7 +61,7 @@ const SalaryCalculatorGipuzkoa15 = () => {
     setRetentionSame(value);
     if (value === 'no') {
       // Redirigir a la página de retención variable
-      navigate('/salary/retention-variable');
+      navigate('/salary/gipuzkoa/retention-variable');
     }
   };
 
@@ -74,7 +74,7 @@ const SalaryCalculatorGipuzkoa15 = () => {
   const handlePrevious = () => {
     // Si viene de la página de retención variable, volver ahí
     if (answers?.retention_variable) {
-      navigate('/salary/retention-variable');
+      navigate('/salary/gipuzkoa/retention-variable');
     } else {
       navigate('/salary/payments-question');
     }

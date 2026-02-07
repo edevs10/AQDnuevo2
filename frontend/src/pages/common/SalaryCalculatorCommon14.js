@@ -58,7 +58,7 @@ const SalaryCalculatorCommon14 = () => {
     setRetentionSame(value);
     if (value === 'no') {
       // Redirigir a la página de retención variable
-      navigate('/salary/retention-variable');
+      navigate('/salary/common/retention-variable');
     }
   };
 
@@ -71,7 +71,7 @@ const SalaryCalculatorCommon14 = () => {
   const handlePrevious = () => {
     // Si viene de la página de retención variable, volver ahí
     if (answers?.retention_variable) {
-      navigate('/salary/retention-variable');
+      navigate('/salary/common/retention-variable');
     } else {
       navigate('/salary/payments-question');
     }
