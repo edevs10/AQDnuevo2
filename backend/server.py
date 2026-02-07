@@ -114,14 +114,16 @@ async def get_sessions_analytics():
     # Agrupar por año de nacimiento (de forma anónima)
     birth_year_pipeline = [
         {"$group": {"_id": "$birth_year", "count": {"$sum": 1}}},
-        {"$sort": {"_id": 1}}
+        {"$sort": {"_id": 1}},
+        {"$limit": 100}
     ]
     birth_year_stats = await db.user_sessions.aggregate(birth_year_pipeline).to_list(100)
     
     # Agrupar por resultados
     result_pipeline = [
         {"$group": {"_id": "$result", "count": {"$sum": 1}}},
-        {"$sort": {"count": -1}}
+        {"$sort": {"count": -1}},
+        {"$limit": 100}
     ]
     result_stats = await db.user_sessions.aggregate(result_pipeline).to_list(100)
     
