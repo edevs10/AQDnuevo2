@@ -164,21 +164,70 @@ const SalaryCalculator14Pagas = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Introduce tu % de retención
+                <label className="block text-sm font-medium text-gray-700 mb-4">
+                  ¿Tu % de retención ha sido el mismo todo el año?
                 </label>
-                <div className="relative">
-                  <input
-                    type="number"
-                    value={retentionPercent}
-                    onChange={(e) => setRetentionPercent(e.target.value)}
-                    placeholder="Ej: 15"
-                    min="0"
-                    max="99"
-                    className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors"
-                    data-testid="retention-percent-input"
-                  />
-                  <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500">%</span>
+                
+                <div className="space-y-3">
+                  <div
+                    className={`p-4 rounded-lg border-2 cursor-pointer transition-all duration-200 ${
+                      retentionSame === 'yes'
+                        ? 'border-blue-600 bg-blue-50'
+                        : 'border-gray-200 hover:border-blue-300'
+                    }`}
+                    onClick={() => setRetentionSame('yes')}
+                  >
+                    <div className="flex items-center">
+                      <div className={`w-4 h-4 rounded-full border-2 mr-3 flex-shrink-0 ${
+                        retentionSame === 'yes'
+                          ? 'border-blue-600 bg-blue-600'
+                          : 'border-gray-300'
+                      }`}></div>
+                      <div className="flex items-center flex-1 gap-3">
+                        <span className="text-gray-700 font-medium">Sí, y ha sido del</span>
+                        <div className="relative flex-1 max-w-xs">
+                          <input
+                            type="number"
+                            value={retentionPercent}
+                            onChange={(e) => {
+                              setRetentionPercent(e.target.value);
+                              if (!retentionSame) setRetentionSame('yes');
+                            }}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setRetentionSame('yes');
+                            }}
+                            placeholder="Ej: 15"
+                            min="0"
+                            max="99"
+                            disabled={retentionSame === 'no'}
+                            className="w-full p-2 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors disabled:bg-gray-100"
+                            data-testid="retention-percent-input"
+                          />
+                          <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    className={`p-4 rounded-lg border-2 cursor-pointer transition-all duration-200 ${
+                      retentionSame === 'no'
+                        ? 'border-blue-600 bg-blue-50'
+                        : 'border-gray-200 hover:border-blue-300'
+                    }`}
+                    onClick={() => handleRetentionChange('no')}
+                    data-testid="retention-no-button"
+                  >
+                    <div className="flex items-center">
+                      <div className={`w-4 h-4 rounded-full border-2 mr-3 ${
+                        retentionSame === 'no'
+                          ? 'border-blue-600 bg-blue-600'
+                          : 'border-gray-300'
+                      }`}></div>
+                      <span className="text-gray-700 font-medium">NO</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
