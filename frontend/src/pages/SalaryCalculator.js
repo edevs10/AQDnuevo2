@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFlow } from '../context/FlowContext';
 
@@ -6,9 +6,17 @@ const SalaryCalculator = () => {
   const navigate = useNavigate();
   const { flowPath, setAnswer, answers } = useFlow();
   const [netMonthly, setNetMonthly] = useState('');
-  const [retentionPercent, setRetentionPercent] = useState('');
+  const [retentionSame, setRetentionSame] = useState('');
+  const [retentionPercent, setRetentionPercent] = useState(answers?.retention_percent || '');
   // Usar el número de pagas del contexto si existe, sino por defecto 12
   const [annualPayments, setAnnualPayments] = useState(answers?.annual_payments || '12');
+
+  useEffect(() => {
+    // Si viene de la página de retención variable, pre-seleccionar "no"
+    if (answers?.retention_variable) {
+      setRetentionSame('no');
+    }
+  }, [answers]);
 
   const getTerritoryName = () => {
     switch (flowPath) {
@@ -40,6 +48,14 @@ const SalaryCalculator = () => {
     return Math.round(grossAnnual * 100) / 100;
   };
 
+  const handleRetentionChange = (value) => {
+    setRetentionSame(value);
+    if (value === 'no') {
+      // Redirigir a la página de retención variable
+      navigate('/salary/retention-variable');
+    }
+  };
+
   const handleNext = () => {
     const grossAnnual = calculateGrossAnnual();
     setAnswer('calculated_gross_annual', grossAnnual);
@@ -47,8 +63,10 @@ const SalaryCalculator = () => {
   };
 
   const handlePrevious = () => {
-    // Si viene de la selección de pagas, volver ahí
-    if (answers?.annual_payments) {
+    // Si viene de la página de retención variable, volver ahí
+    if (answers?.retention_variable) {
+      navigate('/salary/retention-variable');
+    } else if (answers?.annual_payments) {
       navigate('/salary/payments-question');
     } else {
       navigate('/salary/check');
@@ -56,7 +74,11 @@ const SalaryCalculator = () => {
   };
 
   const isBasqueTerritory = flowPath === 'bizkaiaTerritory' || flowPath === 'gipuzkoaTerritory' || flowPath === 'alavaTerritory';
-  const isValid = netMonthly && retentionPercent && annualPayments && parseFloat(netMonthly) > 0 && parseFloat(retentionPercent) >= 0 && parseFloat(retentionPercent) < 100 && parseFloat(annualPayments) > 0;
+  const isValid = netMonthly && retentionSame && retentionPercent && annualPayments && 
+                  parseFloat(netMonthly) > 0 && 
+                  parseFloat(retentionPercent) >= 0 && 
+                  parseFloat(retentionPercent) < 100 && 
+                  parseFloat(annualPayments) > 0;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center p-4">
