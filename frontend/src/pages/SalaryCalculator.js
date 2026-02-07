@@ -47,7 +47,12 @@ const SalaryCalculator = () => {
   };
 
   const handlePrevious = () => {
-    navigate('/salary/check');
+    // Si viene de la selección de pagas, volver ahí
+    if (answers?.annual_payments) {
+      navigate('/salary/payments-question');
+    } else {
+      navigate('/salary/check');
+    }
   };
 
   const isBasqueTerritory = flowPath === 'bizkaiaTerritory' || flowPath === 'gipuzkoaTerritory' || flowPath === 'alavaTerritory';
