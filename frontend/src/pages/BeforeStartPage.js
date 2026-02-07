@@ -19,13 +19,13 @@ const BeforeStartPage = () => {
             </h1>
             
             <div className="text-left bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg mb-6">
-              <p className="text-base text-gray-700 mb-4">
-                <strong>Recuerda:</strong> la declaración de IRPF se presenta a año vencido.
+              <p className="text-lg text-gray-700 mb-4">
+                <span className="text-blue-600 font-semibold">Recuerda:</span> la declaración de IRPF se presenta a año vencido.
               </p>
-              <p className="text-base text-gray-700 mb-4">
-                Por lo tanto, aunque la presentes en 2026, <strong>te estamos preguntando por los datos de 2025</strong>
+              <p className="text-lg text-gray-700 mb-6">
+                Por lo tanto, aunque la presentes en 2026, <span className="text-blue-600 font-semibold">te estamos preguntando por los datos de 2025</span>
               </p>
-              <p className="text-base text-gray-700 font-semibold text-blue-700">
+              <p className="text-lg text-gray-700 font-semibold text-blue-700 text-center">
                 ¡Esperamos que te resulte útil!
               </p>
             </div>
