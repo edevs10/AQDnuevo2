@@ -104,6 +104,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/before-start" element={<BeforeStartPage />} />
             <Route path="/terms" element={<TermsConsentPage />} />
             <Route path="/ad-consent" element={<AdConsentPage />} />
             <Route path="/consent" element={<ConsentPage />} />
