@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFlow } from '../../../context/FlowContext';
 
-const SalaryCalculator = () => {
+const SalaryCalculatorNavarra14 = () => {
   const navigate = useNavigate();
   const { flowPath, setAnswer, answers } = useFlow();
-  const [netMonthly, setNetMonthly] = useState('');
+  const [netMonthlyOrdinary, setNetMonthlyOrdinary] = useState('');
+  const [netMonthExtra1, setNetMonthExtra1] = useState('');
+  const [netMonthExtra2, setNetMonthExtra2] = useState('');
   const [retentionSame, setRetentionSame] = useState('');
   const [retentionPercent, setRetentionPercent] = useState(answers?.retention_percent || '');
-  // Usar el número de pagas del contexto si existe, sino por defecto 12
-  const [annualPayments, setAnnualPayments] = useState(answers?.annual_payments || '12');
 
   useEffect(() => {
     // Si viene de la página de retención variable, pre-seleccionar "no"
@@ -34,16 +34,22 @@ const SalaryCalculator = () => {
   };
 
   const calculateGrossAnnual = () => {
-    const net = parseFloat(netMonthly) || 0;
+    const netOrdinary = parseFloat(netMonthlyOrdinary) || 0;
+    const netExtra1 = parseFloat(netMonthExtra1) || 0;
+    const netExtra2 = parseFloat(netMonthExtra2) || 0;
     const retention = parseFloat(retentionPercent) || 0;
-    const payments = parseFloat(annualPayments) || 12;
     
-    // Fórmula: Bruto mensual = Neto mensual / (1 - retención/100)
-    // Bruto anual = Bruto mensual * número de pagas
     if (retention >= 100) return 0;
     
-    const grossMonthly = net / (1 - retention / 100);
-    const grossAnnual = grossMonthly * payments;
+    // Calcular bruto mensual ordinario (10 meses)
+    const grossMonthlyOrdinary = netOrdinary / (1 - retention / 100);
+    
+    // Calcular bruto de los meses con paga extra
+    const grossExtra1 = netExtra1 / (1 - retention / 100);
+    const grossExtra2 = netExtra2 / (1 - retention / 100);
+    
+    // Total bruto anual = 10 meses ordinarios + 2 meses con extras
+    const grossAnnual = (grossMonthlyOrdinary * 10) + grossExtra1 + grossExtra2;
     
     return Math.round(grossAnnual * 100) / 100;
   };
@@ -74,19 +80,17 @@ const SalaryCalculator = () => {
     // Si viene de la página de retención variable, volver ahí
     if (answers?.retention_variable) {
       navigate('/salary/navarra/retention-variable');
-    } else if (answers?.annual_payments) {
-      navigate('/salary/payments-question');
     } else {
-      navigate('/salary/check');
+      navigate('/salary/payments-question');
     }
   };
 
   const isBasqueTerritory = flowPath === 'bizkaiaTerritory' || flowPath === 'gipuzkoaTerritory' || flowPath === 'alavaTerritory';
-  const isValid = netMonthly && retentionSame && retentionPercent && annualPayments && 
-                  parseFloat(netMonthly) > 0 && 
-                  parseFloat(retentionPercent) >= 0 && 
-                  parseFloat(retentionPercent) < 100 && 
-                  parseFloat(annualPayments) > 0;
+  const isValid = netMonthlyOrdinary && netMonthExtra1 && netMonthExtra2 && retentionSame && 
+                  parseFloat(netMonthlyOrdinary) > 0 && 
+                  parseFloat(netMonthExtra1) > 0 && 
+                  parseFloat(netMonthExtra2) > 0 &&
+                  (retentionSame === 'no' || (retentionPercent && parseFloat(retentionPercent) >= 0 && parseFloat(retentionPercent) < 100));
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center p-4">
@@ -96,31 +100,73 @@ const SalaryCalculator = () => {
             {/* Indicador de territorio */}
             {(isBasqueTerritory || flowPath === 'navarra') && (
               <div className="mb-4 p-3 bg-green-50 rounded-lg border-l-4 border-green-400">
-                <p className="text-sm text-gray-700">
+                <p className="text-base text-gray-700">
                   <strong>Normativa aplicable:</strong> Régimen foral de {getTerritoryName()}
                 </p>
               </div>
             )}
 
             <h1 className="text-2xl font-bold text-gray-800 mb-6">
-              Vamos a calcular tu salario bruto anual
+              Vamos a calcular tu salario bruto anual (14 pagas)
             </h1>
             
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Introduce tu neto mensual (lo que entra en tu cuenta corriente)
+                  Introduce tu neto mensual de las pagas ordinarias (lo que entra en tu cuenta los meses sin paga extra)
                 </label>
                 <div className="relative">
                   <input
                     type="number"
-                    value={netMonthly}
-                    onChange={(e) => setNetMonthly(e.target.value)}
+                    value={netMonthlyOrdinary}
+                    onChange={(e) => setNetMonthlyOrdinary(e.target.value)}
                     placeholder="Ej: 1500"
                     className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors"
-                    data-testid="net-monthly-input"
+                    data-testid="net-monthly-ordinary-input"
                   />
                   <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500">€</span>
+                </div>
+              </div>
+
+              <div className="p-4 bg-blue-50 rounded-lg">
+                <p className="text-sm font-medium text-gray-700 mb-4">
+                  Introduce el neto de los meses en que recibes paga ordinaria + paga extra:
+                </p>
+                
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Primer mes con paga extra (ej: junio)
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="number"
+                        value={netMonthExtra1}
+                        onChange={(e) => setNetMonthExtra1(e.target.value)}
+                        placeholder="Ej: 3000"
+                        className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors"
+                        data-testid="net-month-extra1-input"
+                      />
+                      <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500">€</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Segundo mes con paga extra (ej: diciembre)
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="number"
+                        value={netMonthExtra2}
+                        onChange={(e) => setNetMonthExtra2(e.target.value)}
+                        placeholder="Ej: 3000"
+                        className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors"
+                        data-testid="net-month-extra2-input"
+                      />
+                      <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500">€</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -230,4 +276,4 @@ const SalaryCalculator = () => {
   );
 };
 
-export default SalaryCalculator;
+export default SalaryCalculatorNavarra14;
