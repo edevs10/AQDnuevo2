@@ -111,6 +111,7 @@ function App() {
             {/* Rutas de cálculo de salario */}
             <Route path="/salary/check" element={<SalaryCheck />} />
             <Route path="/salary/payments-question" element={<SalaryPaymentsQuestion />} />
+            <Route path="/salary/retention-variable" element={<RetentionVariableQuestion />} />
             <Route path="/salary/calculator" element={<SalaryCalculator />} />
             <Route path="/salary/calculator-14-pagas" element={<SalaryCalculator14Pagas />} />
             <Route path="/salary/calculator-15-pagas" element={<SalaryCalculator15Pagas />} />
