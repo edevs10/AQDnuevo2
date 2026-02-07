@@ -26,15 +26,40 @@ const RetentionVariableQuestion = () => {
     setAnswer('retention_percent', retentionPercent);
     setAnswer('retention_variable', true);
     
-    // Redirigir según el número de pagas
+    // Redirigir según el territorio y el número de pagas
     const payments = answers?.annual_payments;
-    if (payments === '14') {
-      navigate('/salary/calculator-14-pagas');
-    } else if (payments === '15') {
-      navigate('/salary/calculator-15-pagas');
-    } else {
-      navigate('/salary/calculator');
-    }
+    const routeMap = {
+      'navarra': {
+        '12': '/salary/navarra/calculator-12',
+        '14': '/salary/navarra/calculator-14',
+        '15': '/salary/navarra/calculator-15'
+      },
+      'bizkaiaTerritory': {
+        '12': '/salary/bizkaia/calculator-12',
+        '14': '/salary/bizkaia/calculator-14',
+        '15': '/salary/bizkaia/calculator-15'
+      },
+      'gipuzkoaTerritory': {
+        '12': '/salary/gipuzkoa/calculator-12',
+        '14': '/salary/gipuzkoa/calculator-14',
+        '15': '/salary/gipuzkoa/calculator-15'
+      },
+      'alavaTerritory': {
+        '12': '/salary/alava/calculator-12',
+        '14': '/salary/alava/calculator-14',
+        '15': '/salary/alava/calculator-15'
+      },
+      'default': {
+        '12': '/salary/common/calculator-12',
+        '14': '/salary/common/calculator-14',
+        '15': '/salary/common/calculator-15'
+      }
+    };
+    
+    const territoryRoutes = routeMap[flowPath] || routeMap['default'];
+    const route = territoryRoutes[payments] || territoryRoutes['12'];
+    
+    navigate(route);
   };
 
   const handlePrevious = () => {
