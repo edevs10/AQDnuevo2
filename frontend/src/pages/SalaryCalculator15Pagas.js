@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFlow } from '../context/FlowContext';
 
 const SalaryCalculator15Pagas = () => {
   const navigate = useNavigate();
-  const { flowPath, setAnswer } = useFlow();
+  const { flowPath, setAnswer, answers } = useFlow();
   const [netMonthlyOrdinary, setNetMonthlyOrdinary] = useState('');
   const [netMonthExtra1, setNetMonthExtra1] = useState('');
   const [netMonthExtra2, setNetMonthExtra2] = useState('');
   const [netMonthExtra3, setNetMonthExtra3] = useState('');
-  const [retentionPercent, setRetentionPercent] = useState('');
+  const [retentionSame, setRetentionSame] = useState('');
+  const [retentionPercent, setRetentionPercent] = useState(answers?.retention_percent || '');
+
+  useEffect(() => {
+    // Si viene de la página de retención variable, pre-seleccionar "no"
+    if (answers?.retention_variable) {
+      setRetentionSame('no');
+    }
+  }, [answers]);
 
   const getTerritoryName = () => {
     switch (flowPath) {
