@@ -54,6 +54,11 @@ const SalaryCalculator = () => {
   };
 
   const handleNext = () => {
+    // Guardar datos de salario en el contexto
+    setAnswer('net_monthly_ordinary', netMonthlyOrdinary);
+    setAnswer('net_month_extra1', netMonthExtra1);
+    setAnswer('net_month_extra2', netMonthExtra2);
+    
     if (retentionSame === 'no') {
       // Si la retención NO ha sido igual, ir a la página de retención variable
       navigate('/salary/navarra/retention-variable');
