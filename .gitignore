@@ -77,23 +77,12 @@ agenthub/agents/youtube/db
 .cache/
 
 # Mobile development
-android-sdk/ -e 
-# Environment files
+android-sdk/
+
+# Environment files - IMPORTANTE: No subir a Git
 *.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
+!*.env.example
+*.keystore
+keystore.properties
+
+# Prevent duplicate entries
