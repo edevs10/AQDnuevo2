@@ -124,7 +124,7 @@ El límite de la cantidad exenta será el importe de la prestación máxima que 
                     </p>
                     
                     <p>
-                      Para conocer la lista total de cantidades exentas, puedes consultar el siguiente link: <a href="https://www.navarra.es/NR/rdonlyres/9F0B796F-D699-4BEF-87E2-0BB39D86C9FC/0/TRLFIRPFv213.html?v=v20250101#a7" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline hover:text-blue-800">haz click aquí</a>.
+                      Para conocer la lista total de cantidades exentas, puedes consultar el siguiente link: <a href="https://noticias.juridicas.com/base_datos/CCAA/na-dleg4-2008.t2.html#a7" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-semibold underline hover:text-blue-800">haz click aquí</a>.
                     </p>
                   </div>
                 </div>
