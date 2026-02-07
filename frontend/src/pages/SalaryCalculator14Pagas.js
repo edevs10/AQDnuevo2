@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFlow } from '../context/FlowContext';
 
 const SalaryCalculator14Pagas = () => {
   const navigate = useNavigate();
-  const { flowPath, setAnswer } = useFlow();
+  const { flowPath, setAnswer, answers } = useFlow();
   const [netMonthlyOrdinary, setNetMonthlyOrdinary] = useState('');
   const [netMonthExtra1, setNetMonthExtra1] = useState('');
   const [netMonthExtra2, setNetMonthExtra2] = useState('');
-  const [retentionPercent, setRetentionPercent] = useState('');
+  const [retentionSame, setRetentionSame] = useState('');
+  const [retentionPercent, setRetentionPercent] = useState(answers?.retention_percent || '');
+
+  useEffect(() => {
+    // Si viene de la página de retención variable, pre-seleccionar "no"
+    if (answers?.retention_variable) {
+      setRetentionSame('no');
+    }
+  }, [answers]);
 
   const getTerritoryName = () => {
     switch (flowPath) {
@@ -46,6 +54,14 @@ const SalaryCalculator14Pagas = () => {
     return Math.round(grossAnnual * 100) / 100;
   };
 
+  const handleRetentionChange = (value) => {
+    setRetentionSame(value);
+    if (value === 'no') {
+      // Redirigir a la página de retención variable
+      navigate('/salary/retention-variable');
+    }
+  };
+
   const handleNext = () => {
     const grossAnnual = calculateGrossAnnual();
     setAnswer('calculated_gross_annual', grossAnnual);
@@ -53,11 +69,16 @@ const SalaryCalculator14Pagas = () => {
   };
 
   const handlePrevious = () => {
-    navigate('/salary/payments-question');
+    // Si viene de la página de retención variable, volver ahí
+    if (answers?.retention_variable) {
+      navigate('/salary/retention-variable');
+    } else {
+      navigate('/salary/payments-question');
+    }
   };
 
   const isBasqueTerritory = flowPath === 'bizkaiaTerritory' || flowPath === 'gipuzkoaTerritory' || flowPath === 'alavaTerritory';
-  const isValid = netMonthlyOrdinary && netMonthExtra1 && netMonthExtra2 && retentionPercent && 
+  const isValid = netMonthlyOrdinary && netMonthExtra1 && netMonthExtra2 && retentionSame && retentionPercent && 
                   parseFloat(netMonthlyOrdinary) > 0 && 
                   parseFloat(netMonthExtra1) > 0 && 
                   parseFloat(netMonthExtra2) > 0 && 
