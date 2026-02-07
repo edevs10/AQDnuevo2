@@ -164,20 +164,6 @@ const ResultCard = ({
             Esta información tiene fines divulgativos y no constituye asesoramiento fiscal profesional. Ante cualquier duda, consulta con un asesor fiscal.
           </p>
 
-          {/* Footer de sugerencias */}
-          <div className="mb-6 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
-            <p className="text-base text-gray-700 text-center">
-              Si tienes alguna sugerencia, duda, o has detectado algún error, escríbenos a{' '}
-              <a 
-                href="mailto:e.goidevs@gmail.com" 
-                className="text-blue-600 font-semibold hover:text-blue-800 underline"
-              >
-                e.goidevs@gmail.com
-              </a>
-              . ¡Muchas gracias! 🤗
-            </p>
-          </div>
-
           {/* Botón de acción */}
           <button
             onClick={handleAction}
