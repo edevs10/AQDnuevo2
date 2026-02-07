@@ -56,6 +56,7 @@ const QuestionBasque2 = () => {
       } else if (flowPath === 'alavaTerritory') {
         navigate('/result/alava-obligated');
       } else {
+        // Fallback por si acaso, pero no debería llegar aquí en flujo normal
         navigate('/result/obligated');
       }
     } else {
@@ -67,7 +68,8 @@ const QuestionBasque2 = () => {
       } else if (flowPath === 'alavaTerritory') {
         navigate('/result/alava-not-obligated');
       } else {
-        navigate('/question/12');
+        // Fallback por si acaso, pero no debería llegar aquí en flujo normal
+        navigate('/result/not-obligated');
       }
     }
   };
