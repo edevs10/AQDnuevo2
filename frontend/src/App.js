@@ -41,7 +41,6 @@ import QuestionBasque2 from "./pages/basque/QuestionBasque2";
 // Importar páginas de salario compartidas
 import SalaryCheck from "./pages/SalaryCheck";
 import SalaryPaymentsQuestion from "./pages/SalaryPaymentsQuestion";
-import RetentionVariableQuestion from "./pages/RetentionVariableQuestion";
 
 // Importar calculadoras y RetentionVariable - Territorio Común
 import SalaryCalculatorCommon12 from "./pages/common/SalaryCalculatorCommon12";
