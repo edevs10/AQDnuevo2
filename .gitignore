@@ -86,3 +86,7 @@ android-sdk/
 keystore.properties
 
 # Prevent duplicate entries
+-e 
+# Environment files
+*.env
+*.env.*
