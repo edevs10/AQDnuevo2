@@ -43,6 +43,7 @@ import SalaryCheck from "./pages/SalaryCheck";
 import SalaryPaymentsQuestion from "./pages/SalaryPaymentsQuestion";
 import SalaryCalculator from "./pages/SalaryCalculator";
 import SalaryCalculator14Pagas from "./pages/SalaryCalculator14Pagas";
+import SalaryCalculator15Pagas from "./pages/SalaryCalculator15Pagas";
 import SalaryResult from "./pages/SalaryResult";
 
 // Importar páginas de resultados
