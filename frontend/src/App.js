@@ -97,6 +97,9 @@ import GipuzkoaNotObligated from "./pages/results/GipuzkoaNotObligated";
 import AlavaNotObligated from "./pages/results/AlavaNotObligated";
 import NavarraNotObligated from "./pages/results/NavarraNotObligated";
 
+// Importar componente de footer
+import SuggestionFooter from "./components/SuggestionFooter";
+
 function App() {
   return (
     <div className="App">
