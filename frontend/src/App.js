@@ -201,6 +201,7 @@ function App() {
             <Route path="/result/alava-not-obligated" element={<AlavaNotObligated />} />
             <Route path="/result/navarra-not-obligated" element={<NavarraNotObligated />} />
           </Routes>
+          <SuggestionFooter />
         </BrowserRouter>
       </FlowProvider>
     </div>
