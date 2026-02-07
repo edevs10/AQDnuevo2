@@ -28,15 +28,32 @@
 
 1. Crear cuenta en [Railway](https://railway.app)
 2. Conectar repositorio de GitHub
-3. Configurar variables de entorno:
+3. **IMPORTANTE**: Railway debe detectar los archivos de configuración:
+   - `Procfile` (define el comando de inicio)
+   - `railway.json` o `nixpacks.toml` (configuración del build)
+   
+4. Configurar variables de entorno en Railway:
    ```
    MONGO_URL=mongodb+srv://tu-usuario:tu-password@cluster.mongodb.net/
    DB_NAME=aqd_production
    CORS_ORIGINS=https://tu-dominio-frontend.vercel.app
    LOG_LEVEL=WARNING
+   PORT=8000
    ```
-4. Railway detectará automáticamente `requirements.txt` y `server.py`
-5. Obtener la URL del backend (ejemplo: `https://tu-backend.railway.app`)
+   
+5. **Importante sobre PORT**: Railway proporciona automáticamente la variable `$PORT`. No la configures manualmente.
+
+6. Railway ejecutará automáticamente:
+   - Build: `cd backend && pip install -r requirements.txt`
+   - Start: `cd backend && uvicorn server:app --host 0.0.0.0 --port $PORT`
+
+7. Obtener la URL del backend (ejemplo: `https://tu-backend.railway.app`)
+
+8. **Troubleshooting Railway**:
+   - Si falla, verifica los logs en Railway Dashboard
+   - Asegúrate de que todas las dependencias están en `requirements.txt`
+   - Verifica que MongoDB URL es accesible desde Railway
+   - Railway necesita que la app escuche en `0.0.0.0` (no `localhost`)
 
 #### Opción B: Render.com
 
