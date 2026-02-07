@@ -38,14 +38,40 @@ import BasqueTerritoryByEconomic from "./pages/basque/BasqueTerritoryByEconomic"
 import QuestionBasque1 from "./pages/basque/QuestionBasque1";
 import QuestionBasque2 from "./pages/basque/QuestionBasque2";
 
-// Importar páginas de salario
+// Importar páginas de salario compartidas
 import SalaryCheck from "./pages/SalaryCheck";
 import SalaryPaymentsQuestion from "./pages/SalaryPaymentsQuestion";
 import RetentionVariableQuestion from "./pages/RetentionVariableQuestion";
-import SalaryCalculator from "./pages/SalaryCalculator";
-import SalaryCalculator14Pagas from "./pages/SalaryCalculator14Pagas";
-import SalaryCalculator15Pagas from "./pages/SalaryCalculator15Pagas";
-import SalaryResult from "./pages/SalaryResult";
+
+// Importar calculadoras - Territorio Común
+import SalaryCalculatorCommon12 from "./pages/common/SalaryCalculatorCommon12";
+import SalaryCalculatorCommon14 from "./pages/common/SalaryCalculatorCommon14";
+import SalaryCalculatorCommon15 from "./pages/common/SalaryCalculatorCommon15";
+import SalaryResultCommon from "./pages/common/SalaryResultCommon";
+
+// Importar calculadoras - Navarra
+import SalaryCalculatorNavarra12 from "./pages/navarra/salary/SalaryCalculatorNavarra12";
+import SalaryCalculatorNavarra14 from "./pages/navarra/salary/SalaryCalculatorNavarra14";
+import SalaryCalculatorNavarra15 from "./pages/navarra/salary/SalaryCalculatorNavarra15";
+import SalaryResultNavarra from "./pages/navarra/salary/SalaryResultNavarra";
+
+// Importar calculadoras - Bizkaia
+import SalaryCalculatorBizkaia12 from "./pages/bizkaia/SalaryCalculatorBizkaia12";
+import SalaryCalculatorBizkaia14 from "./pages/bizkaia/SalaryCalculatorBizkaia14";
+import SalaryCalculatorBizkaia15 from "./pages/bizkaia/SalaryCalculatorBizkaia15";
+import SalaryResultBizkaia from "./pages/bizkaia/SalaryResultBizkaia";
+
+// Importar calculadoras - Gipuzkoa
+import SalaryCalculatorGipuzkoa12 from "./pages/gipuzkoa/SalaryCalculatorGipuzkoa12";
+import SalaryCalculatorGipuzkoa14 from "./pages/gipuzkoa/SalaryCalculatorGipuzkoa14";
+import SalaryCalculatorGipuzkoa15 from "./pages/gipuzkoa/SalaryCalculatorGipuzkoa15";
+import SalaryResultGipuzkoa from "./pages/gipuzkoa/SalaryResultGipuzkoa";
+
+// Importar calculadoras - Álava
+import SalaryCalculatorAlava12 from "./pages/alava/SalaryCalculatorAlava12";
+import SalaryCalculatorAlava14 from "./pages/alava/SalaryCalculatorAlava14";
+import SalaryCalculatorAlava15 from "./pages/alava/SalaryCalculatorAlava15";
+import SalaryResultAlava from "./pages/alava/SalaryResultAlava";
 
 // Importar páginas de resultados
 import NotResident from "./pages/results/NotResident";
