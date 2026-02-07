@@ -50,16 +50,19 @@ const SalaryCalculatorAlava12 = () => {
 
   const handleRetentionChange = (value) => {
     setRetentionSame(value);
-    if (value === 'no') {
-      // Redirigir a la página de retención variable
-      navigate('/salary/alava/retention-variable');
-    }
+    // No redirigir automáticamente, solo marcar la opción
   };
 
   const handleNext = () => {
-    const grossAnnual = calculateGrossAnnual();
-    setAnswer('calculated_gross_annual', grossAnnual);
-    navigate('/salary/alava/result');
+    if (retentionSame === 'no') {
+      // Si la retención NO ha sido igual, ir a la página de retención variable
+      navigate('/salary/alava/retention-variable');
+    } else {
+      // Si la retención ha sido igual, calcular y continuar
+      const grossAnnual = calculateGrossAnnual();
+      setAnswer('calculated_gross_annual', grossAnnual);
+      navigate('/salary/alava/result');
+    }
   };
 
   const handlePrevious = () => {
@@ -74,11 +77,10 @@ const SalaryCalculatorAlava12 = () => {
   };
 
   const isBasqueTerritory = flowPath === 'bizkaiaTerritory' || flowPath === 'gipuzkoaTerritory' || flowPath === 'alavaTerritory';
-  const isValid = netMonthly && retentionSame && retentionPercent && annualPayments && 
+  const isValid = netMonthly && retentionSame && annualPayments && 
                   parseFloat(netMonthly) > 0 && 
-                  parseFloat(retentionPercent) >= 0 && 
-                  parseFloat(retentionPercent) < 100 && 
-                  parseFloat(annualPayments) > 0;
+                  parseFloat(annualPayments) > 0 &&
+                  (retentionSame === 'no' || (retentionPercent && parseFloat(retentionPercent) >= 0 && parseFloat(retentionPercent) < 100));
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center p-4">
