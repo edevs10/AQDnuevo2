@@ -107,6 +107,7 @@ function App() {
             
             {/* Rutas de cálculo de salario */}
             <Route path="/salary/check" element={<SalaryCheck />} />
+            <Route path="/salary/payments-question" element={<SalaryPaymentsQuestion />} />
             <Route path="/salary/calculator" element={<SalaryCalculator />} />
             <Route path="/salary/result" element={<SalaryResult />} />
             
