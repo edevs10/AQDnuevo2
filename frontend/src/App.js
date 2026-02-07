@@ -142,33 +142,37 @@ function App() {
             {/* Rutas de cálculo de salario - Compartidas */}
             <Route path="/salary/check" element={<SalaryCheck />} />
             <Route path="/salary/payments-question" element={<SalaryPaymentsQuestion />} />
-            <Route path="/salary/retention-variable" element={<RetentionVariableQuestion />} />
             
             {/* Rutas de cálculo de salario - Territorio Común */}
+            <Route path="/salary/common/retention-variable" element={<RetentionVariableQuestionCommon />} />
             <Route path="/salary/common/calculator-12" element={<SalaryCalculatorCommon12 />} />
             <Route path="/salary/common/calculator-14" element={<SalaryCalculatorCommon14 />} />
             <Route path="/salary/common/calculator-15" element={<SalaryCalculatorCommon15 />} />
             <Route path="/salary/common/result" element={<SalaryResultCommon />} />
             
             {/* Rutas de cálculo de salario - Navarra */}
+            <Route path="/salary/navarra/retention-variable" element={<RetentionVariableQuestionNavarra />} />
             <Route path="/salary/navarra/calculator-12" element={<SalaryCalculatorNavarra12 />} />
             <Route path="/salary/navarra/calculator-14" element={<SalaryCalculatorNavarra14 />} />
             <Route path="/salary/navarra/calculator-15" element={<SalaryCalculatorNavarra15 />} />
             <Route path="/salary/navarra/result" element={<SalaryResultNavarra />} />
             
             {/* Rutas de cálculo de salario - Bizkaia */}
+            <Route path="/salary/bizkaia/retention-variable" element={<RetentionVariableQuestionBizkaia />} />
             <Route path="/salary/bizkaia/calculator-12" element={<SalaryCalculatorBizkaia12 />} />
             <Route path="/salary/bizkaia/calculator-14" element={<SalaryCalculatorBizkaia14 />} />
             <Route path="/salary/bizkaia/calculator-15" element={<SalaryCalculatorBizkaia15 />} />
             <Route path="/salary/bizkaia/result" element={<SalaryResultBizkaia />} />
             
             {/* Rutas de cálculo de salario - Gipuzkoa */}
+            <Route path="/salary/gipuzkoa/retention-variable" element={<RetentionVariableQuestionGipuzkoa />} />
             <Route path="/salary/gipuzkoa/calculator-12" element={<SalaryCalculatorGipuzkoa12 />} />
             <Route path="/salary/gipuzkoa/calculator-14" element={<SalaryCalculatorGipuzkoa14 />} />
             <Route path="/salary/gipuzkoa/calculator-15" element={<SalaryCalculatorGipuzkoa15 />} />
             <Route path="/salary/gipuzkoa/result" element={<SalaryResultGipuzkoa />} />
             
             {/* Rutas de cálculo de salario - Álava */}
+            <Route path="/salary/alava/retention-variable" element={<RetentionVariableQuestionAlava />} />
             <Route path="/salary/alava/calculator-12" element={<SalaryCalculatorAlava12 />} />
             <Route path="/salary/alava/calculator-14" element={<SalaryCalculatorAlava14 />} />
             <Route path="/salary/alava/calculator-15" element={<SalaryCalculatorAlava15 />} />
