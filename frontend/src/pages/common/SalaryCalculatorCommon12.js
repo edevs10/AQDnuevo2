@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useFlow } from '../context/FlowContext';
+import { useFlow } from '../../context/FlowContext';
 
-const SalaryCalculator = () => {
+const SalaryCalculatorCommon12 = () => {
   const navigate = useNavigate();
   const { flowPath, setAnswer, answers } = useFlow();
   const [netMonthly, setNetMonthly] = useState('');
@@ -59,7 +59,7 @@ const SalaryCalculator = () => {
   const handleNext = () => {
     const grossAnnual = calculateGrossAnnual();
     setAnswer('calculated_gross_annual', grossAnnual);
-    navigate('/salary/result');
+    navigate('/salary/common/result');
   };
 
   const handlePrevious = () => {
@@ -222,4 +222,4 @@ const SalaryCalculator = () => {
   );
 };
 
-export default SalaryCalculator;
+export default SalaryCalculatorCommon12;
