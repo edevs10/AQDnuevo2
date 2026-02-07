@@ -8,7 +8,7 @@ const Home = () => {
 
   const handleStart = () => {
     resetFlow();
-    navigate('/terms');
+    navigate('/before-start');
   };
 
   return (
