@@ -43,35 +43,40 @@ import SalaryCheck from "./pages/SalaryCheck";
 import SalaryPaymentsQuestion from "./pages/SalaryPaymentsQuestion";
 import RetentionVariableQuestion from "./pages/RetentionVariableQuestion";
 
-// Importar calculadoras - Territorio Común
+// Importar calculadoras y RetentionVariable - Territorio Común
 import SalaryCalculatorCommon12 from "./pages/common/SalaryCalculatorCommon12";
 import SalaryCalculatorCommon14 from "./pages/common/SalaryCalculatorCommon14";
 import SalaryCalculatorCommon15 from "./pages/common/SalaryCalculatorCommon15";
 import SalaryResultCommon from "./pages/common/SalaryResultCommon";
+import RetentionVariableQuestionCommon from "./pages/common/RetentionVariableQuestionCommon";
 
-// Importar calculadoras - Navarra
+// Importar calculadoras y RetentionVariable - Navarra
 import SalaryCalculatorNavarra12 from "./pages/navarra/salary/SalaryCalculatorNavarra12";
 import SalaryCalculatorNavarra14 from "./pages/navarra/salary/SalaryCalculatorNavarra14";
 import SalaryCalculatorNavarra15 from "./pages/navarra/salary/SalaryCalculatorNavarra15";
 import SalaryResultNavarra from "./pages/navarra/salary/SalaryResultNavarra";
+import RetentionVariableQuestionNavarra from "./pages/navarra/salary/RetentionVariableQuestionNavarra";
 
-// Importar calculadoras - Bizkaia
+// Importar calculadoras y RetentionVariable - Bizkaia
 import SalaryCalculatorBizkaia12 from "./pages/bizkaia/SalaryCalculatorBizkaia12";
 import SalaryCalculatorBizkaia14 from "./pages/bizkaia/SalaryCalculatorBizkaia14";
 import SalaryCalculatorBizkaia15 from "./pages/bizkaia/SalaryCalculatorBizkaia15";
 import SalaryResultBizkaia from "./pages/bizkaia/SalaryResultBizkaia";
+import RetentionVariableQuestionBizkaia from "./pages/bizkaia/RetentionVariableQuestionBizkaia";
 
-// Importar calculadoras - Gipuzkoa
+// Importar calculadoras y RetentionVariable - Gipuzkoa
 import SalaryCalculatorGipuzkoa12 from "./pages/gipuzkoa/SalaryCalculatorGipuzkoa12";
 import SalaryCalculatorGipuzkoa14 from "./pages/gipuzkoa/SalaryCalculatorGipuzkoa14";
 import SalaryCalculatorGipuzkoa15 from "./pages/gipuzkoa/SalaryCalculatorGipuzkoa15";
 import SalaryResultGipuzkoa from "./pages/gipuzkoa/SalaryResultGipuzkoa";
+import RetentionVariableQuestionGipuzkoa from "./pages/gipuzkoa/RetentionVariableQuestionGipuzkoa";
 
-// Importar calculadoras - Álava
+// Importar calculadoras y RetentionVariable - Álava
 import SalaryCalculatorAlava12 from "./pages/alava/SalaryCalculatorAlava12";
 import SalaryCalculatorAlava14 from "./pages/alava/SalaryCalculatorAlava14";
 import SalaryCalculatorAlava15 from "./pages/alava/SalaryCalculatorAlava15";
 import SalaryResultAlava from "./pages/alava/SalaryResultAlava";
+import RetentionVariableQuestionAlava from "./pages/alava/RetentionVariableQuestionAlava";
 
 // Importar páginas de resultados
 import NotResident from "./pages/results/NotResident";
