@@ -57,6 +57,14 @@ const SalaryCalculator15Pagas = () => {
     return Math.round(grossAnnual * 100) / 100;
   };
 
+  const handleRetentionChange = (value) => {
+    setRetentionSame(value);
+    if (value === 'no') {
+      // Redirigir a la página de retención variable
+      navigate('/salary/retention-variable');
+    }
+  };
+
   const handleNext = () => {
     const grossAnnual = calculateGrossAnnual();
     setAnswer('calculated_gross_annual', grossAnnual);
@@ -64,11 +72,16 @@ const SalaryCalculator15Pagas = () => {
   };
 
   const handlePrevious = () => {
-    navigate('/salary/payments-question');
+    // Si viene de la página de retención variable, volver ahí
+    if (answers?.retention_variable) {
+      navigate('/salary/retention-variable');
+    } else {
+      navigate('/salary/payments-question');
+    }
   };
 
   const isBasqueTerritory = flowPath === 'bizkaiaTerritory' || flowPath === 'gipuzkoaTerritory' || flowPath === 'alavaTerritory';
-  const isValid = netMonthlyOrdinary && netMonthExtra1 && netMonthExtra2 && netMonthExtra3 && retentionPercent && 
+  const isValid = netMonthlyOrdinary && netMonthExtra1 && netMonthExtra2 && netMonthExtra3 && retentionSame && retentionPercent && 
                   parseFloat(netMonthlyOrdinary) > 0 && 
                   parseFloat(netMonthExtra1) > 0 && 
                   parseFloat(netMonthExtra2) > 0 && 
