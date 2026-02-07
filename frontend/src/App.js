@@ -41,6 +41,7 @@ import QuestionBasque2 from "./pages/basque/QuestionBasque2";
 // Importar páginas de salario
 import SalaryCheck from "./pages/SalaryCheck";
 import SalaryPaymentsQuestion from "./pages/SalaryPaymentsQuestion";
+import RetentionVariableQuestion from "./pages/RetentionVariableQuestion";
 import SalaryCalculator from "./pages/SalaryCalculator";
 import SalaryCalculator14Pagas from "./pages/SalaryCalculator14Pagas";
 import SalaryCalculator15Pagas from "./pages/SalaryCalculator15Pagas";
