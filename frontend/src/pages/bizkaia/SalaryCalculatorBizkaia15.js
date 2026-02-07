@@ -59,16 +59,19 @@ const SalaryCalculatorBizkaia15 = () => {
 
   const handleRetentionChange = (value) => {
     setRetentionSame(value);
-    if (value === 'no') {
-      // Redirigir a la página de retención variable
-      navigate('/salary/bizkaia/retention-variable');
-    }
+    // No redirigir automáticamente, solo marcar la opción
   };
 
   const handleNext = () => {
-    const grossAnnual = calculateGrossAnnual();
-    setAnswer('calculated_gross_annual', grossAnnual);
-    navigate('/salary/bizkaia/result');
+    if (retentionSame === 'no') {
+      // Si la retención NO ha sido igual, ir a la página de retención variable
+      navigate('/salary/bizkaia/retention-variable');
+    } else {
+      // Si la retención ha sido igual, calcular y continuar
+      const grossAnnual = calculateGrossAnnual();
+      setAnswer('calculated_gross_annual', grossAnnual);
+      navigate('/salary/bizkaia/result');
+    }
   };
 
   const handlePrevious = () => {
@@ -81,13 +84,12 @@ const SalaryCalculatorBizkaia15 = () => {
   };
 
   const isBasqueTerritory = flowPath === 'bizkaiaTerritory' || flowPath === 'gipuzkoaTerritory' || flowPath === 'alavaTerritory';
-  const isValid = netMonthlyOrdinary && netMonthExtra1 && netMonthExtra2 && netMonthExtra3 && retentionSame && retentionPercent && 
+  const isValid = netMonthlyOrdinary && netMonthExtra1 && netMonthExtra2 && netMonthExtra3 && retentionSame && 
                   parseFloat(netMonthlyOrdinary) > 0 && 
                   parseFloat(netMonthExtra1) > 0 && 
                   parseFloat(netMonthExtra2) > 0 && 
-                  parseFloat(netMonthExtra3) > 0 && 
-                  parseFloat(retentionPercent) >= 0 && 
-                  parseFloat(retentionPercent) < 100;
+                  parseFloat(netMonthExtra3) > 0 &&
+                  (retentionSame === 'no' || (retentionPercent && parseFloat(retentionPercent) >= 0 && parseFloat(retentionPercent) < 100));
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center p-4">

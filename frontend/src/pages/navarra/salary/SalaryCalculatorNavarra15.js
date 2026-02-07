@@ -50,16 +50,19 @@ const SalaryCalculator = () => {
 
   const handleRetentionChange = (value) => {
     setRetentionSame(value);
-    if (value === 'no') {
-      // Redirigir a la página de retención variable
-      navigate('/salary/navarra/retention-variable');
-    }
+    // No redirigir automáticamente, solo marcar la opción
   };
 
   const handleNext = () => {
-    const grossAnnual = calculateGrossAnnual();
-    setAnswer('calculated_gross_annual', grossAnnual);
-    navigate('/salary/navarra/result');
+    if (retentionSame === 'no') {
+      // Si la retención NO ha sido igual, ir a la página de retención variable
+      navigate('/salary/navarra/retention-variable');
+    } else {
+      // Si la retención ha sido igual, calcular y continuar
+      const grossAnnual = calculateGrossAnnual();
+      setAnswer('calculated_gross_annual', grossAnnual);
+      navigate('/salary/navarra/result');
+    }
   };
 
   const handlePrevious = () => {
