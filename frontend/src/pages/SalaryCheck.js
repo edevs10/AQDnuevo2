@@ -44,8 +44,8 @@ const SalaryCheck = () => {
           break;
       }
     } else {
-      // Ir a la calculadora de salario
-      navigate('/salary/calculator');
+      // Ir a la pantalla de selección de número de pagas
+      navigate('/salary/payments-question');
     }
   };
 
