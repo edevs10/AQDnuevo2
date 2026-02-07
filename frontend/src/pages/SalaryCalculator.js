@@ -183,36 +183,6 @@ const SalaryCalculator = () => {
                   </div>
                 </div>
               </div>
-                    value={retentionPercent}
-                    onChange={(e) => setRetentionPercent(e.target.value)}
-                    placeholder="Ej: 15"
-                    min="0"
-                    max="99"
-                    className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors"
-                    data-testid="retention-percent-input"
-                  />
-                  <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500">%</span>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Introduce tu número de pagas anuales
-                </label>
-                <div className="relative">
-                  <input
-                    type="number"
-                    value={annualPayments}
-                    onChange={(e) => setAnnualPayments(e.target.value)}
-                    placeholder="Ej: 12 o 14"
-                    min="1"
-                    max="20"
-                    className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors"
-                    data-testid="annual-payments-input"
-                  />
-                  <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500">pagas</span>
-                </div>
-              </div>
 
               {/* Vista previa del cálculo */}
               {isValid && (
