@@ -29,8 +29,14 @@ const SalaryPaymentsQuestion = () => {
   const handleNext = () => {
     // Guardar el número de pagas seleccionado
     setAnswer('annual_payments', selectedPayments);
-    // Ir a la calculadora
-    navigate('/salary/calculator');
+    
+    // Si son 14 pagas, ir a la calculadora especial
+    if (selectedPayments === '14') {
+      navigate('/salary/calculator-14-pagas');
+    } else {
+      // Para 12 o 15 pagas, ir a la calculadora normal
+      navigate('/salary/calculator');
+    }
   };
 
   const handlePrevious = () => {
