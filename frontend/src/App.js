@@ -5,6 +5,7 @@ import { FlowProvider } from "./context/FlowContext";
 
 // Importar páginas
 import Home from "./pages/Home";
+import BeforeStartPage from "./pages/BeforeStartPage";
 import TermsConsentPage from "./pages/TermsConsentPage";
 import AdConsentPage from "./pages/AdConsentPage";
 import ConsentPage from "./pages/ConsentPage";
