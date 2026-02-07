@@ -30,7 +30,7 @@ const Home = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                ¿Necesitas presentar la declaración?
+                ¿Necesitas presentar la declaración 2025?
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Te guiaremos a través de un cuestionario basado en la normativa española 
