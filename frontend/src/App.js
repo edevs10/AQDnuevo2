@@ -40,6 +40,7 @@ import QuestionBasque2 from "./pages/basque/QuestionBasque2";
 
 // Importar páginas de salario
 import SalaryCheck from "./pages/SalaryCheck";
+import SalaryPaymentsQuestion from "./pages/SalaryPaymentsQuestion";
 import SalaryCalculator from "./pages/SalaryCalculator";
 import SalaryResult from "./pages/SalaryResult";
 
