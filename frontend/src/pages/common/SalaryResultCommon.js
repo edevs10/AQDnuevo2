@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useFlow } from '../context/FlowContext';
+import { useFlow } from '../../context/FlowContext';
 
-const SalaryResult = () => {
+const SalaryResultCommon = () => {
   const navigate = useNavigate();
   const { flowPath, answers } = useFlow();
   
@@ -46,39 +46,9 @@ const SalaryResult = () => {
 
   const handleNext = () => {
     if (exceedsThreshold()) {
-      // Ir a la página de obligación de declarar según territorio
-      switch (flowPath) {
-        case 'bizkaiaTerritory':
-          navigate('/result/bizkaia-obligated');
-          break;
-        case 'gipuzkoaTerritory':
-          navigate('/result/gipuzkoa-obligated');
-          break;
-        case 'alavaTerritory':
-          navigate('/result/alava-obligated');
-          break;
-        case 'navarra':
-          navigate('/result/navarra-obligated');
-          break;
-        default:
-          navigate('/result/obligated');
-          break;
-      }
+      navigate('/result/obligated');
     } else {
-      // Continuar con el proceso de descarte según el territorio
-      switch (flowPath) {
-        case 'bizkaiaTerritory':
-        case 'gipuzkoaTerritory':
-        case 'alavaTerritory':
-          navigate('/question/basque/2'); // Siguiente pregunta en el flujo vasco (RCM y GP)
-          break;
-        case 'navarra':
-          navigate('/question/navarra/4'); // Siguiente pregunta en Navarra
-          break;
-        default:
-          navigate('/question/10'); // Siguiente pregunta en territorio común
-          break;
-      }
+      navigate('/question/10'); // Siguiente pregunta en territorio común
     }
   };
 
@@ -86,11 +56,11 @@ const SalaryResult = () => {
     // Volver a la calculadora apropiada según el número de pagas
     const payments = answers?.annual_payments;
     if (payments === '14') {
-      navigate('/salary/calculator-14-pagas');
+      navigate('/salary/common/calculator-14');
     } else if (payments === '15') {
-      navigate('/salary/calculator-15-pagas');
+      navigate('/salary/common/calculator-15');
     } else {
-      navigate('/salary/calculator');
+      navigate('/salary/common/calculator-12');
     }
   };
 
@@ -158,4 +128,4 @@ const SalaryResult = () => {
   );
 };
 
-export default SalaryResult;
+export default SalaryResultCommon;
