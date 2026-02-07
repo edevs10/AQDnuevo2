@@ -4,10 +4,11 @@ import { useFlow } from '../context/FlowContext';
 
 const SalaryCalculator = () => {
   const navigate = useNavigate();
-  const { flowPath, setAnswer } = useFlow();
+  const { flowPath, setAnswer, answers } = useFlow();
   const [netMonthly, setNetMonthly] = useState('');
   const [retentionPercent, setRetentionPercent] = useState('');
-  const [annualPayments, setAnnualPayments] = useState('12');
+  // Usar el número de pagas del contexto si existe, sino por defecto 12
+  const [annualPayments, setAnnualPayments] = useState(answers?.annual_payments || '12');
 
   const getTerritoryName = () => {
     switch (flowPath) {
