@@ -65,12 +65,12 @@ const SalaryResult = () => {
           break;
       }
     } else {
-      // Continuar con el proceso de descarte normal
+      // Continuar con el proceso de descarte según el territorio
       switch (flowPath) {
         case 'bizkaiaTerritory':
         case 'gipuzkoaTerritory':
         case 'alavaTerritory':
-          navigate('/question/11'); // Siguiente pregunta en el flujo vasco
+          navigate('/question/basque/2'); // Siguiente pregunta en el flujo vasco (RCM y GP)
           break;
         case 'navarra':
           navigate('/question/navarra/4'); // Siguiente pregunta en Navarra
