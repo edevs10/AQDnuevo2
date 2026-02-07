@@ -22,23 +22,60 @@ const RetentionVariableQuestionNavarra = () => {
     }
   };
 
+
+  const calculateGrossAnnual = () => {
+    const retention = parseFloat(retentionPercent) || 0;
+    const payments = answers?.annual_payments || '12';
+    
+    if (retention >= 100) return 0;
+    
+    // Dependiendo del número de pagas, calcular diferente
+    if (payments === '14') {
+      const netOrdinary = parseFloat(answers?.net_monthly_ordinary) || 0;
+      const netExtra1 = parseFloat(answers?.net_month_extra1) || 0;
+      const netExtra2 = parseFloat(answers?.net_month_extra2) || 0;
+      
+      const grossMonthlyOrdinary = netOrdinary / (1 - retention / 100);
+      const grossExtra1 = netExtra1 / (1 - retention / 100);
+      const grossExtra2 = netExtra2 / (1 - retention / 100);
+      
+      return Math.round((grossMonthlyOrdinary * 10 + grossExtra1 + grossExtra2) * 100) / 100;
+    } else if (payments === '15') {
+      const netOrdinary = parseFloat(answers?.net_monthly_ordinary) || 0;
+      const netExtra1 = parseFloat(answers?.net_month_extra1) || 0;
+      const netExtra2 = parseFloat(answers?.net_month_extra2) || 0;
+      const netExtra3 = parseFloat(answers?.net_month_extra3) || 0;
+      
+      const grossMonthlyOrdinary = netOrdinary / (1 - retention / 100);
+      const grossExtra1 = netExtra1 / (1 - retention / 100);
+      const grossExtra2 = netExtra2 / (1 - retention / 100);
+      const grossExtra3 = netExtra3 / (1 - retention / 100);
+      
+      return Math.round((grossMonthlyOrdinary * 9 + grossExtra1 + grossExtra2 + grossExtra3) * 100) / 100;
+    } else {
+      // 12 pagas
+      const net = parseFloat(answers?.net_monthly) || 0;
+      const paymentsNum = parseFloat(payments) || 12;
+      
+      const grossMonthly = net / (1 - retention / 100);
+      return Math.round((grossMonthly * paymentsNum) * 100) / 100;
+    }
+  };
+
   const handleNext = () => {
     setAnswer('retention_percent', retentionPercent);
     setAnswer('retention_variable', true);
     
-    // Redirigir según el número de pagas del territorio Navarra
-    const payments = answers?.annual_payments;
-    if (payments === '14') {
-      navigate('/salary/navarra/calculator-14');
-    } else if (payments === '15') {
-      navigate('/salary/navarra/calculator-15');
-    } else {
-      navigate('/salary/navarra/calculator-12');
-    }
+    // Calcular el salario bruto anual con el porcentaje de retención
+    const grossAnnual = calculateGrossAnnual();
+    setAnswer('calculated_gross_annual', grossAnnual);
+    
+    // Ir directamente a la página de resultado
+    navigate('/salary/navarra/result');
   };
 
   const handlePrevious = () => {
-    // Volver según el número de pagas del territorio Navarra
+    // Volver según el número de pagas
     const payments = answers?.annual_payments;
     if (payments === '14') {
       navigate('/salary/navarra/calculator-14');
