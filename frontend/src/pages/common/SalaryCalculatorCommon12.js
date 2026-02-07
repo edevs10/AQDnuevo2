@@ -54,6 +54,9 @@ const SalaryCalculatorCommon12 = () => {
   };
 
   const handleNext = () => {
+    // Guardar datos de salario en el contexto
+    setAnswer('net_monthly', netMonthly);
+    
     if (retentionSame === 'no') {
       // Si la retención NO ha sido igual, ir a la página de retención variable
       navigate('/salary/common/retention-variable');
