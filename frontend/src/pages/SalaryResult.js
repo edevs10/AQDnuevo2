@@ -83,7 +83,15 @@ const SalaryResult = () => {
   };
 
   const handlePrevious = () => {
-    navigate('/salary/calculator');
+    // Volver a la calculadora apropiada según el número de pagas
+    const payments = answers?.annual_payments;
+    if (payments === '14') {
+      navigate('/salary/calculator-14-pagas');
+    } else if (payments === '15') {
+      navigate('/salary/calculator-15-pagas');
+    } else {
+      navigate('/salary/calculator');
+    }
   };
 
   const isBasqueTerritory = flowPath === 'bizkaiaTerritory' || flowPath === 'gipuzkoaTerritory' || flowPath === 'alavaTerritory';
