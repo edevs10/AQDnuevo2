@@ -18,7 +18,7 @@ const Home = () => {
         <img 
           src="/logo.png" 
           alt="AQD Logo" 
-          className="h-30 md:h-70 w-auto m-0"
+          className="h-25 md:h-64 w-auto"
         />
       </div>
       <div className="w-full max-w-4xl">
