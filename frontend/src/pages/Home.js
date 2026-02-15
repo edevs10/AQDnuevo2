@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center p-4">
     {/* Logo arriba a la izquierda */}
-      <div className="fixed top-4 left-2 md:left-4 z-50">
+      <div className="fixed top-2 left-0 md:left-4 z-50">
         <img 
           src="/logo.png" 
           alt="AQD Logo" 
@@ -23,7 +23,7 @@ const Home = () => {
       </div>
       <div className="w-full max-w-4xl">
         {/* Hero Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 mt-20 md:mt-0">
           <h1 className="text-5xl font-bold text-gray-800 mb-6">
             ¿Algo Que <span className="text-blue-600">Declarar?</span>
           </h1>
