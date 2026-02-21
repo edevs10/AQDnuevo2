@@ -73,8 +73,8 @@ const ResultCard = ({
 
   const getShareText = () => {
     return isObligated
-      ? `He usado la app ¿Algo Que Declarar? (AQD) y este es mi resultado:\n"¡Tienes algo que declarar! Presenta la declaración de IRPF 2025."\n\n¿Siempre dudas si te toca declarar IRPF o no? ¡Compruébalo tú también en segundos aquí: ${APP_URL}`
-      : `He usado la app ¿Algo Que Declarar? (AQD) y este es mi resultado:\n"¡Enhorabuena! No estás obligado a presentar la declaración de IRPF 2025."\n\n¿Siempre dudas si te toca declarar IRPF o no? ¡Compruébalo tú también en segundos aquí: ${APP_URL}`;
+      ? `He usado la app ¿Algo Que Declarar? (AQD) y este es mi resultado:\n"¡Tengo algo que declarar! Me toca presentar la declaración de IRPF 2025."\n\n¿Siempre dudas si te toca declarar IRPF o no? ¡Compruébalo tú también en segundos aquí!: ${APP_URL}`
+      : `He usado la app ¿Algo Que Declarar? (AQD) y este es mi resultado:\n"¡Buenas noticias! No tengo nada que declarar. Me libro de presentar IRPF 2025"\n\n¿Siempre dudas si te toca declarar IRPF o no? ¡Compruébalo tú también en segundos aquí!: ${APP_URL}`;
   };
 
   const handleShare = async () => {
