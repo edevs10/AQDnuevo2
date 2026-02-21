@@ -2,7 +2,7 @@ import React from 'react';
 
 const SuggestionFooter = () => {
   return (
-    <div className="w-full bg-blue-50 border-t-2 border-blue-200 py-4 px-4 mt-8">
+    <div className="w-full bg-blue-50 border-t-2 border-blue-200 py-4 px-4 fixed bottom-0 left-0 z-50">
       <div className="max-w-4xl mx-auto">
         <p className="text-sm text-gray-700 text-center">
           Si tienes alguna sugerencia, duda, o has detectado algún error, escríbenos a{' '}
