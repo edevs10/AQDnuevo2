@@ -9,18 +9,16 @@ const ConsentPage = () => {
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
 
-  const handleSubmit = async () => {
+const handleSubmit = () => {
     if (!birthYear) return;
-    
-    const sessionId = await createSession(parseInt(birthYear), true);
-    
-    if (sessionId) {
-      setAnswer('birth_year', birthYear);
-      setAnswer('consent_given', true);
-      navigate('/question/declaration-type');
-    } else {
-      alert('Error al crear la sesión. Por favor, inténtalo de nuevo.');
-    }
+
+    setAnswer('birth_year', birthYear);
+    setAnswer('consent_given', true);
+    navigate('/question/declaration-type');
+
+    createSession(parseInt(birthYear), true).catch(error => {
+      console.error('Error al crear la sesión en segundo plano:', error);
+    });
   };
 
   const currentYear = new Date().getFullYear();
