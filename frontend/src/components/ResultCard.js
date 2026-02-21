@@ -107,7 +107,7 @@ const ResultCard = ({
 
   const handleShareWhatsApp = () => {
     const shareText = getShareText();
-    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
     window.open(whatsappUrl, '_blank');
   };
 
