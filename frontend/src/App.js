@@ -103,6 +103,14 @@ import SuggestionFooter from "./components/SuggestionFooter";
 function App() {
   return (
     <div className="App">
+      {/* Logo fijo global - esquina superior izquierda */}
+      <div style={{ position: 'fixed', top: 0, left: 0, zIndex: 9999 }}>
+        <img
+          src="/logo.png"
+          alt="AQD Logo"
+          style={{ height: '6rem', width: 'auto' }}
+        />
+      </div>
       <FlowProvider>
         <BrowserRouter>
           <Routes>
