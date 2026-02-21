@@ -1,7 +1,18 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { FlowProvider } from "./context/FlowContext";
+
+// Componente que muestra el logo pequeño en todas las páginas menos la home
+const GlobalLogo = () => {
+  const location = useLocation();
+  if (location.pathname === '/') return null;
+  return (
+    <div style={{ position: 'fixed', top: 8, left: 8, zIndex: 9999 }}>
+      <img src="/logo.png" alt="AQD Logo" style={{ height: '48px', width: 'auto' }} />
+    </div>
+  );
+};
 
 // Importar páginas
 import Home from "./pages/Home";
@@ -105,6 +116,7 @@ function App() {
     <div className="App">
       <FlowProvider>
         <BrowserRouter>
+          <GlobalLogo />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/before-start" element={<BeforeStartPage />} />
