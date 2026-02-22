@@ -3,6 +3,11 @@ import React, { useState } from 'react';
 const DonationBanner = () => {
   const [dismissed, setDismissed] = useState(false);
   if (dismissed) return null;
+
+  const goToKofi = () => {
+    window.open('https://ko-fi.com/edevs10', '_blank');
+  };
+
   return (
     <div style={{
       background: 'white',
@@ -20,40 +25,39 @@ const DonationBanner = () => {
       <p style={{ fontSize: '0.8rem', color: '#475569', margin: '0 0 16px' }}>
         La app es gratuita y sin ánimo de lucro. Si quieres apoyar el proyecto, puedes hacer una pequeña donación.
       </p>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        
-          href="https://ko-fi.com/edevs10"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '6px',
-            padding: '10px 24px',
-            borderRadius: '8px',
-            background: '#FF5E5B',
-            color: 'white',
-            fontSize: '0.85rem',
-            fontWeight: 600,
-            textDecoration: 'none',
-          }}
-        >
-          ☕ Invítame a un café
-        </a>
-      </div>
       <button
-        onClick={() => setDismissed(true)}
+        onClick={goToKofi}
         style={{
-          marginTop: '12px',
-          background: 'none',
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '6px',
+          padding: '10px 24px',
+          borderRadius: '8px',
+          background: '#FF5E5B',
+          color: 'white',
+          fontSize: '0.85rem',
+          fontWeight: 600,
           border: 'none',
-          fontSize: '0.75rem',
-          color: '#94A3B8',
           cursor: 'pointer',
         }}
       >
-        No, gracias
+        ☕ Invítame a un café
       </button>
+      <div>
+        <button
+          onClick={() => setDismissed(true)}
+          style={{
+            marginTop: '12px',
+            background: 'none',
+            border: 'none',
+            fontSize: '0.75rem',
+            color: '#94A3B8',
+            cursor: 'pointer',
+          }}
+        >
+          No, gracias
+        </button>
+      </div>
     </div>
   );
 };
