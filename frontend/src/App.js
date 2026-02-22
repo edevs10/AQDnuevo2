@@ -17,7 +17,7 @@ const GlobalLogo = () => {
 const ProtectedRoute = ({ element }) => {
   const termsAccepted = localStorage.getItem('terms_accepted') === 'true';
   const adConsent = localStorage.getItem('ad_consent') !== null;
-  if (!termsAccepted || !adConsent) return <Navigate to="/terms" replace />;
+if (!termsAccepted || !adConsent) return <Navigate to="/ad-consent" replace />;
   return element;
 };
 // Importar páginas
