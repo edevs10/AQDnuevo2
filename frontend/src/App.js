@@ -23,7 +23,7 @@ if (!termsAccepted || !adConsent) return <Navigate to="/ad-consent" replace />;
 // Importar páginas
 import Home from "./pages/Home";
 import BeforeStartPage from "./pages/BeforeStartPage";
-import TermsConsentPage from "./pages/TermsConsentPage";
+
 import AdConsentPage from "./pages/AdConsentPage";
 import ConsentPage from "./pages/ConsentPage";
 import QuestionDeclarationType from "./pages/QuestionDeclarationType";
