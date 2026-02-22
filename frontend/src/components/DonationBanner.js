@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 
 const DonationBanner = () => {
   const [dismissed, setDismissed] = useState(false);
-
   if (dismissed) return null;
-
   return (
     <div style={{
       background: 'white',
@@ -24,33 +22,19 @@ const DonationBanner = () => {
       </p>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap' }}>
         
-          href="https://www.paypal.com/donate/?hosted_button_id=TU_ID_PAYPAL"
+          href="https://ko-fi.com/edevs10"
           target="_blank"
           rel="noopener noreferrer"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: '6px',
-            padding: '10px 20px', borderRadius: '8px',
-            background: '#0070BA', color: 'white',
+            padding: '10px 24px', borderRadius: '8px',
+            background: '#FF5E5B', color: 'white',
             fontSize: '0.85rem', fontWeight: 600,
             textDecoration: 'none',
           }}
         >
-          PayPal
+          ☕ Invítame a un café
         </a>
-        
-         href="https://ko-fi.com/edevs10"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    display: 'inline-flex', alignItems: 'center', gap: '6px',
-    padding: '10px 24px', borderRadius: '8px',
-    background: '#FF5E5B', color: 'white',
-    fontSize: '0.85rem', fontWeight: 600,
-    textDecoration: 'none',
-  }}
->
-  ☕ Invítame a un café
-</a>
       </div>
       <button
         onClick={() => setDismissed(true)}
