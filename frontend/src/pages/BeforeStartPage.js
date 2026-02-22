@@ -5,7 +5,7 @@ const BeforeStartPage = () => {
   const navigate = useNavigate();
 
   const handleContinue = () => {
-    navigate('/terms');
+    navigate('/ad-consent');
   };
 
   return (
