@@ -3,180 +3,200 @@ import { useNavigate } from 'react-router-dom';
 
 const AdConsentPage = () => {
   const navigate = useNavigate();
-  const [showMoreInfo, setShowMoreInfo] = useState(false);
-  const [showPartners, setShowPartners] = useState(false);
-  const [showDetailedOptions, setShowDetailedOptions] = useState(false);
+  const [adsChecked, setAdsChecked] = useState(false);
+  const [profilesChecked, setProfilesChecked] = useState(false);
+  const [thirdPartyChecked, setThirdPartyChecked] = useState(false);
+  const showDependencyNote = thirdPartyChecked && !profilesChecked;
 
   useEffect(() => {
-    // Verificar si ya eligió preferencia de anuncios
     const adPreference = localStorage.getItem('ad_consent');
-    if (adPreference !== null) {
-      navigate('/consent');
-    }
-    
-    // Verificar que haya aceptado términos primero
+    if (adPreference !== null) navigate('/consent');
     const hasAcceptedTerms = localStorage.getItem('terms_accepted');
-    if (hasAcceptedTerms !== 'true') {
-      navigate('/terms');
-    }
+    if (hasAcceptedTerms !== 'true') navigate('/terms');
   }, [navigate]);
 
-  const handlePersonalizedAds = () => {
-    localStorage.setItem('ad_consent', 'personalized');
+  const handleContinue = () => {
+    const effectiveThirdParty = thirdPartyChecked && profilesChecked;
+    localStorage.setItem('ad_consent', adsChecked ? 'personalized' : 'basic');
     localStorage.setItem('ad_consent_timestamp', Date.now().toString());
+    localStorage.setItem('commercial_profiles', profilesChecked ? 'true' : 'false');
+    localStorage.setItem('third_party_sharing', effectiveThirdParty ? 'true' : 'false');
+    localStorage.setItem('consent_version', '2.0');
+    localStorage.setItem('consent_timestamp', new Date().toISOString());
     navigate('/consent');
   };
 
-  const handleBasicAds = () => {
-    localStorage.setItem('ad_consent', 'basic');
-    localStorage.setItem('ad_consent_timestamp', Date.now().toString());
-    navigate('/consent');
-  };
-
-  const googlePartners = [
-    'Google Ads', 'Google Analytics', 'AdMob', 'Firebase', 
-    'DoubleClick', 'Google Marketing Platform'
-  ];
+  const handleExit = () => navigate('/');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-lg">
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-          {/* Header */}
-          <div className="text-center mb-6">
-            <span className="text-4xl mb-2 block">💰</span>
-            <h1 className="text-2xl font-bold text-gray-800">Mantengamos AQD gratis</h1>
-          </div>
+    <div style={{
+      fontFamily: "'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+      background: '#EEF4F8',
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '12px 16px',
+      lineHeight: '1.5',
+    }}>
+      <div style={{
+        background: '#FFFFFF',
+        borderRadius: '14px',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.05), 0 20px 48px rgba(0,0,0,0.08)',
+        maxWidth: '720px',
+        width: '100%',
+        overflow: 'hidden',
+      }}>
 
-          {/* Descripción */}
-          <p className="text-gray-700 text-center mb-6">
-            Esta app es gratuita gracias a la publicidad. Elige cómo quieres verla:
-          </p>
-
-          <hr className="border-gray-200 my-6" />
-
-          {/* Opción 1: Anuncios personalizados */}
-          <div className="mb-4 p-4 bg-blue-50 rounded-lg border-2 border-blue-200">
-            <h2 className="text-lg font-semibold text-gray-800 flex items-center mb-3">
-              <span className="mr-2">🎯</span> Opción 1: Anuncios personalizados
-            </h2>
-            <ul className="space-y-1 text-sm text-gray-700">
-              <li className="flex items-start"><span className="mr-2 text-green-600">✓</span> Anuncios más relevantes para ti</li>
-              <li className="flex items-start"><span className="mr-2 text-green-600">✓</span> Ayudas más a mantener la app</li>
-              <li className="flex items-start"><span className="mr-2 text-amber-600">⚠</span> Google y sus socios crearán perfiles sobre tus intereses y navegación</li>
-            </ul>
-          </div>
-
-          {/* Opción 2: Anuncios básicos */}
-          <div className="mb-6 p-4 bg-gray-50 rounded-lg border-2 border-gray-200">
-            <h2 className="text-lg font-semibold text-gray-800 flex items-center mb-3">
-              <span className="mr-2">📢</span> Opción 2: Anuncios básicos
-            </h2>
-            <ul className="space-y-1 text-sm text-gray-700">
-              <li className="flex items-start"><span className="mr-2 text-green-600">✓</span> Sin perfiles ni seguimiento</li>
-              <li className="flex items-start"><span className="mr-2 text-green-600">✓</span> Más privacidad</li>
-              <li className="flex items-start"><span className="mr-2 text-amber-600">⚠</span> Anuncios menos relevantes</li>
-            </ul>
-          </div>
-
-          {/* Nota */}
-          <p className="text-xs text-gray-500 text-center mb-4">
-            Puedes cambiar tu elección en Ajustes {'>'} Privacidad en cualquier momento.
-          </p>
-
-          {/* Links informativos */}
-          <div className="flex flex-col space-y-2 mb-6">
-            <button
-              onClick={() => setShowMoreInfo(!showMoreInfo)}
-              className="text-blue-600 font-medium hover:text-blue-700 text-left flex items-center text-sm"
-              data-testid="more-info-toggle"
-            >
-              <span className="mr-2">ℹ️</span> {showMoreInfo ? 'Ocultar' : 'Más'} información
-            </button>
-            
-            {showMoreInfo && (
-              <div className="mt-2 p-4 bg-gray-50 rounded-lg text-xs text-gray-600">
-                <p className="mb-2">Los anuncios personalizados utilizan datos como tu actividad de navegación, ubicación aproximada y datos demográficos para mostrarte anuncios más relevantes.</p>
-                <p>Los anuncios básicos son genéricos y no se basan en tu perfil personal, solo en el contexto de la app.</p>
-              </div>
-            )}
-
-            <button
-              onClick={() => setShowPartners(!showPartners)}
-              className="text-blue-600 font-medium hover:text-blue-700 text-left flex items-center text-sm"
-              data-testid="partners-toggle"
-            >
-              <span className="mr-2">👥</span> {showPartners ? 'Ocultar' : 'Ver'} socios publicitarios
-            </button>
-            
-            {showPartners && (
-              <div className="mt-2 p-4 bg-gray-50 rounded-lg text-xs text-gray-600">
-                <p className="font-semibold mb-2">Socios publicitarios de Google:</p>
-                <ul className="grid grid-cols-2 gap-1">
-                  {googlePartners.map((partner, index) => (
-                    <li key={index}>• {partner}</li>
-                  ))}
-                </ul>
-                <p className="mt-2 text-gray-500">Para la lista completa, visita: <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">políticas de Google</a></p>
-              </div>
-            )}
-          </div>
-
-          {/* Botones de acción */}
-          <div className="space-y-3">
-            <button
-              onClick={handlePersonalizedAds}
-              className="w-full px-6 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center"
-              data-testid="personalized-ads-btn"
-            >
-              <span className="mr-2">🎯</span> Acepto anuncios personalizados
-            </button>
-            
-            <button
-              onClick={handleBasicAds}
-              className="w-full px-6 py-3 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-colors duration-200 flex items-center justify-center"
-              data-testid="basic-ads-btn"
-            >
-              <span className="mr-2">📢</span> Solo anuncios básicos
-            </button>
-
-            <button
-              onClick={() => setShowDetailedOptions(!showDetailedOptions)}
-              className="w-full px-6 py-2 text-gray-500 font-medium hover:text-gray-700 transition-colors duration-200 flex items-center justify-center text-sm"
-              data-testid="detailed-options-toggle"
-            >
-              <span className="mr-2">⚙️</span> Gestionar opciones detalladas
-            </button>
-
-            {showDetailedOptions && (
-              <div className="mt-2 p-4 bg-amber-50 rounded-lg border border-amber-200">
-                <p className="text-sm text-gray-700 mb-3">Opciones detalladas de privacidad:</p>
-                <div className="space-y-2">
-                  <label className="flex items-center text-sm">
-                    <input type="checkbox" className="mr-2" defaultChecked />
-                    Almacenamiento de información en el dispositivo
-                  </label>
-                  <label className="flex items-center text-sm">
-                    <input type="checkbox" className="mr-2" />
-                    Anuncios personalizados
-                  </label>
-                  <label className="flex items-center text-sm">
-                    <input type="checkbox" className="mr-2" />
-                    Contenido personalizado
-                  </label>
-                  <label className="flex items-center text-sm">
-                    <input type="checkbox" className="mr-2" defaultChecked />
-                    Medición de anuncios y contenido
-                  </label>
-                </div>
-                <p className="text-xs text-gray-500 mt-3">Nota: Esta configuración granular estará disponible a través del SDK de Google UMP en la versión móvil.</p>
-              </div>
-            )}
-          </div>
+        {/* Header */}
+        <div style={{ textAlign: 'center', padding: '16px 28px 0' }}>
+          <div style={{ fontSize: '1.6rem', marginBottom: '4px' }}>👋</div>
+          <h1 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#1E293B', margin: 0 }}>Bienvenido a AQD</h1>
+          <p style={{ fontSize: '0.82rem', color: '#2563EB', fontWeight: 500, marginTop: '2px' }}>¿Algo Que Declarar?</p>
         </div>
+
+        {/* Body - two columns */}
+        <div style={{ padding: '14px 24px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+
+          {/* Left column */}
+          <div>
+            <p style={{ fontSize: '0.72rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#94A3B8', marginBottom: '8px' }}>
+              Resumen de términos
+            </p>
+            <div style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', borderRadius: '10px', padding: '12px 14px', marginBottom: '14px' }}>
+              <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+                {[
+                  'Herramienta informativa, no asesoramiento fiscal',
+                  'Eres responsable de la veracidad de tus respuestas',
+                  'Verifica los resultados con un profesional ante dudas',
+                  'No nos responsabilizamos de decisiones tomadas con la app',
+                  'Podremos modificar el servicio o los términos',
+                ].map((item, i) => (
+                  <li key={i} style={{ fontSize: '0.78rem', color: '#475569', padding: '2px 0 2px 16px', position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, top: '9px', width: '5px', height: '5px', borderRadius: '50%', background: '#2563EB', opacity: 0.5, display: 'inline-block' }} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <p style={{ fontSize: '0.72rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#94A3B8', marginBottom: '8px' }}>
+              Datos que usamos
+            </p>
+            <div style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', borderRadius: '10px', padding: '12px 14px' }}>
+              <p style={{ fontSize: '0.78rem', color: '#475569', lineHeight: '1.55', margin: 0 }}>
+                Tratamos tu edad e información económica y familiar para determinar tu obligación de declarar IRPF. Tus datos pueden usarse de forma anónima para estadísticas. La app se financia con publicidad.
+              </p>
+            </div>
+          </div>
+
+          {/* Right column */}
+          <div>
+            <p style={{ fontSize: '0.72rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#94A3B8', marginBottom: '8px' }}>
+              Consentimientos opcionales
+            </p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <ConsentOption
+                checked={adsChecked}
+                onChange={setAdsChecked}
+                title="Publicidad personalizada"
+                description="Google y sus socios crean perfiles para mostrarte anuncios relevantes. Si no aceptas, verás anuncios genéricos."
+              />
+              <ConsentOption
+                checked={profilesChecked}
+                onChange={setProfilesChecked}
+                title="Perfiles comerciales"
+                description="AQD elabora perfiles basados en tus datos económicos y fiscales (sin identificarte) para publicidad y estudios de mercado."
+              />
+              <ConsentOption
+                checked={thirdPartyChecked}
+                onChange={setThirdPartyChecked}
+                title="Cesión a terceros"
+                description="AQD puede ceder o vender los perfiles a empresas del sector financiero, publicidad y análisis de datos, sin incluir datos que te identifiquen."
+              />
+            </div>
+
+            {showDependencyNote && (
+              <div style={{ background: '#FFFBEB', border: '1px solid #FDE68A', borderRadius: '8px', padding: '8px 12px', fontSize: '0.72rem', color: '#92400E', lineHeight: '1.45', marginTop: '8px', display: 'flex', gap: '6px' }}>
+                <span style={{ flexShrink: 0 }}>ℹ️</span>
+                <span>La cesión a terceros solo es efectiva si también aceptas la creación de perfiles.</span>
+              </div>
+            )}
+          </div>
+
+        </div>
+
+        {/* Actions */}
+        <div style={{ padding: '0 24px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '4px' }}>
+            <button onClick={() => navigate('/terms')} style={{ fontSize: '0.78rem', color: '#2563EB', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 500 }}>
+              Ver Términos
+            </button>
+            <button onClick={() => navigate('/terms')} style={{ fontSize: '0.78rem', color: '#2563EB', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 500 }}>
+              Ver Política
+            </button>
+          </div>
+          <button
+            onClick={handleContinue}
+            style={{ width: '100%', maxWidth: '360px', padding: '13px', border: 'none', borderRadius: '10px', fontSize: '0.92rem', fontWeight: 600, cursor: 'pointer', background: '#2563EB', color: 'white' }}
+          >
+            ✓ Acepto y continuar
+          </button>
+          <button
+            onClick={handleExit}
+            style={{ padding: '6px 12px', border: 'none', background: 'transparent', fontSize: '0.8rem', color: '#94A3B8', cursor: 'pointer' }}
+          >
+            Salir de la app
+          </button>
+          <p style={{ textAlign: 'center', fontSize: '0.7rem', color: '#94A3B8', lineHeight: '1.4', margin: 0 }}>
+            Puedes cambiar estas preferencias en cualquier momento contactando con e.goidevs@gmail.com
+          </p>
+        </div>
+
       </div>
     </div>
   );
 };
+
+const ConsentOption = ({ checked, onChange, title, description }) => (
+  <div
+    onClick={() => onChange(!checked)}
+    style={{
+      border: `1.5px solid ${checked ? '#2563EB' : '#E2E8F0'}`,
+      borderRadius: '10px',
+      padding: '10px 12px',
+      cursor: 'pointer',
+      background: checked ? '#EFF6FF' : 'white',
+      transition: 'all 0.2s ease',
+    }}
+  >
+    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+      <div style={{
+        width: '20px', height: '20px', minWidth: '20px',
+        border: `2px solid ${checked ? '#2563EB' : '#CBD5E1'}`,
+        borderRadius: '6px',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        background: checked ? '#2563EB' : 'white',
+        marginTop: '1px',
+        transition: 'all 0.2s ease',
+        flexShrink: 0,
+      }}>
+        {checked && (
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        )}
+      </div>
+      <div>
+        <h3 style={{ fontSize: '0.82rem', fontWeight: 600, color: '#1E293B', lineHeight: '1.3', margin: 0 }}>{title}</h3>
+        <p style={{ fontSize: '0.74rem', color: '#475569', marginTop: '3px', lineHeight: '1.45', margin: '3px 0 4px' }}>{description}</p>
+        <span style={{ display: 'inline-block', fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', padding: '1px 6px', borderRadius: '4px', background: '#ECFDF5', color: '#10B981', border: '1px solid #A7F3D0' }}>
+          Opcional
+        </span>
+      </div>
+    </div>
+  </div>
+);
 
 export default AdConsentPage;
