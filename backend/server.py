@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, HTTPException, Request
+from fastapi import FastAPI, APIRouter, HTTPException, Request, Header
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
@@ -11,6 +11,7 @@ from pathlib import Path
 from pydantic import BaseModel, Field, validator
 from typing import List, Optional, Dict, Any
 import uuid
+import secrets
 from datetime import datetime
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi import Depends, Security
@@ -36,10 +37,10 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 app.add_middleware(
     CORSMiddleware,
-   allow_origins=os.environ.get('CORS_ORIGINS', 'http://localhost:3000').split(','),
+    allow_origins=os.environ.get('CORS_ORIGINS', 'http://localhost:3000').split(','),
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT"],
+    allow_headers=["Content-Type", "Authorization", "X-Session-Token"],
 )
 
 # Create a router with the /api prefix
@@ -57,6 +58,7 @@ class StatusCheckCreate(BaseModel):
 
 class UserSession(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    session_token: str = Field(default_factory=lambda: secrets.token_urlsafe(32))
     birth_year: int
     consent_given: bool
     answers: Dict[str, Any] = Field(default_factory=dict)
@@ -116,7 +118,10 @@ async def create_user_session(request: Request, input: UserSessionCreate):
     return session_obj
 
 @api_router.put("/user-session/{session_id}", response_model=UserSession)
-async def update_user_session(session_id: str, update_data: UserSessionUpdate):
+async def update_user_session(session_id: str, update_data: UserSessionUpdate, x_session_token: str = Header(...)):
+    session = await db.user_sessions.find_one({"id": session_id})
+    if not session or session.get("session_token") != x_session_token:
+        raise HTTPException(status_code=403, detail="No autorizado")
     update_dict = {k: v for k, v in update_data.dict().items() if v is not None}
     update_dict['updated_at'] = datetime.utcnow()
     
