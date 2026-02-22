@@ -1,5 +1,6 @@
 import React from 'react';
 import ResultCard from '../../components/ResultCard';
+import DonationBanner from '../../components/DonationBanner';
 
 const BizkaiaObligated = () => {
   const today = new Date();
@@ -8,7 +9,6 @@ const BizkaiaObligated = () => {
     month: '2-digit',
     year: 'numeric'
   });
-
   return (
     <ResultCard
       title="Tienes algo que declarar"
@@ -23,16 +23,19 @@ const BizkaiaObligated = () => {
         </>
       }
       additionalContent={
-        <div className="bg-blue-50 border-l-4 border-blue-300 p-5 rounded-r-lg text-left">
-          <p className="text-blue-700 font-semibold mb-3 text-lg">ℹ️ Información adicional</p>
-          <p className="text-gray-700 mb-3">
-            <strong>Organismo:</strong> Hacienda Foral de Bizkaia
-          </p>
-          <p className="text-gray-700 font-medium mb-2">Recomendaciones:</p>
-          <ul className="text-gray-700 list-disc list-inside space-y-1">
-            <li>Reúne toda la documentación necesaria</li>
-            <li>Consulta la web oficial de Hacienda Foral de Bizkaia para información específica</li>
-          </ul>
+        <div>
+          <div className="bg-blue-50 border-l-4 border-blue-300 p-5 rounded-r-lg text-left">
+            <p className="text-blue-700 font-semibold mb-3 text-lg">ℹ️ Información adicional</p>
+            <p className="text-gray-700 mb-3">
+              <strong>Organismo:</strong> Hacienda Foral de Bizkaia
+            </p>
+            <p className="text-gray-700 font-medium mb-2">Recomendaciones:</p>
+            <ul className="text-gray-700 list-disc list-inside space-y-1">
+              <li>Reúne toda la documentación necesaria</li>
+              <li>Consulta la web oficial de Hacienda Foral de Bizkaia para información específica</li>
+            </ul>
+          </div>
+          <DonationBanner />
         </div>
       }
       type="warning"
@@ -41,5 +44,4 @@ const BizkaiaObligated = () => {
     />
   );
 };
-
 export default BizkaiaObligated;
