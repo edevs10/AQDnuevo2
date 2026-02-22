@@ -20,7 +20,7 @@ const DonationBanner = () => {
       <p style={{ fontSize: '0.8rem', color: '#475569', margin: '0 0 16px' }}>
         La app es gratuita y sin ánimo de lucro. Si quieres apoyar el proyecto, puedes hacer una pequeña donación.
       </p>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
         
           href="https://ko-fi.com/edevs10"
           target="_blank"
