@@ -100,7 +100,7 @@ const handleSubmit = () => {
       </div>
 
       {/* Modal de Términos */}
-      {showTerms && (
+     {showTerms && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden">
             <div className="flex justify-between items-center p-4 border-b bg-gray-50">
@@ -109,144 +109,95 @@ const handleSubmit = () => {
             </div>
             <div className="p-6 overflow-y-auto max-h-[calc(90vh-80px)] text-sm text-gray-700 prose prose-sm">
               <p className="text-gray-500 mb-4"><strong>Última actualización:</strong> 02 de febrero de 2026</p>
-              
+
               <h3 className="font-bold text-gray-800 mt-4">1. Aceptación de los términos</h3>
-              <p>Al descargar, instalar o utilizar la aplicación AQD ("¿Algo Que Declarar?"), aceptas expresamente estos Términos de Uso y te comprometes a cumplirlos. Si no estás de acuerdo con estos términos, no utilices la aplicación.</p>
+              <p>Al descargar, instalar o utilizar la aplicación AQD ("¿Algo Que Declarar?"), en adelante "la Aplicación", aceptas expresamente estos Términos de Uso y te comprometes a cumplirlos en su totalidad. Si no estás de acuerdo con alguno de estos términos, no debes utilizar la Aplicación.</p>
+              <p className="mt-2">La Aplicación es un servicio de la sociedad de la información en los términos definidos por la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE).</p>
 
-              <h3 className="font-bold text-gray-800 mt-4">2. Descripción del servicio</h3>
+              <h3 className="font-bold text-gray-800 mt-4">2. Identificación del titular</h3>
+              <p>En cumplimiento del artículo 10 de la LSSI-CE, se informa al usuario que el responsable de la Aplicación es:</p>
+              <p className="mt-2"><strong>Email de contacto:</strong> e.goidevs@gmail.com</p>
+              <p className="mt-2">El titular pone a disposición del usuario este canal de comunicación para cualquier consulta, queja o ejercicio de derechos.</p>
+
+              <h3 className="font-bold text-gray-800 mt-4">3. Descripción del servicio</h3>
               <p>AQD es una herramienta informativa que te ayuda a determinar si tienes obligación de presentar la declaración del Impuesto sobre la Renta de las Personas Físicas (IRPF) en España, según las respuestas que proporciones.</p>
-              <p><strong>Importante:</strong> AQD es una herramienta orientativa y educativa, <strong>NO</strong> constituye asesoramiento fiscal profesional ni recomendaciones legales personalizadas.</p>
+              <p className="mt-2"><strong>AVISO IMPORTANTE:</strong> AQD es una herramienta orientativa y educativa. NO constituye asesoramiento fiscal profesional ni recomendaciones legales personalizadas. Los resultados ofrecidos no sustituyen la consulta con un profesional colegiado ni la verificación con la Agencia Tributaria.</p>
 
-              <h3 className="font-bold text-gray-800 mt-4">3. Naturaleza informativa del servicio</h3>
-              <h4 className="font-semibold text-gray-700 mt-2">3.1. Limitaciones del servicio</h4>
-              <p>AQD proporciona resultados basados en:</p>
-              <ul className="list-disc ml-4">
-                <li>Las respuestas que tú introduces</li>
-                <li>La normativa fiscal vigente en el momento de la última actualización</li>
-                <li>Casos generales y habituales</li>
-              </ul>
-              
-              <h4 className="font-semibold text-gray-700 mt-2">3.2. Lo que AQD NO hace</h4>
-              <ul className="list-disc ml-4">
-                <li>NO analiza tu situación fiscal personal completa</li>
-                <li>NO sustituye el asesoramiento de un profesional colegiado</li>
-                <li>NO te representa ante la Agencia Tributaria</li>
-                <li>NO garantiza que el resultado sea aplicable a tu caso específico</li>
-                <li>NO se responsabiliza de cambios normativos posteriores a la última actualización</li>
-              </ul>
+              <h3 className="font-bold text-gray-800 mt-4">3.1. Limitaciones del servicio</h3>
+              <p>AQD proporciona resultados basados en las respuestas que tú introduces, la normativa fiscal vigente en el momento de la última actualización y los supuestos generales y habituales recogidos en dicha normativa.</p>
+
+              <h3 className="font-bold text-gray-800 mt-4">3.2. Lo que AQD NO hace</h3>
+              <p>AQD no analiza tu situación fiscal personal completa, no sustituye el asesoramiento de un profesional colegiado, no te representa ante la Agencia Tributaria, no garantiza que el resultado sea aplicable a tu caso específico y no se responsabiliza de cambios normativos posteriores a la última actualización.</p>
 
               <h3 className="font-bold text-gray-800 mt-4">4. Responsabilidades del usuario</h3>
               <h4 className="font-semibold text-gray-700 mt-2">4.1. Veracidad de la información</h4>
-              <p>Eres el único responsable de:</p>
-              <ul className="list-disc ml-4">
-                <li>Proporcionar información veraz y completa</li>
-                <li>Interpretar correctamente las preguntas</li>
-                <li>Verificar los resultados con fuentes oficiales o profesionales</li>
-                <li>Tomar decisiones informadas sobre tu situación fiscal</li>
-              </ul>
-              
+              <p>Eres el único responsable de proporcionar información veraz y completa, interpretar correctamente las preguntas, verificar los resultados con fuentes oficiales o profesionales y tomar decisiones informadas sobre tu situación fiscal.</p>
+
               <h4 className="font-semibold text-gray-700 mt-2">4.2. Uso adecuado</h4>
-              <p>Te comprometes a:</p>
-              <ul className="list-disc ml-4">
-                <li>Usar la aplicación únicamente para fines informativos legales</li>
-                <li>NO usar la aplicación para fines fraudulentos o ilegales</li>
-                <li>NO intentar manipular o alterar el funcionamiento de la app</li>
-                <li>NO reproducir, distribuir o crear obras derivadas sin autorización</li>
+              <p>Te comprometes a usar la Aplicación únicamente para fines informativos legales, no utilizarla para fines fraudulentos o ilegales, no intentar manipular o alterar su funcionamiento y no reproducir, distribuir o crear obras derivadas sin autorización expresa.</p>
+
+              <h3 className="font-bold text-gray-800 mt-4">5. Creación de perfiles comerciales y cesión de datos a terceros</h3>
+              <p><strong>INFORMACIÓN ESENCIAL SOBRE EL TRATAMIENTO COMERCIAL DE TUS DATOS:</strong> Esta cláusula describe un tratamiento de datos que requiere tu consentimiento expreso, libre, específico e informado conforme al artículo 6.1.a) y 7 del RGPD. Este consentimiento se te solicitará de forma independiente y granular al utilizar la Aplicación, y puedes denegarlo sin que ello afecte al funcionamiento del servicio principal.</p>
+
+              <h4 className="font-semibold text-gray-700 mt-2">5.1. ¿Qué son los perfiles comerciales?</h4>
+              <p>Si otorgas tu consentimiento expreso, AQD podrá crear perfiles comerciales basados en los datos que proporciones durante el uso de la Aplicación. Estos perfiles consisten en la agrupación y análisis de tus datos económicos, fiscales y demográficos (sin incluir datos que permitan tu identificación directa, como nombre, DNI/NIE o dirección) para generar un perfil de intereses, hábitos y situación económica general.</p>
+
+              <h4 className="font-semibold text-gray-700 mt-2">5.2. ¿Para qué se utilizan estos perfiles?</h4>
+              <p>Los perfiles comerciales podrán utilizarse para: segmentación publicitaria avanzada, estudios de mercado e informes sectoriales sobre tendencias fiscales y económicas, desarrollo y mejora de productos y servicios propios o de terceros, y análisis estadísticos y de comportamiento de usuario con fines comerciales.</p>
+
+              <h4 className="font-semibold text-gray-700 mt-2">5.3. Cesión de perfiles a terceros</h4>
+              <p>Si otorgas tu consentimiento expreso, AQD podrá ceder, licenciar o vender los perfiles comerciales generados a terceros, incluyendo: empresas del sector financiero (bancos, aseguradoras, gestorías), empresas de publicidad y marketing digital, empresas de análisis de datos y estudios de mercado, y otras entidades comerciales que puedan tener interés legítimo en dicha información.</p>
+              <p className="mt-2">En todos los casos, los perfiles cedidos no contendrán datos que permitan tu identificación directa. Los perfiles se componen de datos seudonimizados o agregados.</p>
+
+              <h4 className="font-semibold text-gray-700 mt-2">5.4. Consentimiento explícito, libre e informado</h4>
+              <p>De conformidad con los artículos 6.1.a), 7 y 13 del RGPD y el artículo 6 de la LOPDGDD:</p>
+              <ul className="list-disc ml-4 mt-2">
+                <li><strong>Consentimiento granular:</strong> Se te solicitará un consentimiento separado e independiente para la creación de perfiles comerciales y para la cesión de dichos perfiles a terceros, mediante casillas de verificación individuales no premarcadas.</li>
+                <li><strong>Consentimiento libre:</strong> Podrás utilizar plenamente la funcionalidad principal de la Aplicación sin necesidad de aceptar la creación de perfiles ni la cesión de datos a terceros.</li>
+                <li><strong>Consentimiento informado:</strong> Antes de solicitar tu consentimiento, se te informará de forma clara sobre qué datos se utilizarán, con qué finalidad, a qué categorías de terceros podrán cederse, durante cuánto tiempo se conservarán y cómo puedes revocar tu consentimiento.</li>
+                <li><strong>Consentimiento revocable:</strong> Podrás revocar cualquiera de estos consentimientos en cualquier momento contactando a e.goidevs@gmail.com.</li>
+                <li><strong>Registro del consentimiento:</strong> Se conservará un registro técnico de tu consentimiento como prueba de su validez conforme al artículo 7.1 del RGPD.</li>
               </ul>
 
-              <h3 className="font-bold text-gray-800 mt-4">5. Limitación de responsabilidad</h3>
-              <h4 className="font-semibold text-gray-700 mt-2">5.1. Exclusión de garantías</h4>
-              <p>El titular de AQD NO garantiza que:</p>
-              <ul className="list-disc ml-4">
-                <li>La aplicación esté libre de errores o interrupciones</li>
-                <li>Los resultados sean precisos, completos o aplicables a tu caso</li>
-                <li>El servicio esté disponible en todo momento</li>
-                <li>La normativa reflejada esté actualizada en tiempo real</li>
-              </ul>
-              
-              <h4 className="font-semibold text-gray-700 mt-2">5.2. Exclusión de responsabilidad por daños</h4>
-              <p>En la máxima medida permitida por la ley, el titular de AQD NO se hace responsable de:</p>
-              <ul className="list-disc ml-4">
-                <li><strong>Errores en los cálculos</strong> derivados de respuestas incorrectas o incompletas</li>
-                <li><strong>Decisiones fiscales</strong> tomadas basándose únicamente en los resultados de la app</li>
-                <li><strong>Sanciones, multas o recargos</strong> de la Agencia Tributaria</li>
-                <li><strong>Cambios normativos</strong> no reflejados en la app</li>
-                <li><strong>Interpretaciones erróneas</strong> de las preguntas o resultados</li>
-                <li><strong>Pérdidas económicas</strong> directas o indirectas derivadas del uso de la app</li>
-                <li><strong>Daños a tu dispositivo</strong> o pérdida de datos</li>
-              </ul>
-              
-              <h4 className="font-semibold text-gray-700 mt-2">5.3. Recomendación profesional</h4>
-              <p><strong>SIEMPRE</strong> recomendamos que consultes con un asesor fiscal profesional colegiado o acudas directamente a la Agencia Tributaria antes de tomar cualquier decisión relevante sobre tu declaración de IRPF, especialmente en situaciones complejas o ante dudas.</p>
+              <h4 className="font-semibold text-gray-700 mt-2">5.5. Tus derechos sobre los perfiles</h4>
+              <p>Conservas en todo momento los derechos reconocidos en los artículos 15 a 22 del RGPD: acceso, rectificación, supresión, limitación, oposición y portabilidad. Puedes ejercerlos enviando un email a e.goidevs@gmail.com.</p>
 
-              <h3 className="font-bold text-gray-800 mt-4">6. Propiedad intelectual</h3>
-              <h4 className="font-semibold text-gray-700 mt-2">6.1. Derechos de autor</h4>
-              <p>Todos los contenidos de AQD, incluyendo pero no limitándose a: código fuente, diseño y gráficos, textos y preguntas, lógica de cálculo, marca y logotipo, son propiedad exclusiva del titular y están protegidos por las leyes de propiedad intelectual españolas e internacionales.</p>
-              
-              <h4 className="font-semibold text-gray-700 mt-2">6.2. Licencia de uso</h4>
-              <p>Se te concede una licencia personal, no exclusiva, no transferible y revocable para usar AQD únicamente para tus propios fines informativos.</p>
-              
-              <h4 className="font-semibold text-gray-700 mt-2">6.3. Prohibiciones</h4>
-              <p>Queda expresamente prohibido:</p>
-              <ul className="list-disc ml-4">
-                <li>Copiar, modificar o crear obras derivadas del código o contenido</li>
-                <li>Realizar ingeniería inversa de la aplicación</li>
-                <li>Extraer o recopilar información mediante técnicas automatizadas</li>
-                <li>Usar la app para crear productos o servicios competidores</li>
-              </ul>
+              <h3 className="font-bold text-gray-800 mt-4">6. Limitación de responsabilidad</h3>
+              <h4 className="font-semibold text-gray-700 mt-2">6.1. Exclusión de garantías</h4>
+              <p>El titular de AQD no garantiza que la Aplicación esté libre de errores, que los resultados sean precisos o aplicables a tu caso, ni que la normativa reflejada esté actualizada en tiempo real.</p>
 
-              <h3 className="font-bold text-gray-800 mt-4">7. Privacidad y protección de datos</h3>
-              <p>El tratamiento de tus datos personales se rige por nuestra <strong>Política de Privacidad</strong>, que debes leer y aceptar para usar la aplicación.</p>
+              <h4 className="font-semibold text-gray-700 mt-2">6.2. Exclusión de responsabilidad por daños</h4>
+              <p>En la máxima medida permitida por la ley, el titular no se hace responsable de errores en los cálculos, decisiones fiscales tomadas basándose en los resultados, sanciones de la Agencia Tributaria, ni pérdidas económicas derivadas del uso de la Aplicación.</p>
 
-              <h3 className="font-bold text-gray-800 mt-4">8. Modificaciones del servicio</h3>
-              <h4 className="font-semibold text-gray-700 mt-2">8.1. Actualizaciones</h4>
-              <p>Nos reservamos el derecho de modificar, actualizar o mejorar la aplicación en cualquier momento, añadir o eliminar funcionalidades, y actualizar estos Términos de Uso.</p>
-              
-              <h4 className="font-semibold text-gray-700 mt-2">8.2. Notificación de cambios</h4>
-              <p>Los cambios relevantes en estos términos se notificarán mediante aviso dentro de la aplicación y actualizando la fecha de "última actualización". El uso continuado de la app tras las modificaciones implica la aceptación de los nuevos términos.</p>
+              <h4 className="font-semibold text-gray-700 mt-2">6.3. Recomendación profesional</h4>
+              <p>SIEMPRE recomendamos consultar con un asesor fiscal profesional colegiado o acudir directamente a la Agencia Tributaria antes de tomar cualquier decisión relevante sobre tu declaración de IRPF.</p>
 
-              <h3 className="font-bold text-gray-800 mt-4">9. Suspensión y terminación</h3>
-              <h4 className="font-semibold text-gray-700 mt-2">9.1. Por tu parte</h4>
-              <p>Puedes dejar de usar AQD en cualquier momento desinstalando la aplicación o eliminando tus datos desde los ajustes.</p>
-              
-              <h4 className="font-semibold text-gray-700 mt-2">9.2. Por nuestra parte</h4>
-              <p>Nos reservamos el derecho de suspender o terminar tu acceso a AQD si detectamos uso fraudulento o abusivo, incumples estos Términos de Uso, es necesario por razones legales o de seguridad, o decidimos discontinuar el servicio.</p>
-              
-              <h4 className="font-semibold text-gray-700 mt-2">9.3. Sin preaviso</h4>
-              <p>La suspensión puede ser inmediata y sin previo aviso en casos de uso abusivo grave.</p>
+              <h3 className="font-bold text-gray-800 mt-4">7. Propiedad intelectual</h3>
+              <p>Todos los contenidos de AQD (código fuente, diseño, textos, lógica de cálculo, marca y logotipo) son propiedad exclusiva del titular y están protegidos por las leyes de propiedad intelectual españolas e internacionales.</p>
+              <p className="mt-2">Queda expresamente prohibido copiar, modificar, realizar ingeniería inversa o usar la Aplicación para crear productos o servicios competidores.</p>
 
-              <h3 className="font-bold text-gray-800 mt-4">10. Disponibilidad del servicio</h3>
-              <p>No garantizamos que AQD esté disponible de forma ininterrumpida. Podemos realizar mantenimientos programados o urgentes, experimentar interrupciones técnicas, o suspender temporalmente el servicio. No se otorgará compensación alguna por interrupciones del servicio, dado que la app es gratuita.</p>
+              <h3 className="font-bold text-gray-800 mt-4">8. Privacidad y protección de datos</h3>
+              <p>El tratamiento de tus datos personales se rige por nuestra Política de Privacidad, que constituye un documento separado y complementario a estos Términos de Uso.</p>
 
-              <h3 className="font-bold text-gray-800 mt-4">11. Publicidad</h3>
-              <p>AQD se financia mediante publicidad. Al usar la app: aceptas que se muestren anuncios, entiendes que no podemos controlar el contenido exacto de todos los anuncios, y reconoces que la interacción con anuncios es bajo tu propia responsabilidad. La gestión de la publicidad personalizada se rige por tu elección en el consentimiento de privacidad.</p>
+              <h3 className="font-bold text-gray-800 mt-4">9. Publicidad</h3>
+              <p>AQD se financia mediante publicidad. Al usar la Aplicación aceptas que se muestren anuncios (personalizados o no, según tu elección de consentimiento). La gestión de la publicidad personalizada se rige por tu elección en el consentimiento de privacidad.</p>
 
-              <h3 className="font-bold text-gray-800 mt-4">12. Enlaces a terceros</h3>
-              <p>AQD puede contener enlaces a sitios web o servicios de terceros (ej: Agencia Tributaria, asesores fiscales). <strong>No nos responsabilizamos de:</strong> el contenido de sitios de terceros, las políticas de privacidad de terceros, ni los servicios o productos ofrecidos por terceros.</p>
+              <h3 className="font-bold text-gray-800 mt-4">10. Modificaciones del servicio y de los términos</h3>
+              <p>Nos reservamos el derecho de modificar la Aplicación y estos Términos de Uso. Los cambios relevantes se notificarán mediante aviso dentro de la Aplicación. Si los cambios afectan a tratamientos de datos que requieran consentimiento, se te solicitará un nuevo consentimiento expreso.</p>
 
-              <h3 className="font-bold text-gray-800 mt-4">13. Indemnización</h3>
-              <p>Aceptas mantener indemne al titular de AQD, sus empleados y colaboradores frente a cualquier reclamación, pérdida, daño, coste o gasto (incluyendo honorarios legales) derivados de: tu uso de la aplicación, tu incumplimiento de estos términos, tu violación de derechos de terceros, o información falsa o inexacta que proporciones.</p>
+              <h3 className="font-bold text-gray-800 mt-4">11. Suspensión y terminación</h3>
+              <p>Puedes dejar de usar AQD en cualquier momento. Nos reservamos el derecho de suspender tu acceso si detectamos uso fraudulento, incumples estos términos o es necesario por razones legales.</p>
 
-              <h3 className="font-bold text-gray-800 mt-4">14. Ley aplicable y jurisdicción</h3>
-              <p>Estos Términos de Uso se rigen por la legislación española. Para cualquier controversia derivada de estos términos o del uso de AQD, las partes se someten a los Juzgados y Tribunales competentes.</p>
+              <h3 className="font-bold text-gray-800 mt-4">12. Ley aplicable y jurisdicción</h3>
+              <p>Estos Términos se rigen por la legislación española, incluyendo el RGPD, la LOPDGDD y la LSSI-CE. Para cualquier controversia, las partes se someten a los Juzgados y Tribunales competentes según la legislación procesal vigente.</p>
 
-              <h3 className="font-bold text-gray-800 mt-4">15. Divisibilidad</h3>
-              <p>Si alguna disposición de estos términos fuera declarada nula o inaplicable por un tribunal competente, las demás disposiciones permanecerán en pleno vigor y efecto.</p>
-
-              <h3 className="font-bold text-gray-800 mt-4">16. Renuncia</h3>
-              <p>La falta de ejercicio o ejecución de cualquier derecho o disposición de estos términos no constituirá una renuncia a dicho derecho o disposición.</p>
-
-              <h3 className="font-bold text-gray-800 mt-4">17. Contacto</h3>
+              <h3 className="font-bold text-gray-800 mt-4">13. Contacto</h3>
               <p>Para cualquier cuestión relacionada con estos Términos de Uso:</p>
               <p><strong>Email:</strong> e.goidevs@gmail.com</p>
-
-              <h3 className="font-bold text-gray-800 mt-4">18. Idioma</h3>
-              <p>Estos términos se redactan en español. En caso de traducción a otros idiomas, prevalecerá la versión en español.</p>
             </div>
           </div>
         </div>
       )}
-
       {/* Modal de Privacidad */}
       {showPrivacy && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
