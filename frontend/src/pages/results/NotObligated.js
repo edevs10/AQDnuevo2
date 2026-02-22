@@ -1,5 +1,6 @@
 import React from 'react';
 import ResultCard from '../../components/ResultCard';
+import DonationBanner from '../../components/DonationBanner';
 
 const NotObligated = () => {
   const today = new Date();
@@ -8,7 +9,6 @@ const NotObligated = () => {
     month: '2-digit',
     year: 'numeric'
   });
-
   return (
     <ResultCard
       title="No tienes nada que declarar"
@@ -18,19 +18,22 @@ const NotObligated = () => {
         </p>
       }
       additionalContent={
-        <div className="bg-blue-50 border-l-4 border-blue-300 p-5 rounded-r-lg text-left">
-          <p className="text-blue-700 font-semibold mb-2 text-lg">💡 Consejo</p>
-          <p className="text-gray-700">
-            Aunque no tengas obligación, puedes querer presentarla si te sale a devolver. Pero ojo: si la presentas, tus ascendientes podrían perder deducciones por ti, lo cual puede perjudicarte. Compara ambos escenarios antes de decidir en el{' '}
-            <a 
-              href="https://www2.agenciatributaria.gob.es/wlpl/AVAC-CALC/AsistenteIRPF" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-blue-600 font-semibold"
-            >
-              simulador de la Agencia Tributaria
-            </a>.
-          </p>
+        <div>
+          <div className="bg-blue-50 border-l-4 border-blue-300 p-5 rounded-r-lg text-left">
+            <p className="text-blue-700 font-semibold mb-2 text-lg">💡 Consejo</p>
+            <p className="text-gray-700">
+              Aunque no tengas obligación, puedes querer presentarla si te sale a devolver. Pero ojo: si la presentas, tus ascendientes podrían perder deducciones por ti, lo cual puede perjudicarte. Compara ambos escenarios antes de decidir en el{' '}
+              <a 
+                href="https://www2.agenciatributaria.gob.es/wlpl/AVAC-CALC/AsistenteIRPF" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 font-semibold"
+              >
+                simulador de la Agencia Tributaria
+              </a>.
+            </p>
+          </div>
+          <DonationBanner />
         </div>
       }
       type="success"
@@ -39,5 +42,4 @@ const NotObligated = () => {
     />
   );
 };
-
 export default NotObligated;
