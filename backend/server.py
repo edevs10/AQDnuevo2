@@ -64,6 +64,19 @@ class UserSessionCreate(BaseModel):
     birth_year: int
     consent_given: bool
 
+    @validator('birth_year')
+    def birth_year_must_be_valid(cls, v):
+        current_year = datetime.utcnow().year
+        if not (current_year - 120 <= v <= current_year - 16):
+            raise ValueError('Año de nacimiento no válido')
+        return v
+
+    @validator('consent_given')
+    def consent_must_be_true(cls, v):
+        if not v:
+            raise ValueError('Se requiere consentimiento')
+        return v
+
 class UserSessionUpdate(BaseModel):
     answers: Optional[Dict[str, Any]] = None
     result: Optional[str] = None
