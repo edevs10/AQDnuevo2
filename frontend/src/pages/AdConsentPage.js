@@ -11,8 +11,8 @@ const AdConsentPage = () => {
   useEffect(() => {
     const adPreference = localStorage.getItem('ad_consent');
     if (adPreference !== null) navigate('/consent');
-    const hasAcceptedTerms = localStorage.getItem('terms_accepted');
-    if (hasAcceptedTerms !== 'true') navigate('/terms');
+
+    
   }, [navigate]);
 
   const handleAcceptAll = () => {
@@ -29,6 +29,7 @@ const AdConsentPage = () => {
     localStorage.setItem('third_party_sharing', effectiveThirdParty ? 'true' : 'false');
     localStorage.setItem('consent_version', '2.0');
     localStorage.setItem('consent_timestamp', new Date().toISOString());
+    localStorage.setItem('terms_accepted', 'true');
     navigate('/consent');
   };
 
