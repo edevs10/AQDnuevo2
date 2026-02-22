@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { FlowProvider } from "./context/FlowContext";
 
 // Componente que muestra el logo pequeño en todas las páginas menos la home
@@ -14,6 +14,12 @@ const GlobalLogo = () => {
   );
 };
 
+const ProtectedRoute = ({ element }) => {
+  const termsAccepted = localStorage.getItem('terms_accepted') === 'true';
+  const adConsent = localStorage.getItem('ad_consent') !== null;
+  if (!termsAccepted || !adConsent) return <Navigate to="/terms" replace />;
+  return element;
+};
 // Importar páginas
 import Home from "./pages/Home";
 import BeforeStartPage from "./pages/BeforeStartPage";
@@ -118,101 +124,91 @@ function App() {
         <BrowserRouter>
           <GlobalLogo />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/before-start" element={<BeforeStartPage />} />
-            <Route path="/terms" element={<TermsConsentPage />} />
-            <Route path="/ad-consent" element={<AdConsentPage />} />
-            <Route path="/consent" element={<ConsentPage />} />
-            <Route path="/question/declaration-type" element={<QuestionDeclarationType />} />
-            
-            {/* Rutas de preguntas */}
-            <Route path="/question/1" element={<Question1 />} />
-            <Route path="/question/2" element={<Question2 />} />
-            <Route path="/question/3" element={<Question3 />} />
-            <Route path="/question/4a" element={<Question4A />} />
-            <Route path="/question/5a" element={<Question5A />} />
-            <Route path="/question/4b" element={<Question4B />} />
-            <Route path="/question/5b" element={<Question5B />} />
-            <Route path="/question/6" element={<Question6 />} />
-            <Route path="/question/7" element={<Question7 />} />
-            <Route path="/question/8" element={<Question8 />} />
-            <Route path="/question/9" element={<Question9 />} />
-            <Route path="/question/10" element={<Question10 />} />
-            <Route path="/question/11" element={<Question11 />} />
-            <Route path="/question/12" element={<Question12 />} />
-            <Route path="/question/13" element={<Question13 />} />
-            <Route path="/question/14" element={<Question14 />} />
-            
-            {/* Rutas específicas de Navarra */}
-            <Route path="/question/navarra/2" element={<QuestionNavarra2 />} />
-            <Route path="/question/navarra/3" element={<QuestionNavarra3 />} />
-            <Route path="/question/navarra/4" element={<QuestionNavarra4 />} />
-            <Route path="/question/navarra/5" element={<QuestionNavarra5 />} />
-            
-            {/* Rutas específicas del País Vasco */}
-            <Route path="/question/basque/territory-by-time" element={<BasqueTerritoryByTime />} />
-            <Route path="/question/basque/territory-by-economic" element={<BasqueTerritoryByEconomic />} />
-            <Route path="/question/basque/1" element={<QuestionBasque1 />} />
-            <Route path="/question/basque/2" element={<QuestionBasque2 />} />
-            
-            {/* Rutas de cálculo de salario - Compartidas */}
-            <Route path="/salary/check" element={<SalaryCheck />} />
-            <Route path="/salary/payments-question" element={<SalaryPaymentsQuestion />} />
-            
-            {/* Rutas de cálculo de salario - Territorio Común */}
-            <Route path="/salary/common/retention-variable" element={<RetentionVariableQuestionCommon />} />
-            <Route path="/salary/common/calculator-12" element={<SalaryCalculatorCommon12 />} />
-            <Route path="/salary/common/calculator-14" element={<SalaryCalculatorCommon14 />} />
-            <Route path="/salary/common/calculator-15" element={<SalaryCalculatorCommon15 />} />
-            <Route path="/salary/common/result" element={<SalaryResultCommon />} />
-            
-            {/* Rutas de cálculo de salario - Navarra */}
-            <Route path="/salary/navarra/retention-variable" element={<RetentionVariableQuestionNavarra />} />
-            <Route path="/salary/navarra/calculator-12" element={<SalaryCalculatorNavarra12 />} />
-            <Route path="/salary/navarra/calculator-14" element={<SalaryCalculatorNavarra14 />} />
-            <Route path="/salary/navarra/calculator-15" element={<SalaryCalculatorNavarra15 />} />
-            <Route path="/salary/navarra/result" element={<SalaryResultNavarra />} />
-            
-            {/* Rutas de cálculo de salario - Bizkaia */}
-            <Route path="/salary/bizkaia/retention-variable" element={<RetentionVariableQuestionBizkaia />} />
-            <Route path="/salary/bizkaia/calculator-12" element={<SalaryCalculatorBizkaia12 />} />
-            <Route path="/salary/bizkaia/calculator-14" element={<SalaryCalculatorBizkaia14 />} />
-            <Route path="/salary/bizkaia/calculator-15" element={<SalaryCalculatorBizkaia15 />} />
-            <Route path="/salary/bizkaia/result" element={<SalaryResultBizkaia />} />
-            
-            {/* Rutas de cálculo de salario - Gipuzkoa */}
-            <Route path="/salary/gipuzkoa/retention-variable" element={<RetentionVariableQuestionGipuzkoa />} />
-            <Route path="/salary/gipuzkoa/calculator-12" element={<SalaryCalculatorGipuzkoa12 />} />
-            <Route path="/salary/gipuzkoa/calculator-14" element={<SalaryCalculatorGipuzkoa14 />} />
-            <Route path="/salary/gipuzkoa/calculator-15" element={<SalaryCalculatorGipuzkoa15 />} />
-            <Route path="/salary/gipuzkoa/result" element={<SalaryResultGipuzkoa />} />
-            
-            {/* Rutas de cálculo de salario - Álava */}
-            <Route path="/salary/alava/retention-variable" element={<RetentionVariableQuestionAlava />} />
-            <Route path="/salary/alava/calculator-12" element={<SalaryCalculatorAlava12 />} />
-            <Route path="/salary/alava/calculator-14" element={<SalaryCalculatorAlava14 />} />
-            <Route path="/salary/alava/calculator-15" element={<SalaryCalculatorAlava15 />} />
-            <Route path="/salary/alava/result" element={<SalaryResultAlava />} />
-            
-            {/* Rutas de resultados */}
-            <Route path="/result/not-resident" element={<NotResident />} />
-            <Route path="/result/basque" element={<BasqueTerritory />} />
-            <Route path="/result/navarra" element={<Navarra />} />
-            <Route path="/result/obligated" element={<Obligated />} />
-            <Route path="/result/not-obligated" element={<NotObligated />} />
-            <Route path="/result/navarra-obligated" element={<NavarraObligated />} />
-            <Route path="/result/basque-bizkaia" element={<BizkaiaTerritoryResult />} />
-            <Route path="/result/basque-gipuzkoa" element={<GipuzkoaTerritoryResult />} />
-            <Route path="/result/basque-alava" element={<AlavaTerritoryResult />} />
-            <Route path="/result/working-on-it" element={<WorkingOnIt />} />
-            <Route path="/result/bizkaia-obligated" element={<BizkaiaObligated />} />
-            <Route path="/result/gipuzkoa-obligated" element={<GipuzkoaObligated />} />
-            <Route path="/result/alava-obligated" element={<AlavaObligated />} />
-            <Route path="/result/bizkaia-not-obligated" element={<BizkaiaNotObligated />} />
-            <Route path="/result/gipuzkoa-not-obligated" element={<GipuzkoaNotObligated />} />
-            <Route path="/result/alava-not-obligated" element={<AlavaNotObligated />} />
-            <Route path="/result/navarra-not-obligated" element={<NavarraNotObligated />} />
-          </Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/before-start" element={<BeforeStartPage />} />
+  <Route path="/terms" element={<TermsConsentPage />} />
+  <Route path="/ad-consent" element={<AdConsentPage />} />
+  <Route path="/consent" element={<ConsentPage />} />
+  <Route path="/question/declaration-type" element={<ProtectedRoute element={<QuestionDeclarationType />} />} />
+
+  <Route path="/question/1" element={<ProtectedRoute element={<Question1 />} />} />
+  <Route path="/question/2" element={<ProtectedRoute element={<Question2 />} />} />
+  <Route path="/question/3" element={<ProtectedRoute element={<Question3 />} />} />
+  <Route path="/question/4a" element={<ProtectedRoute element={<Question4A />} />} />
+  <Route path="/question/5a" element={<ProtectedRoute element={<Question5A />} />} />
+  <Route path="/question/4b" element={<ProtectedRoute element={<Question4B />} />} />
+  <Route path="/question/5b" element={<ProtectedRoute element={<Question5B />} />} />
+  <Route path="/question/6" element={<ProtectedRoute element={<Question6 />} />} />
+  <Route path="/question/7" element={<ProtectedRoute element={<Question7 />} />} />
+  <Route path="/question/8" element={<ProtectedRoute element={<Question8 />} />} />
+  <Route path="/question/9" element={<ProtectedRoute element={<Question9 />} />} />
+  <Route path="/question/10" element={<ProtectedRoute element={<Question10 />} />} />
+  <Route path="/question/11" element={<ProtectedRoute element={<Question11 />} />} />
+  <Route path="/question/12" element={<ProtectedRoute element={<Question12 />} />} />
+  <Route path="/question/13" element={<ProtectedRoute element={<Question13 />} />} />
+  <Route path="/question/14" element={<ProtectedRoute element={<Question14 />} />} />
+
+  <Route path="/question/navarra/2" element={<ProtectedRoute element={<QuestionNavarra2 />} />} />
+  <Route path="/question/navarra/3" element={<ProtectedRoute element={<QuestionNavarra3 />} />} />
+  <Route path="/question/navarra/4" element={<ProtectedRoute element={<QuestionNavarra4 />} />} />
+  <Route path="/question/navarra/5" element={<ProtectedRoute element={<QuestionNavarra5 />} />} />
+
+  <Route path="/question/basque/territory-by-time" element={<ProtectedRoute element={<BasqueTerritoryByTime />} />} />
+  <Route path="/question/basque/territory-by-economic" element={<ProtectedRoute element={<BasqueTerritoryByEconomic />} />} />
+  <Route path="/question/basque/1" element={<ProtectedRoute element={<QuestionBasque1 />} />} />
+  <Route path="/question/basque/2" element={<ProtectedRoute element={<QuestionBasque2 />} />} />
+
+  <Route path="/salary/check" element={<ProtectedRoute element={<SalaryCheck />} />} />
+  <Route path="/salary/payments-question" element={<ProtectedRoute element={<SalaryPaymentsQuestion />} />} />
+
+  <Route path="/salary/common/retention-variable" element={<ProtectedRoute element={<RetentionVariableQuestionCommon />} />} />
+  <Route path="/salary/common/calculator-12" element={<ProtectedRoute element={<SalaryCalculatorCommon12 />} />} />
+  <Route path="/salary/common/calculator-14" element={<ProtectedRoute element={<SalaryCalculatorCommon14 />} />} />
+  <Route path="/salary/common/calculator-15" element={<ProtectedRoute element={<SalaryCalculatorCommon15 />} />} />
+  <Route path="/salary/common/result" element={<ProtectedRoute element={<SalaryResultCommon />} />} />
+
+  <Route path="/salary/navarra/retention-variable" element={<ProtectedRoute element={<RetentionVariableQuestionNavarra />} />} />
+  <Route path="/salary/navarra/calculator-12" element={<ProtectedRoute element={<SalaryCalculatorNavarra12 />} />} />
+  <Route path="/salary/navarra/calculator-14" element={<ProtectedRoute element={<SalaryCalculatorNavarra14 />} />} />
+  <Route path="/salary/navarra/calculator-15" element={<ProtectedRoute element={<SalaryCalculatorNavarra15 />} />} />
+  <Route path="/salary/navarra/result" element={<ProtectedRoute element={<SalaryResultNavarra />} />} />
+
+  <Route path="/salary/bizkaia/retention-variable" element={<ProtectedRoute element={<RetentionVariableQuestionBizkaia />} />} />
+  <Route path="/salary/bizkaia/calculator-12" element={<ProtectedRoute element={<SalaryCalculatorBizkaia12 />} />} />
+  <Route path="/salary/bizkaia/calculator-14" element={<ProtectedRoute element={<SalaryCalculatorBizkaia14 />} />} />
+  <Route path="/salary/bizkaia/calculator-15" element={<ProtectedRoute element={<SalaryCalculatorBizkaia15 />} />} />
+  <Route path="/salary/bizkaia/result" element={<ProtectedRoute element={<SalaryResultBizkaia />} />} />
+
+  <Route path="/salary/gipuzkoa/retention-variable" element={<ProtectedRoute element={<RetentionVariableQuestionGipuzkoa />} />} />
+  <Route path="/salary/gipuzkoa/calculator-12" element={<ProtectedRoute element={<SalaryCalculatorGipuzkoa12 />} />} />
+  <Route path="/salary/gipuzkoa/calculator-14" element={<ProtectedRoute element={<SalaryCalculatorGipuzkoa14 />} />} />
+  <Route path="/salary/gipuzkoa/calculator-15" element={<ProtectedRoute element={<SalaryCalculatorGipuzkoa15 />} />} />
+  <Route path="/salary/gipuzkoa/result" element={<ProtectedRoute element={<SalaryResultGipuzkoa />} />} />
+
+  <Route path="/salary/alava/retention-variable" element={<ProtectedRoute element={<RetentionVariableQuestionAlava />} />} />
+  <Route path="/salary/alava/calculator-12" element={<ProtectedRoute element={<SalaryCalculatorAlava12 />} />} />
+  <Route path="/salary/alava/calculator-14" element={<ProtectedRoute element={<SalaryCalculatorAlava14 />} />} />
+  <Route path="/salary/alava/calculator-15" element={<ProtectedRoute element={<SalaryCalculatorAlava15 />} />} />
+  <Route path="/salary/alava/result" element={<ProtectedRoute element={<SalaryResultAlava />} />} />
+
+  <Route path="/result/not-resident" element={<ProtectedRoute element={<NotResident />} />} />
+  <Route path="/result/basque" element={<ProtectedRoute element={<BasqueTerritory />} />} />
+  <Route path="/result/navarra" element={<ProtectedRoute element={<Navarra />} />} />
+  <Route path="/result/obligated" element={<ProtectedRoute element={<Obligated />} />} />
+  <Route path="/result/not-obligated" element={<ProtectedRoute element={<NotObligated />} />} />
+  <Route path="/result/navarra-obligated" element={<ProtectedRoute element={<NavarraObligated />} />} />
+  <Route path="/result/basque-bizkaia" element={<ProtectedRoute element={<BizkaiaTerritoryResult />} />} />
+  <Route path="/result/basque-gipuzkoa" element={<ProtectedRoute element={<GipuzkoaTerritoryResult />} />} />
+  <Route path="/result/basque-alava" element={<ProtectedRoute element={<AlavaTerritoryResult />} />} />
+  <Route path="/result/working-on-it" element={<ProtectedRoute element={<WorkingOnIt />} />} />
+  <Route path="/result/bizkaia-obligated" element={<ProtectedRoute element={<BizkaiaObligated />} />} />
+  <Route path="/result/gipuzkoa-obligated" element={<ProtectedRoute element={<GipuzkoaObligated />} />} />
+  <Route path="/result/alava-obligated" element={<ProtectedRoute element={<AlavaObligated />} />} />
+  <Route path="/result/bizkaia-not-obligated" element={<ProtectedRoute element={<BizkaiaNotObligated />} />} />
+  <Route path="/result/gipuzkoa-not-obligated" element={<ProtectedRoute element={<GipuzkoaNotObligated />} />} />
+  <Route path="/result/alava-not-obligated" element={<ProtectedRoute element={<AlavaNotObligated />} />} />
+  <Route path="/result/navarra-not-obligated" element={<ProtectedRoute element={<NavarraNotObligated />} />} />
+</Routes>
           <SuggestionFooter />
         </BrowserRouter>
       </FlowProvider>
