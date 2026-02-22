@@ -1,4 +1,7 @@
-from fastapi import FastAPI, APIRouter, HTTPException
+from fastapi import FastAPI, APIRouter, HTTPException, Request
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -20,6 +23,7 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 security = HTTPBearer()
+limiter = Limiter(key_func=get_remote_address)
 
 def verify_admin_token(credentials: HTTPAuthorizationCredentials = Security(security)):
     if credentials.credentials != os.environ.get('ADMIN_API_KEY'):
@@ -27,6 +31,8 @@ def verify_admin_token(credentials: HTTPAuthorizationCredentials = Security(secu
     return credentials.credentials
 # Create the main app without a prefix
 app = FastAPI()
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 app.add_middleware(
     CORSMiddleware,
@@ -102,7 +108,8 @@ async def get_status_checks():
 
 # User session endpoints
 @api_router.post("/user-session", response_model=UserSession)
-async def create_user_session(input: UserSessionCreate):
+@limiter.limit("10/minute")
+async def create_user_session(request: Request, input: UserSessionCreate):
     session_dict = input.dict()
     session_obj = UserSession(**session_dict)
     await db.user_sessions.insert_one(session_obj.dict())
