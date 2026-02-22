@@ -9,7 +9,8 @@ from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Any
 import uuid
 from datetime import datetime
-
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+from fastapi import Depends, Security
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -18,7 +19,12 @@ load_dotenv(ROOT_DIR / '.env')
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
+security = HTTPBearer()
 
+def verify_admin_token(credentials: HTTPAuthorizationCredentials = Security(security)):
+    if credentials.credentials != os.environ.get('ADMIN_API_KEY'):
+        raise HTTPException(status_code=403, detail="No autorizado")
+    return credentials.credentials
 # Create the main app without a prefix
 app = FastAPI()
 
@@ -114,7 +120,7 @@ async def get_user_session(session_id: str):
         raise HTTPException(status_code=404, detail="Session not found")
 
 @api_router.get("/analytics/sessions")
-async def get_sessions_analytics():
+async def get_sessions_analytics(token: str = Depends(verify_admin_token)):
     """Endpoint para obtener datos analíticos de las sesiones (para fines comerciales)"""
     total_sessions = await db.user_sessions.count_documents({})
     completed_sessions = await db.user_sessions.count_documents({"completed": True})
