@@ -301,6 +301,43 @@ const AdConsentPage = () => {
     </div>
   );
 };
-
+const ConsentOption = ({ checked, onChange, title, description }) => (
+  <div
+    onClick={() => onChange(!checked)}
+    style={{
+      border: `1.5px solid ${checked ? '#2563EB' : '#E2E8F0'}`,
+      borderRadius: '10px',
+      padding: '10px 12px',
+      cursor: 'pointer',
+      background: checked ? '#EFF6FF' : 'white',
+      transition: 'all 0.2s ease',
+    }}
+  >
+    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+      <div style={{
+        width: '20px', height: '20px', minWidth: '20px',
+        border: `2px solid ${checked ? '#2563EB' : '#CBD5E1'}`,
+        borderRadius: '6px',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        background: checked ? '#2563EB' : 'white',
+        marginTop: '1px',
+        flexShrink: 0,
+      }}>
+        {checked && (
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        )}
+      </div>
+      <div>
+        <h3 style={{ fontSize: '0.82rem', fontWeight: 600, color: '#1E293B', lineHeight: '1.3', margin: 0 }}>{title}</h3>
+        <p style={{ fontSize: '0.74rem', color: '#475569', margin: '3px 0 4px', lineHeight: '1.45' }}>{description}</p>
+        <span style={{ display: 'inline-block', fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', padding: '1px 6px', borderRadius: '4px', background: '#ECFDF5', color: '#10B981', border: '1px solid #A7F3D0' }}>
+          Opcional
+        </span>
+      </div>
+    </div>
+  </div>
+);
 export default AdConsentPage;
 
