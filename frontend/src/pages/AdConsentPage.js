@@ -302,5 +302,5 @@ const AdConsentPage = () => {
   );
 };
 
-export default ConsentPage;
+export default AdConsentPage;
 
