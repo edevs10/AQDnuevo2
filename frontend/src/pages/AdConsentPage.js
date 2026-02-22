@@ -131,10 +131,10 @@ const AdConsentPage = () => {
 
           {/* Doc links */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '12px' }}>
-            <button onClick={() => navigate('/terms')} style={{ fontSize: '0.78rem', color: '#2563EB', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 500 }}>
+            <button onClick={() => navigate('/ad-consent')} style={{ fontSize: '0.78rem', color: '#2563EB', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 500 }}>
               Ver Términos
             </button>
-            <button onClick={() => navigate('/terms')} style={{ fontSize: '0.78rem', color: '#2563EB', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 500 }}>
+            <button onClick={() => navigate('/ad-consent')} style={{ fontSize: '0.78rem', color: '#2563EB', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 500 }}>
               Ver Política
             </button>
           </div>
