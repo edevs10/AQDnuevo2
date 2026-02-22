@@ -224,8 +224,7 @@ const ResultCard = ({
             </div>
           )}
 
-{/* Donación */}
-          <DonationBanner />
+
           {/* Texto divulgativo */}
           <p className="text-gray-500 text-sm mb-6">
             Esta información tiene fines divulgativos y no constituye asesoramiento fiscal profesional. Ante cualquier duda, consulta con un/a asesor/a fiscal.
