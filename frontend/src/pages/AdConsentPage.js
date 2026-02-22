@@ -8,13 +8,11 @@ const AdConsentPage = () => {
   const [thirdPartyChecked, setThirdPartyChecked] = useState(false);
   const showDependencyNote = thirdPartyChecked && !profilesChecked;
 
-  useEffect(() => {
-    const adPreference = localStorage.getItem('ad_consent');
-    if (adPreference !== null) navigate('/consent');
-
-    
-  }, [navigate]);
-
+useEffect(() => {
+  const adPreference = localStorage.getItem('ad_consent');
+  const termsAccepted = localStorage.getItem('terms_accepted');
+  if (adPreference !== null && termsAccepted === 'true') navigate('/consent');
+}, [navigate]);
   const handleAcceptAll = () => {
     setAdsChecked(true);
     setProfilesChecked(true);
@@ -131,11 +129,8 @@ const AdConsentPage = () => {
 
           {/* Doc links */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '12px' }}>
-            <button onClick={() => navigate('/ad-consent')} style={{ fontSize: '0.78rem', color: '#2563EB', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 500 }}>
-              Ver Términos
-            </button>
-            <button onClick={() => navigate('/ad-consent')} style={{ fontSize: '0.78rem', color: '#2563EB', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 500 }}>
-              Ver Política
+            <button onClick={() => window.open('/terms-doc.pdf', '_blank')}>Ver Términos</button>
+<button onClick={() => window.open('/privacy-doc.pdf', '_blank')}>Ver Política</button>
             </button>
           </div>
 
