@@ -126,7 +126,7 @@ function App() {
           <Routes>
   <Route path="/" element={<Home />} />
   <Route path="/before-start" element={<BeforeStartPage />} />
-  <Route path="/terms" element={<TermsConsentPage />} />
+<Route path="/terms" element={<Navigate to="/ad-consent" replace />} />
   <Route path="/ad-consent" element={<AdConsentPage />} />
   <Route path="/consent" element={<ConsentPage />} />
   <Route path="/question/declaration-type" element={<ProtectedRoute element={<QuestionDeclarationType />} />} />
