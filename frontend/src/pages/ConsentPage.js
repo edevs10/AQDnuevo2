@@ -216,7 +216,7 @@ const handleSubmit = () => {
         </div>
       )}
       {/* Modal de Privacidad */}
-     {showPrivacy && (
+    {showPrivacy && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden">
             <div className="flex justify-between items-center p-4 border-b bg-gray-50">
@@ -224,11 +224,12 @@ const handleSubmit = () => {
               <button onClick={() => setShowPrivacy(false)} className="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
             </div>
             <div className="p-6 overflow-y-auto max-h-[calc(90vh-80px)] text-sm text-gray-700 prose prose-sm">
-              <p className="text-gray-500 mb-4"><strong>Última actualización:</strong> 02 de febrero de 2026</p>
+              <p className="text-gray-500 mb-4"><strong>Última actualización:</strong> 22 de febrero de 2026</p>
 
               <h3 className="font-bold text-gray-800 mt-4">1. Responsable del tratamiento</h3>
-              <p>En cumplimiento del artículo 13 del RGPD y del artículo 11 de la LOPDGDD, el responsable del tratamiento es el titular de AQD.</p>
+              <p>En cumplimiento del artículo 13 del RGPD y del artículo 11 de la LOPDGDD, el responsable del tratamiento de los datos personales recogidos a través de esta Aplicación es el titular de AQD.</p>
               <p className="mt-2"><strong>Email de contacto:</strong> e.goidevs@gmail.com</p>
+              <p className="mt-2">Ante el responsable se pueden ejercitar todos los derechos reconocidos en el RGPD, la LOPDGDD y demás normativa aplicable.</p>
 
               <h3 className="font-bold text-gray-800 mt-4">2. ¿Qué datos personales recogemos?</h3>
               <h4 className="font-semibold text-gray-700 mt-2">2.1. Datos proporcionados por el usuario</h4>
@@ -241,10 +242,10 @@ const handleSubmit = () => {
               <p className="mt-2">Estos datos NO incluyen tu nombre, apellidos, DNI/NIE, dirección, teléfono ni ningún dato que permita identificarte directamente.</p>
 
               <h4 className="font-semibold text-gray-700 mt-2">2.2. Datos técnicos y de uso</h4>
-              <p>Identificadores de dispositivo, datos de navegación, cookies y dirección IP (conservada temporalmente para seguridad).</p>
+              <p>Identificadores de dispositivo (ID de publicidad anónimo, tipo de dispositivo), datos de navegación (páginas visitadas, tiempo de uso, interacciones), datos de cookies y tecnologías similares, y dirección IP (conservada temporalmente para seguridad).</p>
 
               <h4 className="font-semibold text-gray-700 mt-2">2.3. Datos derivados de la elaboración de perfiles (solo con tu consentimiento)</h4>
-              <p>Si otorgas tu consentimiento expreso, podremos generar: perfil económico-fiscal estimado, segmentos de interés, indicadores demográficos agregados y patrones de uso dentro de la Aplicación.</p>
+              <p>Si otorgas tu consentimiento expreso, podremos generar: perfil económico-fiscal estimado (rango de ingresos, tipo de contribuyente), segmentos de interés (categorías comerciales inferidas de tu perfil), indicadores demográficos agregados (franja de edad, situación familiar generalizada) y patrones de uso y comportamiento dentro de la Aplicación.</p>
 
               <h3 className="font-bold text-gray-800 mt-4">3. ¿Para qué usamos tus datos?</h3>
               <h4 className="font-semibold text-gray-700 mt-2">3.1. Finalidades principales (servicio básico)</h4>
@@ -256,47 +257,51 @@ const handleSubmit = () => {
               </ul>
 
               <h4 className="font-semibold text-gray-700 mt-2">3.2. Publicidad</h4>
-              <p>AQD se financia mediante publicidad a través de Google AdMob.</p>
-              <p className="mt-2"><strong>Publicidad personalizada (requiere tu consentimiento expreso):</strong> Si aceptas, Google y sus socios crean perfiles basados en tu actividad para mostrarte anuncios más relevantes.</p>
-              <p className="mt-2"><strong>Publicidad no personalizada:</strong> Si rechazas, seguirás viendo anuncios basados solo en el contenido de la Aplicación, sin creación de perfiles.</p>
+              <p>Mostramos publicidad a través de Google AdMob para financiar la Aplicación y mantenerla gratuita.</p>
+              <p className="mt-2"><strong>3.2.1. Publicidad personalizada (requiere tu consentimiento expreso):</strong> Si aceptas, Google y sus socios crean perfiles basados en tu actividad y comparten datos como ID de publicidad, dirección IP, eventos dentro de la Aplicación e información demográfica inferida. <a href="https://support.google.com/admob/answer/9012903" className="text-blue-600 underline">Lista de socios publicitarios de Google.</a></p>
+              <p className="mt-2"><strong>3.2.2. Publicidad no personalizada:</strong> Si rechazas, seguirás viendo anuncios basados solo en el contenido de la Aplicación. Google no creará perfiles ni compartirá tus datos para personalización.</p>
+              <p className="mt-2"><strong>3.2.3. Tu elección:</strong> Al abrir la Aplicación por primera vez, se te pedirá que elijas. Puedes cambiar tu decisión en cualquier momento desde los ajustes.</p>
 
               <h4 className="font-semibold text-gray-700 mt-2">3.3. Creación de perfiles comerciales (requiere consentimiento expreso separado)</h4>
               <p><strong>ATENCIÓN:</strong> Esta finalidad requiere un consentimiento específico, separado e independiente. No es necesario para usar el servicio básico.</p>
-              <p className="mt-2">Si otorgas tu consentimiento, AQD utilizará tus datos económicos, fiscales y demográficos (sin datos identificativos directos) para elaborar perfiles comerciales utilizados para: segmentación publicitaria avanzada, estudios de mercado, desarrollo de productos y servicios propios o de terceros, y análisis estadísticos y comerciales.</p>
+              <p className="mt-2">Si otorgas tu consentimiento, AQD utilizará tus datos económicos, fiscales y demográficos (sin datos identificativos directos) para elaborar perfiles comerciales utilizados para: segmentación publicitaria avanzada, estudios de mercado e informes sectoriales, desarrollo de productos y servicios propios o de terceros, y análisis estadísticos y comerciales.</p>
 
               <h4 className="font-semibold text-gray-700 mt-2">3.4. Cesión de perfiles comerciales a terceros (requiere consentimiento expreso separado adicional)</h4>
               <p><strong>ATENCIÓN:</strong> Esta finalidad requiere un consentimiento específico adicional, separado del consentimiento de creación de perfiles. No es necesario para usar el servicio básico.</p>
-              <p className="mt-2">Si otorgas tu consentimiento, AQD podrá ceder, licenciar o vender los perfiles comerciales a: empresas del sector financiero y asegurador, empresas de publicidad y marketing digital, empresas de análisis de datos y big data, y otras entidades comerciales con interés en datos de perfil económico-fiscal.</p>
-              <p className="mt-2">En todos los casos: los perfiles cedidos no contendrán datos que permitan tu identificación directa, los perfiles se componen de datos seudonimizados o agregados, y los terceros estarán contractualmente obligados a respetar la normativa de protección de datos.</p>
+              <p className="mt-2">Si otorgas tu consentimiento, AQD podrá ceder, licenciar o vender los perfiles comerciales a: empresas del sector financiero y asegurador (bancos, aseguradoras, gestorías), empresas de publicidad, marketing digital y publicidad programática, empresas de análisis de datos y big data, y otras entidades comerciales con interés en datos de perfil económico-fiscal.</p>
+              <p className="mt-2">En todos los casos: los perfiles no contendrán datos que permitan tu identificación directa, se componen de datos seudonimizados o agregados, los terceros estarán contractualmente obligados a respetar la normativa de protección de datos y no podrán intentar reidentificarte, y se mantendrá un registro de las cesiones realizadas al que podrás acceder ejerciendo tu derecho de acceso.</p>
 
               <h4 className="font-semibold text-gray-700 mt-2">3.5. Uso estadístico de datos anonimizados</h4>
               <p>Con independencia de los consentimientos anteriores, podremos realizar análisis agregados y anonimizados de forma irreversible. Los datos anonimizados quedan fuera del ámbito del RGPD (Considerando 26).</p>
 
               <h3 className="font-bold text-gray-800 mt-4">4. Base legal del tratamiento</h3>
               <ul className="list-disc ml-4">
-                <li><strong>Cálculo de obligación de declarar IRPD:</strong> Ejecución del servicio (Art. 6.1.b RGPD).</li>
-                <li><strong>Mejora del servicio:</strong> Interés legítimo (Art. 6.1.f RGPD).</li>
+                <li><strong>Cálculo de obligación de declarar IRPF:</strong> Ejecución del servicio (Art. 6.1.b RGPD). No requiere consentimiento separado.</li>
+                <li><strong>Mejora del servicio y análisis interno:</strong> Interés legítimo (Art. 6.1.f RGPD). No requiere consentimiento separado.</li>
                 <li><strong>Publicidad personalizada:</strong> Consentimiento explícito (Art. 6.1.a RGPD) — casilla 1.</li>
+                <li><strong>Publicidad no personalizada:</strong> Interés legítimo (Art. 6.1.f RGPD). No requiere consentimiento separado.</li>
                 <li><strong>Creación de perfiles comerciales:</strong> Consentimiento explícito (Art. 6.1.a RGPD) — casilla 2.</li>
                 <li><strong>Cesión de perfiles a terceros:</strong> Consentimiento explícito (Art. 6.1.a RGPD) — casilla 3.</li>
-                <li><strong>Seguridad y prevención de fraude:</strong> Interés legítimo (Art. 6.1.f RGPD).</li>
+                <li><strong>Seguridad y prevención de fraude:</strong> Interés legítimo (Art. 6.1.f RGPD). No requiere consentimiento separado.</li>
+                <li><strong>Datos anonimizados para estadísticas:</strong> No aplica RGPD (Considerando 26). No requiere consentimiento.</li>
               </ul>
 
               <h3 className="font-bold text-gray-800 mt-4">5. Sistema de consentimiento granular</h3>
               <p>Se te presentarán casillas de verificación separadas, no premarcadas, para cada finalidad que requiera consentimiento:</p>
               <ul className="list-disc ml-4 mt-2">
-                <li><strong>Casilla 1 — Publicidad personalizada:</strong> "Acepto que Google y sus socios creen perfiles basados en mi actividad para mostrarme anuncios personalizados."</li>
-                <li><strong>Casilla 2 — Creación de perfiles comerciales:</strong> "Acepto que AQD elabore perfiles comerciales basados en mis datos económicos y fiscales (sin datos identificativos directos) para segmentación publicitaria, estudios de mercado y desarrollo de productos."</li>
+                <li><strong>Casilla 1 — Publicidad personalizada:</strong> "Acepto que Google y sus socios publicitarios creen perfiles basados en mi actividad para mostrarme anuncios personalizados."</li>
+                <li><strong>Casilla 2 — Creación de perfiles comerciales:</strong> "Acepto que AQD elabore perfiles comerciales basados en mis datos económicos y fiscales (sin datos identificativos directos como nombre o DNI) para segmentación publicitaria, estudios de mercado y desarrollo de productos."</li>
                 <li><strong>Casilla 3 — Cesión de perfiles a terceros:</strong> "Acepto que AQD ceda, licencie o venda los perfiles comerciales generados a empresas del sector financiero, publicidad, marketing y análisis de datos, siempre sin incluir datos que me identifiquen directamente."</li>
               </ul>
-              <p className="mt-2">Si no marcas una casilla, se entenderá como negativa. El servicio básico seguirá funcionando con normalidad sin marcar ninguna casilla opcional.</p>
+              <p className="mt-2">Las casillas 2 y 3 son independientes entre sí, aunque la cesión (casilla 3) solo será efectiva si también has aceptado la creación de perfiles (casilla 2). Si no marcas una casilla, se entenderá como negativa. El servicio básico seguirá funcionando con normalidad sin marcar ninguna casilla opcional.</p>
 
               <h3 className="font-bold text-gray-800 mt-4">6. ¿Dónde se almacenan tus datos?</h3>
-              <p>Los datos se almacenan en servidores seguros. Si utilizamos servicios de Google, tus datos pueden ser transferidos a Estados Unidos bajo las garantías del Marco de Privacidad de Datos UE-EE.UU. o cláusulas contractuales tipo aprobadas por la Comisión Europea (Art. 46.2.c RGPD).</p>
+              <p>Los datos se almacenan en servidores seguros. Si utilizamos servicios de Google, tus datos pueden ser transferidos a Estados Unidos bajo las garantías del Marco de Privacidad de Datos UE-EE.UU. o cláusulas contractuales tipo aprobadas por la Comisión Europea (Art. 46.2.c RGPD). En caso de cesión de perfiles a terceros fuera del Espacio Económico Europeo, se garantizarán las salvaguardas adecuadas conforme al Capítulo V del RGPD.</p>
 
               <h3 className="font-bold text-gray-800 mt-4">7. ¿Cuánto tiempo conservamos tus datos?</h3>
               <ul className="list-disc ml-4">
                 <li><strong>Durante el uso:</strong> los datos se conservan mientras usas la Aplicación activamente.</li>
+                <li><strong>Datos en dispositivo:</strong> puedes eliminarlos borrando los datos de la Aplicación o desinstalándola.</li>
                 <li><strong>Perfiles comerciales:</strong> mientras mantengas tu consentimiento activo. Si lo revocas, se eliminarán en un plazo máximo de 30 días.</li>
                 <li><strong>Perfiles cedidos a terceros:</strong> en caso de revocación, notificaremos a los terceros para que procedan a la eliminación en un plazo máximo de 60 días.</li>
                 <li><strong>Registro de consentimientos:</strong> mínimo 5 años como prueba de cumplimiento normativo (Art. 5.2 RGPD).</li>
@@ -305,59 +310,59 @@ const handleSubmit = () => {
 
               <h3 className="font-bold text-gray-800 mt-4">8. ¿Con quién compartimos tus datos?</h3>
               <h4 className="font-semibold text-gray-700 mt-2">8.1. Google AdMob</h4>
-              <p>Si aceptas publicidad personalizada, se comparten ID de publicidad, dirección IP, datos de uso e información técnica del dispositivo. Si la rechazas, Google mostrará anuncios contextuales sin crear perfiles.</p>
+              <p>Si aceptas publicidad personalizada: se comparten ID de publicidad, dirección IP, datos de uso e información técnica del dispositivo y ubicación aproximada. Si la rechazas, Google mostrará anuncios contextuales sin crear perfiles ni compartir datos con sus socios.</p>
 
               <h4 className="font-semibold text-gray-700 mt-2">8.2. Terceros receptores de perfiles (solo con tu consentimiento)</h4>
               <p>Si has otorgado los consentimientos de las casillas 2 y 3, los perfiles comerciales podrán cederse a las categorías descritas en la sección 3.4. En ningún caso se cederán datos que permitan tu identificación directa.</p>
 
-              <h4 className="font-semibold text-gray-700 mt-2">8.3. Obligaciones legales</h4>
-              <p>Podremos revelar datos si lo exige la ley o una autoridad judicial o administrativa competente.</p>
+              <h4 className="font-semibold text-gray-700 mt-2">8.3. Datos anonimizados</h4>
+              <p>Podremos compartir datos estadísticos agregados y completamente anonimizados con colaboradores para estudios de mercado. Nunca se ceden datos que permitan tu identificación personal.</p>
+
+              <h4 className="font-semibold text-gray-700 mt-2">8.4. Obligaciones legales</h4>
+              <p>Podremos revelar datos si lo exige la ley o una autoridad judicial o administrativa competente (tribunal, Agencia Tributaria, fuerzas de seguridad).</p>
 
               <h3 className="font-bold text-gray-800 mt-4">9. Tus derechos</h3>
-              <p>De conformidad con los artículos 15 a 22 del RGPD tienes derecho a:</p>
+              <p>De conformidad con los artículos 15 a 22 del RGPD y los artículos 12 a 18 de la LOPDGDD, tienes derecho a:</p>
               <ul className="list-disc ml-4">
-                <li><strong>Acceso (art. 15):</strong> conocer qué datos tenemos sobre ti, incluidos los perfiles comerciales y cesiones realizadas.</li>
-                <li><strong>Rectificación (art. 16):</strong> corregir datos incorrectos.</li>
-                <li><strong>Supresión (art. 17):</strong> solicitar la eliminación de tus datos y perfiles.</li>
-                <li><strong>Limitación (art. 18):</strong> restringir determinados tratamientos.</li>
-                <li><strong>Oposición (art. 21):</strong> oponerte al tratamiento, incluida la elaboración de perfiles comerciales.</li>
-                <li><strong>Portabilidad (art. 20):</strong> recibir tus datos en formato estructurado.</li>
-                <li><strong>No ser objeto de decisiones automatizadas (art. 22).</strong></li>
-                <li><strong>Retirar el consentimiento (art. 7.3):</strong> en cualquier momento, sin efectos retroactivos.</li>
+                <li><strong>Acceso (art. 15 RGPD):</strong> conocer qué datos tenemos sobre ti, incluidos los perfiles comerciales y cesiones realizadas.</li>
+                <li><strong>Rectificación (art. 16 RGPD):</strong> corregir datos incorrectos o incompletos.</li>
+                <li><strong>Supresión o "derecho al olvido" (art. 17 RGPD):</strong> solicitar la eliminación de tus datos y perfiles comerciales.</li>
+                <li><strong>Limitación del tratamiento (art. 18 RGPD):</strong> restringir determinados tratamientos.</li>
+                <li><strong>Oposición (art. 21 RGPD):</strong> oponerte al tratamiento, incluida la elaboración de perfiles con fines comerciales.</li>
+                <li><strong>Portabilidad (art. 20 RGPD):</strong> recibir tus datos en formato estructurado, de uso común y lectura mecánica.</li>
+                <li><strong>No ser objeto de decisiones automatizadas (art. 22 RGPD).</strong></li>
+                <li><strong>Retirar el consentimiento (art. 7.3 RGPD):</strong> en cualquier momento, sin efectos retroactivos.</li>
               </ul>
-              <p className="mt-2">Puedes ejercer tus derechos enviando un email a <strong>e.goidevs@gmail.com</strong>. Responderemos en el plazo máximo de 1 mes (prorrogable a 2 en casos complejos).</p>
+              <p className="mt-2">Envía un email a <strong>e.goidevs@gmail.com</strong> indicando qué derecho quieres ejercer. Responderemos en el plazo máximo de 1 mes, prorrogable a 2 meses en casos complejos (art. 12.3 RGPD).</p>
               <p className="mt-2">Si consideras que no se respetan tus derechos, puedes reclamar ante la <strong>Agencia Española de Protección de Datos (AEPD):</strong> www.aepd.es</p>
 
               <h3 className="font-bold text-gray-800 mt-4">10. Cookies y tecnologías similares</h3>
-              <p>Esta Aplicación utiliza cookies esenciales, de análisis y de publicidad (solo con tu consentimiento). Puedes gestionar tus preferencias desde los ajustes de tu dispositivo.</p>
+              <p>Esta Aplicación utiliza: cookies esenciales (necesarias para el funcionamiento básico), cookies de análisis (para entender cómo se usa la Aplicación) y cookies de publicidad (para anuncios personalizados a través de AdMob, solo con tu consentimiento). Puedes gestionar tus preferencias desde los ajustes de tu dispositivo.</p>
 
               <h3 className="font-bold text-gray-800 mt-4">11. Seguridad de los datos</h3>
-              <p>Aplicamos medidas técnicas y organizativas apropiadas: cifrado en tránsito (HTTPS/TLS), acceso restringido a personal autorizado y seudonimización de los datos utilizados en perfiles comerciales. Ningún sistema es 100% seguro.</p>
+              <p>Aplicamos medidas técnicas y organizativas apropiadas: cifrado en tránsito (HTTPS/TLS), acceso restringido a personal autorizado, protección contra accesos no autorizados y seudonimización de los datos utilizados en perfiles comerciales. Ningún sistema es 100% seguro. Te recomendamos mantener actualizadas tu Aplicación y sistema operativo.</p>
 
               <h3 className="font-bold text-gray-800 mt-4">12. Menores de edad</h3>
-              <p>Esta Aplicación no está dirigida a menores de 14 años. Si tenemos conocimiento de que hemos recogido datos de un menor sin consentimiento parental, los eliminaremos de inmediato.</p>
+              <p>Esta Aplicación no está dirigida a menores de 14 años. No recogemos conscientemente datos de menores. Si tenemos conocimiento de ello sin consentimiento parental (art. 8 RGPD y art. 7 LOPDGDD), los eliminaremos de inmediato.</p>
 
-              <h3 className="font-bold text-gray-800 mt-4">13. Implementación técnica del consentimiento</h3>
-              <p>Para cumplir con el RGPD, utilizamos el User Messaging Platform (UMP) SDK de Google complementado con una capa propia de gestión de consentimiento para los tratamientos adicionales (perfiles comerciales y cesión a terceros). El sistema registra fecha, hora y versión del texto aceptado como prueba del consentimiento.</p>
+              <h3 className="font-bold text-gray-800 mt-4">13. Implementación técnica del consentimiento (UMP SDK)</h3>
+              <p>Para cumplir con el RGPD y la Directiva ePrivacy, utilizamos el User Messaging Platform (UMP) SDK de Google, complementado con una capa propia de gestión de consentimiento para los tratamientos adicionales (perfiles comerciales y cesión a terceros). El sistema registra fecha, hora y versión del texto aceptado como prueba del consentimiento, y te permite cambiar tu decisión en cualquier momento desde los ajustes.</p>
 
               <h3 className="font-bold text-gray-800 mt-4">14. Actualizaciones de esta política</h3>
-              <p>Podremos actualizar esta política ocasionalmente. Los cambios se notificarán mediante aviso dentro de la Aplicación. Si afectan a tratamientos que requieran consentimiento, se te solicitará un nuevo consentimiento expreso.</p>
+              <p>Podremos actualizar esta política ocasionalmente. Los cambios se notificarán mediante aviso dentro de la Aplicación actualizando la fecha de "última actualización". Si afectan a tratamientos que requieran consentimiento, se te solicitará un nuevo consentimiento expreso.</p>
 
               <h3 className="font-bold text-gray-800 mt-4">15. Descargo de responsabilidad</h3>
-              <p><strong>AVISO IMPORTANTE:</strong> Esta Aplicación tiene únicamente fines informativos y orientativos. Los resultados NO constituyen asesoramiento fiscal profesional. Ante cualquier duda, consulta con un asesor fiscal profesional o acude a la Agencia Tributaria.</p>
+              <p><strong>AVISO IMPORTANTE:</strong> Esta Aplicación tiene únicamente fines informativos y orientativos. Los resultados NO constituyen asesoramiento fiscal profesional ni recomendaciones legales personalizadas. La responsabilidad sobre la veracidad de los datos introducidos es exclusivamente tuya. Ante cualquier duda, consulta con un asesor fiscal profesional colegiado o acude directamente a la Agencia Tributaria.</p>
 
               <h3 className="font-bold text-gray-800 mt-4">16. Contacto</h3>
               <p>Para cualquier cuestión relacionada con esta política o el ejercicio de tus derechos:</p>
               <p><strong>Email:</strong> e.goidevs@gmail.com</p>
+              <p><strong>Delegado de Protección de Datos:</strong> e.goidevs@gmail.com</p>
             </div>
           </div>
         </div>
       )}
     </div>
-  );
-};
-
-export default ConsentPage;
   );
 };
 
