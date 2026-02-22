@@ -38,19 +38,19 @@ const DonationBanner = () => {
           PayPal
         </a>
         
-          href="https://buy.stripe.com/TU_LINK_STRIPE"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: 'inline-flex', alignItems: 'center', gap: '6px',
-            padding: '10px 20px', borderRadius: '8px',
-            background: '#635BFF', color: 'white',
-            fontSize: '0.85rem', fontWeight: 600,
-            textDecoration: 'none',
-          }}
-        >
-          Tarjeta
-        </a>
+         href="https://ko-fi.com/edevs10"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    display: 'inline-flex', alignItems: 'center', gap: '6px',
+    padding: '10px 24px', borderRadius: '8px',
+    background: '#FF5E5B', color: 'white',
+    fontSize: '0.85rem', fontWeight: 600,
+    textDecoration: 'none',
+  }}
+>
+  ☕ Invítame a un café
+</a>
       </div>
       <button
         onClick={() => setDismissed(true)}
