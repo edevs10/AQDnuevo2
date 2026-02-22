@@ -6,13 +6,16 @@ const AdConsentPage = () => {
   const [adsChecked, setAdsChecked] = useState(false);
   const [profilesChecked, setProfilesChecked] = useState(false);
   const [thirdPartyChecked, setThirdPartyChecked] = useState(false);
+  const [showTerms, setShowTerms] = useState(false);
+  const [showPrivacy, setShowPrivacy] = useState(false);
   const showDependencyNote = thirdPartyChecked && !profilesChecked;
 
-useEffect(() => {
-  const adPreference = localStorage.getItem('ad_consent');
-  const termsAccepted = localStorage.getItem('terms_accepted');
-  if (adPreference !== null && termsAccepted === 'true') navigate('/consent');
-}, [navigate]);
+  useEffect(() => {
+    const adPreference = localStorage.getItem('ad_consent');
+    const termsAccepted = localStorage.getItem('terms_accepted');
+    if (adPreference !== null && termsAccepted === 'true') navigate('/consent');
+  }, [navigate]);
+
   const handleAcceptAll = () => {
     setAdsChecked(true);
     setProfilesChecked(true);
@@ -76,16 +79,9 @@ useEffect(() => {
           <button
             onClick={handleAcceptAll}
             style={{
-              width: '100%',
-              padding: '13px',
-              border: 'none',
-              borderRadius: '10px',
-              fontSize: '0.95rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              background: '#2563EB',
-              color: 'white',
-              marginBottom: '12px',
+              width: '100%', padding: '13px', border: 'none', borderRadius: '10px',
+              fontSize: '0.95rem', fontWeight: 600, cursor: 'pointer',
+              background: '#2563EB', color: 'white', marginBottom: '12px',
             }}
           >
             ✓ Acepto todo y continuar
@@ -100,24 +96,15 @@ useEffect(() => {
 
           {/* Consent options */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px' }}>
-            <ConsentOption
-              checked={adsChecked}
-              onChange={setAdsChecked}
+            <ConsentOption checked={adsChecked} onChange={setAdsChecked}
               title="Publicidad personalizada"
-              description="Google y sus socios crean perfiles para mostrarte anuncios relevantes. Si no aceptas, verás anuncios genéricos."
-            />
-            <ConsentOption
-              checked={profilesChecked}
-              onChange={setProfilesChecked}
+              description="Google y sus socios crean perfiles para mostrarte anuncios relevantes. Si no aceptas, verás anuncios genéricos." />
+            <ConsentOption checked={profilesChecked} onChange={setProfilesChecked}
               title="Perfiles comerciales"
-              description="AQD elabora perfiles basados en tus datos económicos y fiscales (sin identificarte) para publicidad y estudios de mercado."
-            />
-            <ConsentOption
-              checked={thirdPartyChecked}
-              onChange={setThirdPartyChecked}
+              description="AQD elabora perfiles basados en tus datos económicos y fiscales (sin identificarte) para publicidad y estudios de mercado." />
+            <ConsentOption checked={thirdPartyChecked} onChange={setThirdPartyChecked}
               title="Cesión a terceros"
-              description="AQD puede ceder o vender los perfiles a empresas del sector financiero, publicidad y análisis de datos, sin incluir datos que te identifiquen."
-            />
+              description="AQD puede ceder o vender los perfiles a empresas del sector financiero, publicidad y análisis de datos, sin incluir datos que te identifiquen." />
           </div>
 
           {showDependencyNote && (
@@ -129,8 +116,17 @@ useEffect(() => {
 
           {/* Doc links */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '12px' }}>
-            <button onClick={() => window.open('/terms-doc.pdf', '_blank')}>Ver Términos</button>
-<button onClick={() => window.open('/privacy-doc.pdf', '_blank')}>Ver Política</button>
+            <button
+              onClick={() => setShowTerms(true)}
+              style={{ fontSize: '0.78rem', color: '#2563EB', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 500 }}
+            >
+              Ver Términos
+            </button>
+            <button
+              onClick={() => setShowPrivacy(true)}
+              style={{ fontSize: '0.78rem', color: '#2563EB', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 500 }}
+            >
+              Ver Política
             </button>
           </div>
 
@@ -138,16 +134,9 @@ useEffect(() => {
           <button
             onClick={handleContinue}
             style={{
-              width: '100%',
-              padding: '12px',
-              border: '1.5px solid #2563EB',
-              borderRadius: '10px',
-              fontSize: '0.92rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-              background: 'white',
-              color: '#2563EB',
-              marginBottom: '8px',
+              width: '100%', padding: '12px', border: '1.5px solid #2563EB',
+              borderRadius: '10px', fontSize: '0.92rem', fontWeight: 600,
+              cursor: 'pointer', background: 'white', color: '#2563EB', marginBottom: '8px',
             }}
           >
             Siguiente →
@@ -161,11 +150,42 @@ useEffect(() => {
           </button>
 
           <p style={{ textAlign: 'center', fontSize: '0.7rem', color: '#94A3B8', lineHeight: '1.4', margin: '8px 0 0' }}>
-            Puedes cambiar estas preferencias contactando con e.goidevs@gmail.com
+            Puedes cambiar estas preferencias contactando con <a href="mailto:e.goidevs@gmail.com" style={{ color: '#94A3B8' }}>e.goidevs@gmail.com</a>
           </p>
 
         </div>
       </div>
+
+      {/* Modal Términos */}
+      {showTerms && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden">
+            <div className="flex justify-between items-center p-4 border-b bg-gray-50">
+              <h2 className="font-bold text-gray-800 text-lg">Términos de Uso de AQD</h2>
+              <button onClick={() => setShowTerms(false)} className="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div className="p-6 overflow-y-auto max-h-[calc(90vh-80px)] text-sm text-gray-700 prose prose-sm">
+              {/* aquí va el contenido de showTerms de ConsentPage.js — pégalo íntegro */}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal Política de Privacidad */}
+      {showPrivacy && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden">
+            <div className="flex justify-between items-center p-4 border-b bg-gray-50">
+              <h2 className="font-bold text-gray-800 text-lg">Política de Privacidad de AQD</h2>
+              <button onClick={() => setShowPrivacy(false)} className="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            <div className="p-6 overflow-y-auto max-h-[calc(90vh-80px)] text-sm text-gray-700 prose prose-sm">
+              {/* aquí va el contenido de showPrivacy de ConsentPage.js — pégalo íntegro */}
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
@@ -175,23 +195,17 @@ const ConsentOption = ({ checked, onChange, title, description }) => (
     onClick={() => onChange(!checked)}
     style={{
       border: `1.5px solid ${checked ? '#2563EB' : '#E2E8F0'}`,
-      borderRadius: '10px',
-      padding: '10px 12px',
-      cursor: 'pointer',
-      background: checked ? '#EFF6FF' : 'white',
-      transition: 'all 0.2s ease',
+      borderRadius: '10px', padding: '10px 12px', cursor: 'pointer',
+      background: checked ? '#EFF6FF' : 'white', transition: 'all 0.2s ease',
     }}
   >
     <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
       <div style={{
         width: '20px', height: '20px', minWidth: '20px',
         border: `2px solid ${checked ? '#2563EB' : '#CBD5E1'}`,
-        borderRadius: '6px',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        background: checked ? '#2563EB' : 'white',
-        marginTop: '1px',
-        transition: 'all 0.2s ease',
-        flexShrink: 0,
+        borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+        background: checked ? '#2563EB' : 'white', marginTop: '1px',
+        transition: 'all 0.2s ease', flexShrink: 0,
       }}>
         {checked && (
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
