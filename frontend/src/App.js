@@ -9,7 +9,9 @@ const GlobalLogo = () => {
   if (location.pathname === '/') return null;
   return (
     <div style={{ position: 'fixed', top: 8, left: 8, zIndex: 9999 }}>
-      <img src="/logo.png" alt="AQD Logo" style={{ height: '48px', width: 'auto' }} />
+      <a href="https://www.algoquedeclarar.es">
+        <img src="/logo.png" alt="AQD Logo" style={{ height: '48px', width: 'auto' }} />
+      </a>
     </div>
   );
 };
