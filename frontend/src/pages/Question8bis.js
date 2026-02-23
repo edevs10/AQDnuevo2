@@ -11,7 +11,7 @@ const Question8bis = () => {
     if (answer === 'correct') {
       navigate('/question/8ter');
     } else {
-      navigate('/question/9');
+      navigate('/salary/check');
     }
   };
 
