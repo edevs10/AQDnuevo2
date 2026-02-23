@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useFlow } from '../../../context/FlowContext';
+import { useFlow } from '../../context/FlowContext';
 
 const QuestionBasque3 = () => {
   const navigate = useNavigate();
