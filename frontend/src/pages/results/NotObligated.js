@@ -1,6 +1,6 @@
 import React from 'react';
 import ResultCard from '../../components/ResultCard';
-import DonationBanner from '../../components/DonationBanner';
+
 
 const NotObligated = () => {
   const today = new Date();
@@ -33,7 +33,7 @@ const NotObligated = () => {
               </a>.
             </p>
           </div>
-          <DonationBanner />
+        
         </div>
       }
       type="success"
