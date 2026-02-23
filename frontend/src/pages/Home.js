@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center p-4 pt-0">
     {/* Logo arriba a la izquierda */}
-    <div className="absolute top-0 left-0 z-50 hidden sm:block">
+    <div className="absolute top-0 left-0 z-50 hidden lg:block">
   <img 
     src="/logo.png" 
     alt="AQD Logo" 
