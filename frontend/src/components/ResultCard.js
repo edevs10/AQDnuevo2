@@ -201,7 +201,7 @@ const ResultCard = ({
             </div>
           </div>
 
-          {/* Sección de valoración - solo para no obligados */}
+         {/* Sección de valoración - solo para no obligados */}
           {!isObligated && (
             <div className="bg-gray-50 rounded-xl p-5 mb-6">
               <p className="text-gray-700 font-medium mb-1">¿Te ha resultado útil la app?</p>
