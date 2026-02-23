@@ -64,7 +64,7 @@ import BasqueTerritoryByTime from "./pages/basque/BasqueTerritoryByTime";
 import BasqueTerritoryByEconomic from "./pages/basque/BasqueTerritoryByEconomic";
 import QuestionBasque1 from "./pages/basque/QuestionBasque1";
 import QuestionBasque2 from "./pages/basque/QuestionBasque2";
-import QuestionBasque3 from './pages/questions/basque/QuestionBasque3';
+import QuestionBasque3 from './pages/basque/QuestionBasque3';
 
 // Importar páginas de salario compartidas
 import SalaryCheck from "./pages/SalaryCheck";
