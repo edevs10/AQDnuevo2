@@ -14,7 +14,7 @@ const Question8 = () => {
       navigate('/result/obligated');
     } else {
       await setFlowPath('commonTerritory');
-      navigate('/salary/check');
+      navigate('/question/8bis');
     }
   };
 
