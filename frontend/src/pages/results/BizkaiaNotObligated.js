@@ -1,6 +1,6 @@
 import React from 'react';
 import ResultCard from '../../components/ResultCard';
-import DonationBanner from '../../components/DonationBanner';
+
 
 const BizkaiaNotObligated = () => {
   const today = new Date();
@@ -25,7 +25,7 @@ const BizkaiaNotObligated = () => {
               Aunque no tengas obligación, puedes querer presentarla si te sale a devolver. Pero ojo: si la presentas, tus ascendientes podrían perder deducciones por ti, lo cual puede perjudicarte. Compara ambos escenarios antes de decidir.
             </p>
           </div>
-          <DonationBanner />
+     
         </div>
       }
       type="success"
