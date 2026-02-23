@@ -18,7 +18,7 @@ const Home = () => {
   <img 
     src="/logo.png" 
     alt="AQD Logo" 
-    style={{ height: 'clamp(72px, 12vmin, 200px)', width: 'auto' }}
+    style={{ height: 'clamp(72px, 12vmin, 260px)', width: 'auto' }}
   />
 </div>
       <div className="w-full max-w-4xl">
