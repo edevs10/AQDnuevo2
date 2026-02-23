@@ -1,6 +1,6 @@
 import React from 'react';
 import ResultCard from '../../components/ResultCard';
-import DonationBanner from '../../components/DonationBanner';
+
 
 const Obligated = () => {
   const today = new Date();
@@ -35,7 +35,7 @@ const Obligated = () => {
               <li>Consulta la web oficial de la Agencia Tributaria para información específica</li>
             </ul>
           </div>
-          <DonationBanner />
+         
         </div>
       }
       type="warning"
