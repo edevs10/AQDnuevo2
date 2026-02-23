@@ -214,9 +214,20 @@ const ResultCard = ({
                 <span className="mr-2">⭐</span>
                 Valorar en Play Store
               </button>
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <p className="text-gray-600 text-sm mb-3">La app es gratuita y sin ánimo de lucro. Si quieres apoyar el proyecto, puedes hacer una pequeña donación.</p>
+                
+                  href="https://ko-fi.com/edevs10"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 rounded-lg font-medium text-white"
+                  style={{ background: '#FF5E5B' }}
+                >
+                  ☕ Invítame a un café
+                </a>
+              </div>
             </div>
           )}
-
           {/* Contenido adicional (consejo/info) */}
           {additionalContent && (
             <div className="mb-6">
