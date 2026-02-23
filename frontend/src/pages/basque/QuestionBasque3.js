@@ -43,7 +43,7 @@ const getTerritoryName = () => {
               </p>
             </div>
             <h1 className="text-2xl font-bold text-gray-800 mb-6">
-              ¿Has obtenido algún rendimiento distinto de los anteriores? Por ejemplo, por el alquiler de una vivienda.
+              ¿Has obtenido algún rendimiento distinto de los anteriores? Por ejemplo, por el alquiler de una vivienda o de un local; por la realización de alguna actividad económica como autónomo, etc.
             </h1>
             <div className="space-y-4">
               <div
