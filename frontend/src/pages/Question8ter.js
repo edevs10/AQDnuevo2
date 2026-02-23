@@ -11,7 +11,7 @@ const Question8ter = () => {
     if (answer === 'yes') {
       navigate('/result/not-obligated');
     } else {
-      navigate('/question/9');
+      navigate('/salary/check');
     }
   };
 
