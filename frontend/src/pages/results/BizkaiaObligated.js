@@ -1,6 +1,6 @@
 import React from 'react';
 import ResultCard from '../../components/ResultCard';
-import DonationBanner from '../../components/DonationBanner';
+
 
 const BizkaiaObligated = () => {
   const today = new Date();
@@ -35,7 +35,7 @@ const BizkaiaObligated = () => {
               <li>Consulta la web oficial de Hacienda Foral de Bizkaia para información específica</li>
             </ul>
           </div>
-          <DonationBanner />
+  
         </div>
       }
       type="warning"
