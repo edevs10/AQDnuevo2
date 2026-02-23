@@ -14,11 +14,11 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center p-4 pt-0">
     {/* Logo arriba a la izquierda */}
-    <div className="absolute top-0 left-0 z-50 hidden lg:block">
+   <div className="absolute top-0 left-0 md:left-4 z-50">
   <img 
     src="/logo.png" 
     alt="AQD Logo" 
-    style={{ height: 'clamp(48px, 12vw, 128px)', width: 'auto' }}
+    style={{ height: 'clamp(64px, 10vw, 256px)', width: 'auto' }}
   />
 </div>
       <div className="w-full max-w-4xl">
