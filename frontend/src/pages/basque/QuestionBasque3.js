@@ -24,12 +24,24 @@ const QuestionBasque3 = () => {
   const handlePrevious = () => {
     navigate('/question/basque/2');
   };
-
+const getTerritoryName = () => {
+    switch (flowPath) {
+      case 'bizkaiaTerritory': return 'Bizkaia';
+      case 'gipuzkoaTerritory': return 'Gipuzkoa';
+      case 'alavaTerritory': return 'Álava';
+      default: return 'País Vasco';
+    }
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center p-4">
       <div className="w-full max-w-2xl">
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
           <div className="mb-8">
+    <div className="mb-4 p-3 bg-green-50 rounded-lg border-l-4 border-green-400">
+              <p className="text-sm text-gray-700">
+                <strong>Normativa aplicable:</strong> Régimen foral de {getTerritoryName()}
+              </p>
+            </div>
             <h1 className="text-2xl font-bold text-gray-800 mb-6">
               ¿Has obtenido algún rendimiento distinto de los anteriores? Por ejemplo, por el alquiler de una vivienda.
             </h1>
