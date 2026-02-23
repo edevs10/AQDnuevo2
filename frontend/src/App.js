@@ -64,6 +64,7 @@ import BasqueTerritoryByTime from "./pages/basque/BasqueTerritoryByTime";
 import BasqueTerritoryByEconomic from "./pages/basque/BasqueTerritoryByEconomic";
 import QuestionBasque1 from "./pages/basque/QuestionBasque1";
 import QuestionBasque2 from "./pages/basque/QuestionBasque2";
+import QuestionBasque3 from './pages/questions/basque/QuestionBasque3';
 
 // Importar páginas de salario compartidas
 import SalaryCheck from "./pages/SalaryCheck";
@@ -166,6 +167,7 @@ function App() {
   <Route path="/question/basque/territory-by-economic" element={<ProtectedRoute element={<BasqueTerritoryByEconomic />} />} />
   <Route path="/question/basque/1" element={<ProtectedRoute element={<QuestionBasque1 />} />} />
   <Route path="/question/basque/2" element={<ProtectedRoute element={<QuestionBasque2 />} />} />
+  <Route path="/question/basque/3" element={<ProtectedRoute element={<QuestionBasque3 />} />} />
 
   <Route path="/salary/check" element={<ProtectedRoute element={<SalaryCheck />} />} />
   <Route path="/salary/payments-question" element={<ProtectedRoute element={<SalaryPaymentsQuestion />} />} />
