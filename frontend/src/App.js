@@ -10,7 +10,14 @@ const GlobalLogo = () => {
   return (
     <div style={{ position: 'fixed', top: 8, left: 8, zIndex: 9999 }}>
       <a href="https://www.algoquedeclarar.es">
-        <img src="/logo.png" alt="AQD Logo" style={{ height: '48px', width: 'auto' }} />
+        <img
+          src="/logo.png"
+          alt="AQD Logo"
+          style={{
+            height: 'clamp(32px, 5vw, 48px)',
+            width: 'auto',
+          }}
+        />
       </a>
     </div>
   );
