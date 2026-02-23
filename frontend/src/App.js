@@ -46,6 +46,8 @@ import Question5B from "./pages/Question5B";
 import Question6 from "./pages/Question6";
 import Question7 from "./pages/Question7";
 import Question8 from "./pages/Question8";
+import Question8bis from './pages/Question8bis';
+import Question8ter from './pages/Question8ter';
 import Question9 from "./pages/Question9";
 import Question10 from "./pages/Question10";
 import Question11 from "./pages/Question11";
@@ -151,6 +153,8 @@ function App() {
   <Route path="/question/6" element={<ProtectedRoute element={<Question6 />} />} />
   <Route path="/question/7" element={<ProtectedRoute element={<Question7 />} />} />
   <Route path="/question/8" element={<ProtectedRoute element={<Question8 />} />} />
+  <Route path="/question/8bis" element={<ProtectedRoute element={<Question8bis />} />} />
+  <Route path="/question/8ter" element={<ProtectedRoute element={<Question8ter />} />} />
   <Route path="/question/9" element={<ProtectedRoute element={<Question9 />} />} />
   <Route path="/question/10" element={<ProtectedRoute element={<Question10 />} />} />
   <Route path="/question/11" element={<ProtectedRoute element={<Question11 />} />} />
