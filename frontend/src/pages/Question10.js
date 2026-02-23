@@ -68,7 +68,7 @@ const Question10 = () => {
               </div>
 
               {/* Sección SÍ con sub-opciones */}
-              <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+             <div className="bg-blue-50 border-l-4 border-blue-200 p-4 rounded-r-lg">
                 <p className="text-sm text-gray-700 font-medium mb-4">
                   SÍ (marca el caso que te corresponda):
                 </p>
