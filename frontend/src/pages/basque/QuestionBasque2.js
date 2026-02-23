@@ -59,18 +59,8 @@ const QuestionBasque2 = () => {
         // Fallback por si acaso, pero no debería llegar aquí en flujo normal
         navigate('/result/obligated');
       }
-    } else {
-      // Navegar a resultado de no obligado según el territorio
-      if (flowPath === 'bizkaiaTerritory') {
-        navigate('/result/bizkaia-not-obligated');
-      } else if (flowPath === 'gipuzkoaTerritory') {
-        navigate('/result/gipuzkoa-not-obligated');
-      } else if (flowPath === 'alavaTerritory') {
-        navigate('/result/alava-not-obligated');
-      } else {
-        // Fallback por si acaso, pero no debería llegar aquí en flujo normal
-        navigate('/result/not-obligated');
-      }
+   } else {
+      navigate('/question/basque/3');
     }
   };
 
