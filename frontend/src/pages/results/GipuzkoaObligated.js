@@ -1,6 +1,6 @@
 import React from 'react';
 import ResultCard from '../../components/ResultCard';
-import DonationBanner from '../../components/DonationBanner';
+
 
 const GipuzkoaObligated = () => {
   const today = new Date();
@@ -35,7 +35,7 @@ const GipuzkoaObligated = () => {
               <li>Consulta la web oficial de Hacienda Foral de Gipuzkoa para información específica</li>
             </ul>
           </div>
-          <DonationBanner />
+          
         </div>
       }
       type="warning"
