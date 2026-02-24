@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useFlow } from '../../context/FlowContext';
+import { useFlow } from '../../../context/FlowContext';
 
 const SalaryCalculatorNavarra10 = () => {
   const navigate = useNavigate();
