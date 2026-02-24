@@ -39,7 +39,9 @@ const Question6 = () => {
               <ul className="list-disc list-inside space-y-2">
                 <li className="font-medium text-gray-800">Ley 35/2006, de 28 de noviembre, del Impuesto sobre la Renta de las Personas Físicas y de modificación parcial de las leyes de los Impuestos sobre Sociedades, sobre la Renta de no Residentes y sobre el Patrimonio.</li>
                 <li className="font-medium text-gray-800">Real Decreto 439/2007, de 30 de marzo, por el que se aprueba el Reglamento del Impuesto sobre la Renta de las Personas Físicas y se modifica el Reglamento de Planes y Fondos de Pensiones, aprobado por Real Decreto 304/2004, de 20 de febrero.</li>
-              </ul>
+              </ul> <p className="text-gray-700 leading-relaxed mt-4">
+                Tus declaraciones, pagos y gestiones se hacen a través de la web de la AEAT u oficinas estatales, en caso de estar obligado.
+              </p>
             </div>
 
             <p className="text-gray-600 mb-4">
