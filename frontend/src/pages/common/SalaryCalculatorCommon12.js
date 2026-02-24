@@ -69,10 +69,7 @@ const SalaryCalculatorCommon12 = () => {
   };
 
   const handlePrevious = () => {
-    // Si viene de la página de retención variable, volver ahí
-    if (answers?.retention_variable) {
-      navigate('/salary/common/retention-variable');
-    } else if (answers?.annual_payments) {
+    if (answers?.annual_payments) {
       navigate('/salary/payments-question');
     } else {
       navigate('/salary/check');
