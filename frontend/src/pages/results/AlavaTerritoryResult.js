@@ -40,9 +40,15 @@ const AlavaTerritoryResult = () => {
               
               <div className="text-gray-700 leading-relaxed">
                 <p className="font-semibold mb-2">Tu obligación tributaria corresponde a:</p>
-                <ul className="list-disc list-inside space-y-1 mb-4">
+                <ul className="list-disc list-inside space-y-2 mb-4">
                   <li>Hacienda Foral de Álava</li>
-                  <li>Normativa fiscal foral específica de Álava</li>
+                  <li>
+                    Normativa fiscal foral específica de Álava:
+                    <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+                      <li className="text-sm">Norma Foral 33/2013, de 27 de noviembre, del Impuesto sobre la Renta de las Personas Físicas</li>
+                      <li className="text-sm">Decreto Foral 40/2014, del Consejo de Diputados de 1 de agosto, que aprueba el Reglamento del Impuesto sobre la Renta de las Personas Físicas</li>
+                    </ul>
+                  </li>
                   <li>Declaraciones y pagos a través de la Diputación Foral de Álava</li>
                 </ul>
                 
