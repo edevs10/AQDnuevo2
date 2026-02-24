@@ -60,16 +60,13 @@ const SalaryCalculatorGipuzkoa10 = () => {
     }
   };
 
-  const handlePrevious = () => {
-    if (answers?.retention_variable) {
-      navigate('/salary/gipuzkoa/retention-variable');
-    } else if (answers?.annual_payments) {
+const handlePrevious = () => {
+    if (answers?.annual_payments) {
       navigate('/salary/payments-question');
     } else {
       navigate('/salary/check');
     }
   };
-
   const isBasqueTerritory = flowPath === 'bizkaiaTerritory' || flowPath === 'gipuzkoaTerritory' || flowPath === 'alavaTerritory';
   const isValid = netMonthly && retentionSame && annualPayments && 
                   parseFloat(netMonthly) > 0 && 
