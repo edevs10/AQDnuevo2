@@ -73,6 +73,8 @@ import SalaryCheck from "./pages/SalaryCheck";
 import SalaryPaymentsQuestion from "./pages/SalaryPaymentsQuestion";
 
 // Importar calculadoras y RetentionVariable - Territorio Común
+import SalaryCalculatorCommon10 from "./pages/common/SalaryCalculatorCommon10";
+import SalaryCalculatorCommon11 from "./pages/common/SalaryCalculatorCommon11";
 import SalaryCalculatorCommon12 from "./pages/common/SalaryCalculatorCommon12";
 import SalaryCalculatorCommon14 from "./pages/common/SalaryCalculatorCommon14";
 import SalaryCalculatorCommon15 from "./pages/common/SalaryCalculatorCommon15";
@@ -80,6 +82,8 @@ import SalaryResultCommon from "./pages/common/SalaryResultCommon";
 import RetentionVariableQuestionCommon from "./pages/common/RetentionVariableQuestionCommon";
 
 // Importar calculadoras y RetentionVariable - Navarra
+import SalaryCalculatorNavarra10 from "./pages/navarra/salary/SalaryCalculatorNavarra10";
+import SalaryCalculatorNavarra11 from "./pages/navarra/salary/SalaryCalculatorNavarra11";
 import SalaryCalculatorNavarra12 from "./pages/navarra/salary/SalaryCalculatorNavarra12";
 import SalaryCalculatorNavarra14 from "./pages/navarra/salary/SalaryCalculatorNavarra14";
 import SalaryCalculatorNavarra15 from "./pages/navarra/salary/SalaryCalculatorNavarra15";
@@ -87,6 +91,8 @@ import SalaryResultNavarra from "./pages/navarra/salary/SalaryResultNavarra";
 import RetentionVariableQuestionNavarra from "./pages/navarra/salary/RetentionVariableQuestionNavarra";
 
 // Importar calculadoras y RetentionVariable - Bizkaia
+import SalaryCalculatorBizkaia10 from "./pages/bizkaia/SalaryCalculatorBizkaia10";
+import SalaryCalculatorBizkaia11 from "./pages/bizkaia/SalaryCalculatorBizkaia11";
 import SalaryCalculatorBizkaia12 from "./pages/bizkaia/SalaryCalculatorBizkaia12";
 import SalaryCalculatorBizkaia14 from "./pages/bizkaia/SalaryCalculatorBizkaia14";
 import SalaryCalculatorBizkaia15 from "./pages/bizkaia/SalaryCalculatorBizkaia15";
@@ -94,6 +100,8 @@ import SalaryResultBizkaia from "./pages/bizkaia/SalaryResultBizkaia";
 import RetentionVariableQuestionBizkaia from "./pages/bizkaia/RetentionVariableQuestionBizkaia";
 
 // Importar calculadoras y RetentionVariable - Gipuzkoa
+import SalaryCalculatorGipuzkoa10 from "./pages/gipuzkoa/SalaryCalculatorGipuzkoa10";
+import SalaryCalculatorGipuzkoa11 from "./pages/gipuzkoa/SalaryCalculatorGipuzkoa11";
 import SalaryCalculatorGipuzkoa12 from "./pages/gipuzkoa/SalaryCalculatorGipuzkoa12";
 import SalaryCalculatorGipuzkoa14 from "./pages/gipuzkoa/SalaryCalculatorGipuzkoa14";
 import SalaryCalculatorGipuzkoa15 from "./pages/gipuzkoa/SalaryCalculatorGipuzkoa15";
@@ -101,6 +109,8 @@ import SalaryResultGipuzkoa from "./pages/gipuzkoa/SalaryResultGipuzkoa";
 import RetentionVariableQuestionGipuzkoa from "./pages/gipuzkoa/RetentionVariableQuestionGipuzkoa";
 
 // Importar calculadoras y RetentionVariable - Álava
+import SalaryCalculatorAlava10 from "./pages/alava/SalaryCalculatorAlava10";
+import SalaryCalculatorAlava11 from "./pages/alava/SalaryCalculatorAlava11";
 import SalaryCalculatorAlava12 from "./pages/alava/SalaryCalculatorAlava12";
 import SalaryCalculatorAlava14 from "./pages/alava/SalaryCalculatorAlava14";
 import SalaryCalculatorAlava15 from "./pages/alava/SalaryCalculatorAlava15";
@@ -177,30 +187,40 @@ function App() {
   <Route path="/salary/payments-question" element={<ProtectedRoute element={<SalaryPaymentsQuestion />} />} />
 
   <Route path="/salary/common/retention-variable" element={<ProtectedRoute element={<RetentionVariableQuestionCommon />} />} />
+  <Route path="/salary/common/calculator-10" element={<ProtectedRoute element={<SalaryCalculatorCommon10 />} />} />
+  <Route path="/salary/common/calculator-11" element={<ProtectedRoute element={<SalaryCalculatorCommon11 />} />} />
   <Route path="/salary/common/calculator-12" element={<ProtectedRoute element={<SalaryCalculatorCommon12 />} />} />
   <Route path="/salary/common/calculator-14" element={<ProtectedRoute element={<SalaryCalculatorCommon14 />} />} />
   <Route path="/salary/common/calculator-15" element={<ProtectedRoute element={<SalaryCalculatorCommon15 />} />} />
   <Route path="/salary/common/result" element={<ProtectedRoute element={<SalaryResultCommon />} />} />
 
   <Route path="/salary/navarra/retention-variable" element={<ProtectedRoute element={<RetentionVariableQuestionNavarra />} />} />
+  <Route path="/salary/navarra/calculator-10" element={<ProtectedRoute element={<SalaryCalculatorNavarra10 />} />} />
+  <Route path="/salary/navarra/calculator-11" element={<ProtectedRoute element={<SalaryCalculatorNavarra11 />} />} />
   <Route path="/salary/navarra/calculator-12" element={<ProtectedRoute element={<SalaryCalculatorNavarra12 />} />} />
   <Route path="/salary/navarra/calculator-14" element={<ProtectedRoute element={<SalaryCalculatorNavarra14 />} />} />
   <Route path="/salary/navarra/calculator-15" element={<ProtectedRoute element={<SalaryCalculatorNavarra15 />} />} />
   <Route path="/salary/navarra/result" element={<ProtectedRoute element={<SalaryResultNavarra />} />} />
 
   <Route path="/salary/bizkaia/retention-variable" element={<ProtectedRoute element={<RetentionVariableQuestionBizkaia />} />} />
+  <Route path="/salary/bizkaia/calculator-10" element={<ProtectedRoute element={<SalaryCalculatorBizkaia10 />} />} />
+  <Route path="/salary/bizkaia/calculator-11" element={<ProtectedRoute element={<SalaryCalculatorBizkaia11 />} />} />
   <Route path="/salary/bizkaia/calculator-12" element={<ProtectedRoute element={<SalaryCalculatorBizkaia12 />} />} />
   <Route path="/salary/bizkaia/calculator-14" element={<ProtectedRoute element={<SalaryCalculatorBizkaia14 />} />} />
   <Route path="/salary/bizkaia/calculator-15" element={<ProtectedRoute element={<SalaryCalculatorBizkaia15 />} />} />
   <Route path="/salary/bizkaia/result" element={<ProtectedRoute element={<SalaryResultBizkaia />} />} />
 
   <Route path="/salary/gipuzkoa/retention-variable" element={<ProtectedRoute element={<RetentionVariableQuestionGipuzkoa />} />} />
+  <Route path="/salary/gipuzkoa/calculator-10" element={<ProtectedRoute element={<SalaryCalculatorGipuzkoa10 />} />} />
+  <Route path="/salary/gipuzkoa/calculator-11" element={<ProtectedRoute element={<SalaryCalculatorGipuzkoa11 />} />} />
   <Route path="/salary/gipuzkoa/calculator-12" element={<ProtectedRoute element={<SalaryCalculatorGipuzkoa12 />} />} />
   <Route path="/salary/gipuzkoa/calculator-14" element={<ProtectedRoute element={<SalaryCalculatorGipuzkoa14 />} />} />
   <Route path="/salary/gipuzkoa/calculator-15" element={<ProtectedRoute element={<SalaryCalculatorGipuzkoa15 />} />} />
   <Route path="/salary/gipuzkoa/result" element={<ProtectedRoute element={<SalaryResultGipuzkoa />} />} />
 
   <Route path="/salary/alava/retention-variable" element={<ProtectedRoute element={<RetentionVariableQuestionAlava />} />} />
+  <Route path="/salary/alava/calculator-10" element={<ProtectedRoute element={<SalaryCalculatorAlava10 />} />} />
+  <Route path="/salary/alava/calculator-11" element={<ProtectedRoute element={<SalaryCalculatorAlava11 />} />} />
   <Route path="/salary/alava/calculator-12" element={<ProtectedRoute element={<SalaryCalculatorAlava12 />} />} />
   <Route path="/salary/alava/calculator-14" element={<ProtectedRoute element={<SalaryCalculatorAlava14 />} />} />
   <Route path="/salary/alava/calculator-15" element={<ProtectedRoute element={<SalaryCalculatorAlava15 />} />} />
