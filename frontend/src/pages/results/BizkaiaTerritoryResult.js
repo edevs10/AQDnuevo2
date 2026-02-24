@@ -52,13 +52,7 @@ const BizkaiaTerritoryResult = () => {
                   <li>Declaraciones y pagos a través de la Diputación Foral de Bizkaia</li>
                 </ul>
                 
-                <p className="mb-4">
-                  El territorio histórico de Bizkaia tiene su propia normativa fiscal foral específica.
-                </p>
-
-                <p className="text-sm text-gray-600">
-                  Para más información: Web oficial de la Hacienda Foral de Bizkaia u oficinas forales en Bilbao.
-                </p>
+              
               </div>
             </div>
 
