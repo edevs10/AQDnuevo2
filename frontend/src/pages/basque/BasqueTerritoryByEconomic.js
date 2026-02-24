@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFlow } from '../../context/FlowContext';
 
 const BasqueTerritoryByEconomic = () => {
   const navigate = useNavigate();
   const { setAnswer } = useFlow();
+  const [selectedAnswer, setSelectedAnswer] = useState('');
 
   const handleNext = (territory) => {
     setAnswer('basque_territory', territory);
@@ -39,11 +40,11 @@ const BasqueTerritoryByEconomic = () => {
 
             <div className="space-y-4">
               <div
-                className="p-4 rounded-lg border-2 cursor-pointer transition-all duration-200 border-gray-200 hover:border-blue-300 hover:bg-blue-25"
-                onClick={() => handleNext('bizkaia')}
+                className={`p-4 rounded-lg border-2 cursor-pointer transition-all duration-200 ${selectedAnswer === 'bizkaia' ? 'border-blue-600 bg-blue-50' : 'border-gray-200 hover:border-blue-300'}`}
+                onClick={() => setSelectedAnswer('bizkaia')}
               >
                 <div className="flex items-center">
-                  <div className="w-4 h-4 rounded-full border-2 border-gray-300 mr-3"></div>
+                  <div className={`w-4 h-4 rounded-full border-2 ${selectedAnswer === 'bizkaia' ? 'border-blue-600 bg-blue-600' : 'border-gray-300'} mr-3`}></div>
                   <span className="text-gray-700 font-medium">
                     Bizkaia
                   </span>
@@ -51,11 +52,11 @@ const BasqueTerritoryByEconomic = () => {
               </div>
 
               <div
-                className="p-4 rounded-lg border-2 cursor-pointer transition-all duration-200 border-gray-200 hover:border-blue-300 hover:bg-blue-25"
-                onClick={() => handleNext('gipuzkoa')}
+                className={`p-4 rounded-lg border-2 cursor-pointer transition-all duration-200 ${selectedAnswer === 'gipuzkoa' ? 'border-blue-600 bg-blue-50' : 'border-gray-200 hover:border-blue-300'}`}
+                onClick={() => setSelectedAnswer('gipuzkoa')}
               >
                 <div className="flex items-center">
-                  <div className="w-4 h-4 rounded-full border-2 border-gray-300 mr-3"></div>
+                  <div className={`w-4 h-4 rounded-full border-2 ${selectedAnswer === 'gipuzkoa' ? 'border-blue-600 bg-blue-600' : 'border-gray-300'} mr-3`}></div>
                   <span className="text-gray-700 font-medium">
                     Gipuzkoa
                   </span>
@@ -63,11 +64,11 @@ const BasqueTerritoryByEconomic = () => {
               </div>
 
               <div
-                className="p-4 rounded-lg border-2 cursor-pointer transition-all duration-200 border-gray-200 hover:border-blue-300 hover:bg-blue-25"
-                onClick={() => handleNext('alava')}
+                className={`p-4 rounded-lg border-2 cursor-pointer transition-all duration-200 ${selectedAnswer === 'alava' ? 'border-blue-600 bg-blue-50' : 'border-gray-200 hover:border-blue-300'}`}
+                onClick={() => setSelectedAnswer('alava')}
               >
                 <div className="flex items-center">
-                  <div className="w-4 h-4 rounded-full border-2 border-gray-300 mr-3"></div>
+                  <div className={`w-4 h-4 rounded-full border-2 ${selectedAnswer === 'alava' ? 'border-blue-600 bg-blue-600' : 'border-gray-300'} mr-3`}></div>
                   <span className="text-gray-700 font-medium">
                     Álava
                   </span>
@@ -82,6 +83,17 @@ const BasqueTerritoryByEconomic = () => {
               className="px-6 py-3 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-gray-200 transition-colors duration-200"
             >
               ← Anterior
+            </button>
+            <button
+              onClick={() => selectedAnswer && handleNext(selectedAnswer)}
+              disabled={!selectedAnswer}
+              className={`px-8 py-3 font-medium rounded-lg transition-colors duration-200 ${
+                selectedAnswer
+                  ? 'bg-blue-600 text-white hover:bg-blue-700'
+                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+              }`}
+            >
+              Siguiente →
             </button>
           </div>
         </div>
