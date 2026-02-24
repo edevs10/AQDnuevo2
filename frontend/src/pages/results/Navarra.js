@@ -56,13 +56,7 @@ const Navarra = () => {
                   </li>
                   <li>Declaraciones y pagos a través de la Hacienda Foral de Navarra</li>
                 </ul>
-                <p className="mb-4">
-                  El régimen fiscal de Navarra tiene sus propias particularidades y beneficios fiscales específicos.
-                </p>
-
-                <p className="text-sm text-gray-600">
-                  Para más información: Web oficial de Hacienda Foral de Navarra u oficinas forales.
-                </p>
+               
               </div>
             </div>
 
