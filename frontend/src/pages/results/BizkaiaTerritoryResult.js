@@ -40,9 +40,15 @@ const BizkaiaTerritoryResult = () => {
               
               <div className="text-gray-700 leading-relaxed">
                 <p className="font-semibold mb-2">Tu obligación tributaria corresponde a:</p>
-                <ul className="list-disc list-inside space-y-1 mb-4">
+               <ul className="list-disc list-inside space-y-2 mb-4">
                   <li>Hacienda Foral de Bizkaia</li>
-                  <li>Normativa fiscal foral específica de Bizkaia</li>
+                  <li>
+                    Normativa fiscal foral específica de Bizkaia:
+                    <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+                      <li className="text-sm">NORMA FORAL 13/2013, de 5 de diciembre, del Impuesto sobre la Renta de las Personas Físicas</li>
+                      <li className="text-sm">DECRETO FORAL de la Diputación Foral de Bizkaia 47/2014, de 8 de abril, por el que se aprueba el Reglamento del Impuesto sobre la Renta de las Personas Físicas</li>
+                    </ul>
+                  </li>
                   <li>Declaraciones y pagos a través de la Diputación Foral de Bizkaia</li>
                 </ul>
                 
