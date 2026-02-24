@@ -24,7 +24,7 @@ const Question12 = () => {
       } else if (flowPath === 'alavaTerritory') {
         navigate('/result/alava-not-obligated');
       } else {
-        navigate('/question/14');
+        navigate('/result/not-obligated');
       }
     }
   };
