@@ -23,7 +23,7 @@ const Home = () => {
 </div>
       <div className="w-full max-w-4xl">
         {/* Hero Section */}
-       <div className="text-center mb-6 mt-14 md:mt-0">
+       <div className="text-center mb-6 mt-14 md:mt-6">
           <h1 className="text-5xl font-bold text-gray-800 mb-3">
             ¿Algo Que <span className="text-blue-600">Declarar?</span>
           </h1>
