@@ -53,7 +53,7 @@ const RetentionVariableQuestionBizkaia = () => {
       
       return Math.round((grossMonthlyOrdinary * 9 + grossExtra1 + grossExtra2 + grossExtra3) * 100) / 100;
     } else {
-      // 12 pagas
+      // 10, 11 o 12 pagas
       const net = parseFloat(answers?.net_monthly) || 0;
       const paymentsNum = parseFloat(payments) || 12;
       
@@ -77,7 +77,11 @@ const RetentionVariableQuestionBizkaia = () => {
   const handlePrevious = () => {
     // Volver según el número de pagas
     const payments = answers?.annual_payments;
-    if (payments === '14') {
+    if (payments === '10') {
+      navigate('/salary/bizkaia/calculator-10');
+    } else if (payments === '11') {
+      navigate('/salary/bizkaia/calculator-11');
+    } else if (payments === '14') {
       navigate('/salary/bizkaia/calculator-14');
     } else if (payments === '15') {
       navigate('/salary/bizkaia/calculator-15');
