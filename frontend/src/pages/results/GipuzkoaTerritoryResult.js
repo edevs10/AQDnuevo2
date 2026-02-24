@@ -52,13 +52,7 @@ const GipuzkoaTerritoryResult = () => {
                   <li>Declaraciones y pagos a través de la Diputación Foral de Gipuzkoa</li>
                 </ul>
                 
-                <p className="mb-4">
-                  El territorio histórico de Gipuzkoa tiene su propia normativa fiscal foral específica.
-                </p>
-
-                <p className="text-sm text-gray-600">
-                  Para más información: Web oficial de la Hacienda Foral de Gipuzkoa u oficinas forales en San Sebastián.
-                </p>
+                
               </div>
             </div>
 
