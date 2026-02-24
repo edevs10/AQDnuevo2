@@ -68,17 +68,13 @@ const SalaryCalculatorAlava12 = () => {
     }
   };
 
-  const handlePrevious = () => {
-    // Si viene de la página de retención variable, volver ahí
-    if (answers?.retention_variable) {
-      navigate('/salary/alava/retention-variable');
-    } else if (answers?.annual_payments) {
+ const handlePrevious = () => {
+    if (answers?.annual_payments) {
       navigate('/salary/payments-question');
     } else {
       navigate('/salary/check');
     }
   };
-
   const isBasqueTerritory = flowPath === 'bizkaiaTerritory' || flowPath === 'gipuzkoaTerritory' || flowPath === 'alavaTerritory';
   const isValid = netMonthly && retentionSame && annualPayments && 
                   parseFloat(netMonthly) > 0 && 
