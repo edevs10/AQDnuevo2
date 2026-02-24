@@ -40,9 +40,15 @@ const GipuzkoaTerritoryResult = () => {
               
               <div className="text-gray-700 leading-relaxed">
                 <p className="font-semibold mb-2">Tu obligación tributaria corresponde a:</p>
-                <ul className="list-disc list-inside space-y-1 mb-4">
+                <ul className="list-disc list-inside space-y-2 mb-4">
                   <li>Hacienda Foral de Gipuzkoa</li>
-                  <li>Normativa fiscal foral específica de Gipuzkoa</li>
+                  <li>
+                    Normativa fiscal foral específica de Gipuzkoa:
+                    <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+                      <li className="text-sm">Norma Foral 3/2014, de 17 de enero, del Impuesto sobre la Renta de las Personas Físicas del Territorio Histórico de Gipuzkoa</li>
+                      <li className="text-sm">DECRETO FORAL 33/2014, de 14 de octubre, por el que se aprueba el Reglamento del Impuesto sobre la Renta de las Personas Físicas y se modifica el Reglamento por el que se desarrollan determinadas obligaciones tributarias formales</li>
+                    </ul>
+                  </li>
                   <li>Declaraciones y pagos a través de la Diputación Foral de Gipuzkoa</li>
                 </ul>
                 
