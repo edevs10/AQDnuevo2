@@ -60,10 +60,8 @@ const SalaryCalculatorGipuzkoa11 = () => {
     }
   };
 
-  const handlePrevious = () => {
-    if (answers?.retention_variable) {
-      navigate('/salary/gipuzkoa/retention-variable');
-    } else if (answers?.annual_payments) {
+const handlePrevious = () => {
+    if (answers?.annual_payments) {
       navigate('/salary/payments-question');
     } else {
       navigate('/salary/check');
