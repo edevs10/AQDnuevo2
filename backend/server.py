@@ -175,6 +175,49 @@ async def get_sessions_analytics(token: str = Depends(verify_admin_token)):
     }
 
 
+# Review models
+class ReviewCreate(BaseModel):
+    stars: int
+    comment: Optional[str] = None
+
+    @validator('stars')
+    def stars_must_be_valid(cls, v):
+        if not (1 <= v <= 5):
+            raise ValueError('La valoración debe ser entre 1 y 5')
+        return v
+
+    @validator('comment')
+    def comment_max_length(cls, v):
+        if v and len(v) > 500:
+            raise ValueError('El comentario no puede superar los 500 caracteres')
+        return v
+
+class Review(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    stars: int
+    comment: Optional[str] = None
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+
+@api_router.post("/reviews", response_model=Review)
+@limiter.limit("5/minute")
+async def create_review(request: Request, input: ReviewCreate):
+    review_obj = Review(**input.dict())
+    await db.reviews.insert_one(review_obj.dict())
+    return review_obj
+
+@api_router.get("/reviews/summary")
+async def get_reviews_summary():
+    total = await db.reviews.count_documents({})
+    if total == 0:
+        return {"average": 0, "total": 0}
+    pipeline = [
+        {"$group": {"_id": None, "avg": {"$avg": "$stars"}, "count": {"$sum": 1}}}
+    ]
+    result = await db.reviews.aggregate(pipeline).to_list(1)
+    if result:
+        return {"average": round(result[0]["avg"], 1), "total": result[0]["count"]}
+    return {"average": 0, "total": 0}
+
 # Include the router in the main app
 app.include_router(api_router)
 
