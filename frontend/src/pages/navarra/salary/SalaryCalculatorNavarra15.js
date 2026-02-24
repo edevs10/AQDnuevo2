@@ -80,12 +80,11 @@ const SalaryCalculatorNavarra15 = () => {
     }
   };
 
-  const handlePrevious = () => {
-    // Si viene de la página de retención variable, volver ahí
-    if (answers?.retention_variable) {
-      navigate('/salary/navarra/retention-variable');
-    } else {
+const handlePrevious = () => {
+    if (answers?.annual_payments) {
       navigate('/salary/payments-question');
+    } else {
+      navigate('/salary/check');
     }
   };
 
