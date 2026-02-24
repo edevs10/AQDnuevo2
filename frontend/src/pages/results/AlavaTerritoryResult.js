@@ -52,13 +52,7 @@ const AlavaTerritoryResult = () => {
                   <li>Declaraciones y pagos a través de la Diputación Foral de Álava</li>
                 </ul>
                 
-                <p className="mb-4">
-                  El territorio histórico de Álava tiene su propia normativa fiscal foral específica.
-                </p>
-
-                <p className="text-sm text-gray-600">
-                  Para más información: Web oficial de la Hacienda Foral de Álava u oficinas forales en Vitoria-Gasteiz.
-                </p>
+                
               </div>
             </div>
 
