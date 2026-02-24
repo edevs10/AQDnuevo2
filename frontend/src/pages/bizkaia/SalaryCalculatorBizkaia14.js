@@ -76,15 +76,13 @@ const SalaryCalculatorBizkaia14 = () => {
     }
   };
 
-  const handlePrevious = () => {
-    // Si viene de la página de retención variable, volver ahí
-    if (answers?.retention_variable) {
-      navigate('/salary/bizkaia/retention-variable');
-    } else {
+ const handlePrevious = () => {
+    if (answers?.annual_payments) {
       navigate('/salary/payments-question');
+    } else {
+      navigate('/salary/check');
     }
   };
-
   const isBasqueTerritory = flowPath === 'bizkaiaTerritory' || flowPath === 'gipuzkoaTerritory' || flowPath === 'alavaTerritory';
   const isValid = netMonthlyOrdinary && netMonthExtra1 && netMonthExtra2 && retentionSame && 
                   parseFloat(netMonthlyOrdinary) > 0 && 
