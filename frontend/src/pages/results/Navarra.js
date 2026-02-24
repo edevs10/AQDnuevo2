@@ -44,13 +44,18 @@ const Navarra = () => {
               </p>
               
               <div className="text-gray-700 leading-relaxed">
-                <p className="font-semibold mb-2">Tu obligación tributaria corresponde a:</p>
-                <ul className="list-disc list-inside space-y-1 mb-4">
+             <p className="font-semibold mb-2">Tu obligación tributaria corresponde a:</p>
+                <ul className="list-disc list-inside space-y-2 mb-4">
                   <li>Hacienda Foral de Navarra</li>
-                  <li>Normativa fiscal foral específica de Navarra</li>
+                  <li>
+                    Normativa fiscal foral específica de Navarra:
+                    <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+                      <li className="text-sm">TEXTO REFUNDIDO DE LA LEY FORAL DEL IMPUESTO SOBRE LA RENTA DE LAS PERSONAS FÍSICAS (Decreto Foral Legislativo 4/2008, de 2 de junio)</li>
+                      <li className="text-sm">Decreto Foral 174/1999, de 24 de mayo, por el que se aprueba el Reglamento del Impuesto sobre la Renta de las Personas Físicas</li>
+                    </ul>
+                  </li>
                   <li>Declaraciones y pagos a través de la Hacienda Foral de Navarra</li>
                 </ul>
-                
                 <p className="mb-4">
                   El régimen fiscal de Navarra tiene sus propias particularidades y beneficios fiscales específicos.
                 </p>
