@@ -2,12 +2,12 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFlow } from '../../context/FlowContext';
 
-const GipuzkoaTerritoryResult = () => {
+const BizkaiaTerritoryResult = () => {
   const navigate = useNavigate();
   const { setFlowPath } = useFlow();
 
   const handleContinueToObligations = async () => {
-    await setFlowPath('gipuzkoaTerritory');
+    await setFlowPath('bizkaiaTerritory');
     navigate('/salary/check');
   };
 
@@ -29,31 +29,31 @@ const GipuzkoaTerritoryResult = () => {
 
             {/* Título */}
             <h1 className="text-2xl sm:text-3xl font-bold text-green-600 mb-3 sm:mb-6 text-center">
-              Eres contribuyente IRPF de Gipuzkoa
+              Eres contribuyente IRPF de Bizkaia
             </h1>
 
             {/* Información sobre normativa */}
             <div className="p-4 sm:p-6 bg-green-50 border-l-4 border-green-400 rounded-r-lg mb-3 sm:mb-6">
               <div className="text-gray-700 leading-relaxed">
                 <p className="font-semibold mb-2">Tu obligación tributaria corresponde a:</p>
-                <ul className="list-disc list-inside space-y-2 mb-4">
-                  <li>Hacienda Foral de Gipuzkoa</li>
+               <ul className="list-disc list-inside space-y-2 mb-4">
+                  <li>Hacienda Foral de Bizkaia</li>
                   <li>
-                    Normativa fiscal foral específica de Gipuzkoa:
+                    Normativa fiscal foral específica de Bizkaia:
                     <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
-                      <li className="text-sm">Norma Foral 3/2014, de 17 de enero, del Impuesto sobre la Renta de las Personas Físicas del Territorio Histórico de Gipuzkoa</li>
-                      <li className="text-sm">DECRETO FORAL 33/2014, de 14 de octubre, por el que se aprueba el Reglamento del Impuesto sobre la Renta de las Personas Físicas y se modifica el Reglamento por el que se desarrollan determinadas obligaciones tributarias formales</li>
+                      <li className="text-sm">NORMA FORAL 13/2013, de 5 de diciembre, del Impuesto sobre la Renta de las Personas Físicas</li>
+                      <li className="text-sm">DECRETO FORAL de la Diputación Foral de Bizkaia 47/2014, de 8 de abril, por el que se aprueba el Reglamento del Impuesto sobre la Renta de las Personas Físicas</li>
                     </ul>
                   </li>
-                  <li>Declaraciones y pagos a través de la Diputación Foral de Gipuzkoa</li>
+                  <li>Declaraciones y pagos a través de la Diputación Foral de Bizkaia</li>
                 </ul>
                 
-                
+              
               </div>
             </div>
 
             <p className="text-gray-600 mb-3 sm:mb-6 text-center text-sm sm:text-base">
-              Ahora determinaremos si tienes obligación de declarar el IRPF bajo la normativa foral de Gipuzkoa.
+              Ahora determinaremos si tienes obligación de declarar el IRPF bajo la normativa foral de Bizkaia.
             </p>
           </div>
 
@@ -78,4 +78,4 @@ const GipuzkoaTerritoryResult = () => {
   );
 };
 
-export default GipuzkoaTerritoryResult;
+export default BizkaiaTerritoryResult;
