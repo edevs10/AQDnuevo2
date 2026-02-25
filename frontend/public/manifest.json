@@ -1,6 +1,6 @@
 {
-  "name": "Algo Que Declarar - ¿Tengo que hacer la declaración?",
-  "short_name": "AlgoQueDlarar",
+  "name": "Algo Que Declarar (AQD) - ¿Tengo que hacer la declaración?",
+  "short_name": "AQD Renta",
   "description": "Descubre gratis si estás obligado a presentar la declaración del IRPF 2025. Válido para territorio común, País Vasco y Navarra.",
   "start_url": "/",
   "display": "standalone",
