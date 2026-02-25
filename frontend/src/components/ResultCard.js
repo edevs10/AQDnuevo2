@@ -222,8 +222,8 @@ const ResultCard = ({
             </div>
           </div>
 
-         {/* Sección de valoración */}
-          {!isObligated && (
+         {/* Sección de valoración - oculta en app (TWA/standalone) */}
+          {!isObligated && !window.matchMedia('(display-mode: standalone)').matches && (
             <div className="bg-gray-50 rounded-xl p-4 mb-4">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                 {/* Izquierda: reseña web */}
