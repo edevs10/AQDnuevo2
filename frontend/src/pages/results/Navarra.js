@@ -25,24 +25,20 @@ const Navarra = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center p-4">
       <div className="w-full max-w-2xl">
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
-          <div className="mb-8">
+        <div className="bg-white rounded-2xl shadow-xl p-5 sm:p-8 mb-6">
+          <div className="mb-4 sm:mb-8">
             {/* Icono */}
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <span className="text-3xl text-green-600">✓</span>
+            <div className="w-14 h-14 sm:w-20 sm:h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-6">
+              <span className="text-2xl sm:text-3xl text-green-600">✓</span>
             </div>
 
             {/* Título */}
-            <h1 className="text-3xl font-bold text-green-600 mb-6 text-center">
+            <h1 className="text-2xl sm:text-3xl font-bold text-green-600 mb-3 sm:mb-6 text-center">
               Eres contribuyente IRPF de Navarra
             </h1>
 
             {/* Información sobre normativa */}
-            <div className="p-6 bg-green-50 border-l-4 border-green-400 rounded-r-lg mb-6">
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Según tus respuestas, eres residente fiscal de Navarra (régimen foral navarro).
-              </p>
-              
+            <div className="p-4 sm:p-6 bg-green-50 border-l-4 border-green-400 rounded-r-lg mb-3 sm:mb-6">
               <div className="text-gray-700 leading-relaxed">
              <p className="font-semibold mb-2">Tu obligación tributaria corresponde a:</p>
                 <ul className="list-disc list-inside space-y-2 mb-4">
@@ -60,12 +56,12 @@ const Navarra = () => {
               </div>
             </div>
 
-            <p className="text-gray-600 mb-6 text-center">
+            <p className="text-gray-600 mb-3 sm:mb-6 text-center text-sm sm:text-base">
               Ahora determinaremos si tienes obligación de declarar el IRPF bajo la normativa navarra.
             </p>
           </div>
 
-          <div className="flex justify-between items-center pt-6 border-t border-gray-200">
+          <div className="flex justify-between items-center pt-4 sm:pt-6 border-t border-gray-200">
             <button
               onClick={handlePrevious}
               className="px-6 py-3 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-gray-200 transition-colors duration-200"
